@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f2ac7d1f6dba09947816e6cc8aa94912,
+  m_Actions: {fileID: -944628639613478452, guid: da4793e4c59b8f54d8a136fbd6620533,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -800,32 +800,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7ff3b864-6688-417c-872c-eef4c4bd8cc0
-    m_ActionName: Keyboard/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d0a927da-c42c-4996-967c-29214c676ed7
-    m_ActionName: Keyboard/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d93df6e2-a554-42c4-9208-08bca1aea8c7
-    m_ActionName: Keyboard/Grab[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1657538666}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMouseLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: bf3b5a74-903f-44b8-8872-25c109938a14
-    m_ActionName: Keyboard/MouseLook[/Mouse/position]
+    m_ActionId: 3bbff1f7-2568-4bb4-9abf-aa136ce3f9ca
+    m_ActionName: Universal Map/Walk[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1657538666}
@@ -840,11 +816,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: a3ab0110-bd4b-4351-bd9d-6e6609f4fe8e
-    m_ActionName: Keyboard/JoystickLook
+    m_ActionId: 9dc7fbe4-bfa2-43a8-a1a4-27f864f81675
+    m_ActionName: Universal Map/Look[/Mouse/position,/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5bffa98b-07ed-4f61-9517-45d022996c5c
+    m_ActionName: Universal Map/Grab[/Keyboard/f,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 41c57da0-080f-498e-9a3c-65d61d0df39e
+    m_ActionName: Universal Map/Use Item/Special[/Keyboard/e,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e02f5c0-c437-4455-aa3e-b6923029aa75
+    m_ActionName: Universal Map/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: db317c45-e4d9-43e8-9f71-dcdf201c6f22
+    m_ActionName: Universal Map/Melee[/Mouse/leftButton,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9dddf687-d2ab-4e66-9d58-31459a388d2c
+    m_ActionName: Universal Map/Throw[/Keyboard/t,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1f72acb5-4aa1-4e84-a31e-871a6828208d
+    m_ActionName: Universal Map/Pause[/Keyboard/escape,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc47fbc2-6ce7-4f7f-a558-d5d3f9cffac3
+    m_ActionName: Universal Map/Join[/Keyboard/j,/XInputControllerWindows/select]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Keyboard
+  m_DefaultActionMap: Universal Map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!23 &1657538663
@@ -926,4 +930,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  IsPC: 1
+  IsPC: 0
