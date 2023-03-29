@@ -10,11 +10,11 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private GameObject[] Targets;
     [SerializeField] private Vector3 Offset;
-
+    [Header("Zoom")]
     [SerializeField] private float MaxZoom = 10f;
     [SerializeField] private float MinZoom = 40f;
     [SerializeField] private float ZoomLimiter = 50f;
-
+    [Header("Smoothing")]
     [SerializeField] private float smoothtime = .5f;
 
     private Vector3 Velocity;
