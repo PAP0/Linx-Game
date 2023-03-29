@@ -20,25 +20,24 @@ using UnityEngine.InputSystem;
 public class PlayerJoinManager : MonoBehaviour
 {
     [Tooltip("The Player Input Manager")]
-    public PlayerInputManager playerInputManager; // A reference to the PlayerInputManager.
+    [SerializeField] private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
     [Tooltip("The Player Prefabs")]
-    public GameObject[] playerPrefabs; // An array of player prefabs to choose from.
-    
-    private int currentPrefabIndex = 0; // Index of current prefab to use.
+    [SerializeField] private GameObject[] PlayerPrefabs; // An array of player prefabs to choose from.
+    private int CurrentPrefabIndex = 0; // Index of current prefab to use.
 
     public void Start()
     {
         // Set the first player prefab when the scene is loaded in.
-        playerInputManager.playerPrefab = playerPrefabs[0];
+        PlayerInputManager.playerPrefab = PlayerPrefabs[0];
         // Skip the first prefab of the array so that it doesn't spawn in 2 players with the same prefab.
-        currentPrefabIndex = 1;
+        CurrentPrefabIndex = 1;
     }
 
     public void OnPlayerJoined()
     {
         // Set the new player prefab.
-        playerInputManager.playerPrefab = playerPrefabs[currentPrefabIndex];
+        PlayerInputManager.playerPrefab = PlayerPrefabs[CurrentPrefabIndex];
         // Set the prefab array index to the next prefab in the array.
-        currentPrefabIndex = (currentPrefabIndex + 1) % playerPrefabs.Length;
+        CurrentPrefabIndex = (CurrentPrefabIndex + 1) % PlayerPrefabs.Length;
     }
 }
