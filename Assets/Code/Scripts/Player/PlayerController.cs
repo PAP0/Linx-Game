@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float GrabDistance = 3f;
     [SerializeField] private float MaxGrabWeight = 50.0f;
     //[SerializeField] private float GravityMultiplier = 1f;
+    //[Header("Pushing")]
+    //[SerializeField] private float ForceMagnitude = 1.0f;
 
     private GameObject HeldObject = null;
 
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             // Calculate the new position for the grabbed object
             //Vector3 newPosition = transform.position + transform.forward * Mathf.Clamp(1f, GrabDistance, MaxGrabWeight);
-            Vector3 newPosition = transform.position + transform.forward * GrabDistance;
+            Vector3 newPosition = new Vector3(transform.position.x, 0, transform.position.z) + transform.forward * GrabDistance;
 
             // Update the position of the grabbed object
             HeldObject.transform.position = newPosition;
@@ -151,7 +153,8 @@ public class PlayerController : MonoBehaviour
     private void GrabObject()
     {
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, transform.forward);
+        //Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(new Vector3(transform.position.x, 0 , transform.position.z), transform.forward);
 
         // Check if the character is looking at an object that can be grabbed
         if (Physics.Raycast(ray, out hit, GrabDistance))
@@ -190,6 +193,20 @@ public class PlayerController : MonoBehaviour
             HeldObject.GetComponent<Rigidbody>().isKinematic = false;
             HeldObject = null;
             IsGrabbing = false;
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit controllerHit)
+    {
+        Rigidbody rigidbody = controllerHit.collider.attachedRigidbody;
+
+        if(rigidbody != null)
+        {
+            Vector3 forceDirection = controllerHit.gameObject.transform.position - transform.position;
+            forceDirection.y = 0;
+           forceDirection.Normalize();
+
+            rigidbody.AddForceAtPosition(forceDirection * ((MaxGrabWeight / 100) * 0.5f), transform.position, ForceMode.Impulse);
         }
     }
 
