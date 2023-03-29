@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [RequireComponent (typeof (Camera))]
 
@@ -15,7 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float MinZoom = 40f;
     [SerializeField] private float ZoomLimiter = 50f;
     [Header("Smoothing")]
-    [SerializeField] private float smoothtime = .5f;
+    [SerializeField] private float Smoothtime = 0.5f;
 
     private Vector3 Velocity;
     private Camera MainCamera;
@@ -52,7 +48,7 @@ public class CameraController : MonoBehaviour
 
         Vector3 newPosition = centerpoint + Offset;
 
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref Velocity, smoothtime);
+        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref Velocity, Smoothtime);
     }
 
     private float GetGreatestDistance()
