@@ -90,17 +90,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "fd4aab80-8309-4343-82e9-75153bc6e605",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Grab",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "51940c05-e2c3-4098-99ae-16fb0ab673ff",
                     "path": "<DualShockGamepad>/leftTrigger",
                     "interactions": "",
@@ -129,17 +118,6 @@
                     "processors": "",
                     "groups": "Generic Pad",
                     "action": "Grab",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a0c50111-b2d3-4250-b636-5e70a3cf9abf",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Use Item/Special",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -178,17 +156,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1d94a125-3c2d-49b0-8ffc-d1d9166f0d08",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8f038a2a-be72-4306-ac20-c802df8a4993",
                     "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
@@ -217,17 +184,6 @@
                     "processors": "",
                     "groups": "Generic Pad",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "887fd152-c893-42d7-864d-8a2ecdd2eb4f",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Melee",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -266,17 +222,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ca1d6827-33e1-41da-b811-dc84cfdd5ee5",
-                    "path": "<Keyboard>/t",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4ed3305d-7b3a-4f19-9f2e-f245c06cde90",
                     "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
@@ -305,17 +250,6 @@
                     "processors": "",
                     "groups": "Generic Pad",
                     "action": "Throw",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e52b01b3-b87d-4db0-91fa-a787d8de26eb",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -353,61 +287,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "WASD",
-                    "id": "4443954c-9fd8-4758-86b2-82b31595dd71",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Walk",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "b396f5b5-b5ee-4da1-a355-ea48ba7ea557",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Walk",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "b4de21c5-b48c-4674-9892-bce32de110fd",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Walk",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "c93037f5-e822-4336-940a-4f23cea099f8",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Walk",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "8c560dba-c856-492c-a0da-dde2cd2ae94a",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Walk",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "6b6ad361-1080-41ec-8ccf-b7d60a075d57",
                     "path": "<DualShockGamepad>/leftStick",
@@ -442,17 +321,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a69faadf-d1dd-409a-8f73-0452b9f1c59b",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4e0b5bc9-4058-467e-9d19-4c101d382b6a",
                     "path": "<DualShockGamepad>/select",
                     "interactions": "",
@@ -481,17 +349,6 @@
                     "processors": "",
                     "groups": "Generic Pad",
                     "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "89e6ff50-3fb4-4602-9871-529e14e94a80",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "M&K",
-                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
