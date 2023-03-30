@@ -204,7 +204,19 @@ MonoBehaviour:
     m_ActionId: db317c45-e4d9-43e8-9f71-dcdf201c6f22
     m_ActionName: Universal Map/Melee[/Mouse/leftButton,/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3340628936801939397}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9dddf687-d2ab-4e66-9d58-31459a388d2c
     m_ActionName: Universal Map/Throw[/Keyboard/t,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
@@ -237,7 +249,8 @@ MonoBehaviour:
   JumpForce: 3
   GrabDistance: 1.5
   MaxGrabWeight: 100
-  ForceMagnitude: 0.75
+  ThrowForce: 350
+  throwAngle: 20
 --- !u!1 &3340628938377797061
 GameObject:
   m_ObjectHideFlags: 0

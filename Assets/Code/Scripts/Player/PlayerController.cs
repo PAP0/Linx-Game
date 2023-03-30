@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// 
+/// Authors: Bjornraaf & PAP0
+/// 
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
@@ -18,9 +22,15 @@ public class PlayerController : MonoBehaviour
     //[Header("Pushing")]
     //[SerializeField] private float ForceMagnitude = 1.0f;
 
+    [Header("Throwing")] 
+    [SerializeField] private float ThrowForce = 50.0f;
+    [SerializeField] private float throwAngle = 10.0f; 
+
     private GameObject HeldObject = null;
 
     private bool IsGrabbing;
+    private bool IsHoldingObject;
+    private bool IsHoldingPlayer;
 
     private readonly float GravityMagnitude = Physics.gravity.y;
     private float Velocity;
@@ -57,6 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             GrabObject();
         }
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        ThrowObject();
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -165,6 +180,7 @@ public class PlayerController : MonoBehaviour
                 Rigidbody objectRigidbody = hit.collider.GetComponent<Rigidbody>();
                 if (objectRigidbody.mass <= MaxGrabWeight)
                 {
+                    IsHoldingObject = true;
                     // Set the grabbed object and update IsGrabbing
                     HeldObject = hit.collider.gameObject;
                     HeldObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -182,20 +198,78 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+            if (hit.collider.CompareTag("Player"))
+            {
+                // Check if the object's weight is below the maximum allowed weight
+                CharacterController objectController = hit.collider.GetComponent<CharacterController>();
+                if (objectController != null && objectController.CompareTag("Player") && objectController.gameObject.GetComponent<Rigidbody>() == null)
+                {
+                    IsHoldingPlayer = true;
+                    // Set the grabbed object and update IsGrabbing
+                    HeldObject = hit.collider.gameObject;
+                    objectController.enabled = false;
+                    HeldObject.transform.parent = transform;
+                    IsGrabbing = true;
+
+                    // Different speed depending on the object weight/mass
+                    GrabSpeed = (MaxGrabWeight - objectController.attachedRigidbody.mass) / 10;
+                    if (GrabSpeed >= Speed)
+                    {
+                        GrabSpeed = Speed;
+                    }
+                    else if (MaxGrabWeight == objectController.attachedRigidbody.mass)
+                    {
+                        GrabSpeed = 0.5f;
+                    }
+                }
+            }
         }
     }
 
     private void ReleaseObject()
     {
-        if (HeldObject != null)
+        if (HeldObject == null)
         {
-            // Release the grabbed object and update the isGrabbing flag
-            HeldObject.GetComponent<Rigidbody>().isKinematic = false;
-            HeldObject = null;
-            IsGrabbing = false;
+            if (IsHoldingObject)
+            {
+                // Release the grabbed object and update the isGrabbing flag
+                HeldObject.GetComponent<Rigidbody>().isKinematic = false;
+                HeldObject = null;
+                IsGrabbing = false;
+                IsHoldingObject = !IsHoldingObject;
+            }
+            else if (IsHoldingPlayer)
+            {
+                HeldObject.GetComponent<PlayerController>().enabled = true;
+                HeldObject = null;
+                IsGrabbing = false;
+                IsHoldingPlayer = !IsHoldingPlayer;
+            }
         }
     }
 
+    private void ThrowObject()
+    {
+        if (HeldObject == null) return;
+
+        // Get the rigidbody component of the held object
+        Rigidbody objectRigidbody = HeldObject.GetComponent<Rigidbody>();
+
+        // Unparent the held object and enable its rigidbody component
+        HeldObject.transform.parent = null;
+        objectRigidbody.isKinematic = false;
+
+        // Calculate the direction to throw the object using the throw angle
+        Vector3 throwDirection = Quaternion.AngleAxis(throwAngle, Vector3.right) * transform.forward;
+
+        // Apply force to the rigidbody to simulate throwing the object
+        objectRigidbody.AddForce(throwDirection * ThrowForce, ForceMode.Impulse);
+
+        // Reset the HeldObject variable and IsGrabbing flag
+        HeldObject = null;
+        IsGrabbing = false;
+    }
+    
     private void OnControllerColliderHit(ControllerColliderHit controllerHit)
     {
         Rigidbody rigidbody = controllerHit.collider.attachedRigidbody;
