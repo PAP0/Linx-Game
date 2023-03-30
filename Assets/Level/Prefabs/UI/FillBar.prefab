@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2427167200860026531}
   - component: {fileID: 2427167200860026528}
   m_Layer: 5
-  m_Name: fill
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 2427167201943981847}
   - component: {fileID: 2427167201943981846}
   m_Layer: 5
-  m_Name: BarFill
+  m_Name: FillBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,10 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a119481a740db4aa8ffec58b1a602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 2427167201943981847}
-  objectToActivate1: {fileID: 0}
-  objectToActivate2: {fileID: 0}
-  objectToActivate3: {fileID: 0}
+  Slider: {fileID: 0}
+  Value: 0
+  ObjectsToActivate: []
 --- !u!1 &2427167202015672700
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +194,7 @@ GameObject:
   - component: {fileID: 2427167202015672697}
   - component: {fileID: 2427167202015672702}
   m_Layer: 5
-  m_Name: Bar
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
