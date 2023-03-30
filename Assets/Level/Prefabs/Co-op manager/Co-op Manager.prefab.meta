@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Level/Prefabs/Co-op manager/Co-op Manager.prefab.meta
+guid: 433bc8b880f68a04eaef5749db0939fd
+========
+guid: 7cef5c3f9f9ff5b4ba756c620df0d5ea
+>>>>>>>> develop:Assets/Level/Prefabs/Player/Player.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
