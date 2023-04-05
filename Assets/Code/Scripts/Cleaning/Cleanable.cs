@@ -13,6 +13,8 @@ public class Cleanable : MonoBehaviour
 
     private Vector2Int LastPaintPixelPosition;
 
+    private Vector3 playerPosition;
+
     private float DirtAmountTotal;
     private float DirtAmount;
 
@@ -46,15 +48,17 @@ public class Cleanable : MonoBehaviour
 
     private void Update()
     {
-        //if (IsCleanable)
-        //{
-        //    Clean();
-        //}
-        //else
-        //{
-        //    IsCleanable = false;
-        //}
-        Clean();
+        // Get the player's position
+        Player = GameObject.Find("Mop_Char_Pref(Clone)");
+        playerPosition = Player.transform.position;
+
+        // Check if the player is within a certain distance of the object
+        float distance = Vector3.Distance(transform.position, playerPosition);
+        if (distance <= 1f) // Adjust the distance as needed
+        {
+            // Call the Clean() method
+            Clean();
+        }
     }
     private void Clean()
     {
@@ -63,8 +67,6 @@ public class Cleanable : MonoBehaviour
             gameObject.SetActive(false);
         }
         //UIText.text = GetDirtAmount() + "%";
-        Player = GameObject.Find("SmallPlayer(Clone)");
-        Vector3 playerPosition = Player.transform.position;
         if (Physics.Raycast(playerPosition, -Vector3.up, out RaycastHit raycastHit))
         {
             Vector2 textureCoord = raycastHit.textureCoord;

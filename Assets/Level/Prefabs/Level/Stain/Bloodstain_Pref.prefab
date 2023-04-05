@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8346071523460682063}
   - component: {fileID: 8091764987791123027}
   m_Layer: 0
-  m_Name: TestStain
+  m_Name: Bloodstain_Pref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8091764987791123036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.542, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d936eda574c9da4d852bb564675272f, type: 2}
+  - {fileID: 2100000, guid: 840146819f89961438968bf2ccd882f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,6 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c525bf62dd15c724b8895fde2ac53573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DirtMaskTextureBase: {fileID: 2800000, guid: 6d371072da1d62a42b99f00f77bd181d, type: 3}
+  DirtMaskTextureBase: {fileID: 2800000, guid: 858ce3dfc4495714185bf83663986e03, type: 3}
   DirtBrush: {fileID: 2800000, guid: 4b80ec4c1cb11134fa3a734e3e59ed9d, type: 3}
-  Material: {fileID: 2100000, guid: 7d936eda574c9da4d852bb564675272f, type: 2}
+  Material: {fileID: 2100000, guid: 840146819f89961438968bf2ccd882f7, type: 2}
