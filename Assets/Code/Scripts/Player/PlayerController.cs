@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +9,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private CharacterControllerEnabler characterControllerEnabler;
     [Header("References")] [SerializeField]
     private CharacterController Controller;
 
@@ -20,9 +23,12 @@ public class PlayerController : MonoBehaviour
     //[Header("Pushing")]
     //[SerializeField] private float ForceMagnitude = 1.0f;
 
-    [Header("Throwing")] [SerializeField] private float ThrowForce = 50.0f;
+    [Header("Throwing")] 
+    [SerializeField] private float ThrowForce = 50.0f;
+    [SerializeField] private float PlayerThrowForce = 50.0f;
     [SerializeField] private float throwAngle = 10.0f;
-
+    [SerializeField] private float PlayerThrowAngle = 30.0f;
+ 
     private GameObject HeldObject = null;
 
     private bool IsGrabbing;
@@ -158,20 +164,8 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 movement = new Vector3(Movement.x, 0f, Movement.y);
-        Vector3 moveDirection = transform.TransformDirection(movement);
-        moveDirection *= Speed;
 
-        // Apply gravity
-        moveDirection.y = Velocity;
-
-        // Apply collision detection
-        Controller.Move(moveDirection * Time.deltaTime);
-
-        // Reset velocity if player is grounded
-        if (IsGrounded())
-        {
-            Velocity = 0.0f;
-        }
+        transform.Translate(movement * Speed * Time.deltaTime, Space.World);
     }
 
     private void GrabObject()
@@ -264,32 +258,41 @@ public class PlayerController : MonoBehaviour
             if (IsGrabbing && HeldObject != null)
             {
                 // Calculate the direction to throw the object
-                Vector3 throwDirection = transform.forward;
-        
+                Vector3 throwDirection = -transform.forward;
+
+                // Calculate the initial velocity of the object to give it an upward angle
+                float angleInRadians = throwAngle * Mathf.Deg2Rad;
+                float verticalVelocity = Mathf.Sin(angleInRadians) * PlayerThrowForce;
+                float horizontalVelocity = Mathf.Cos(angleInRadians) * PlayerThrowForce;
+                Vector3 throwVelocity = throwDirection * horizontalVelocity + Vector3.up * verticalVelocity;
+
                 // Get the PlayerController component of the held object, if any
                 PlayerController heldObjectController = HeldObject.GetComponent<PlayerController>();
-        
+
                 // If the held object has a PlayerController and is also holding another player, throw the held object 
                 // in the opposite direction to the throwing player's facing direction
                 if (heldObjectController != null && heldObjectController.IsGrabbing)
                 {
-                    throwDirection = -transform.forward;
+                    throwVelocity = -transform.forward * horizontalVelocity + Vector3.up * verticalVelocity;
                 }
-        
-                // Add force to the object in the desired direction
+
+                // Add velocity to the object to give it the desired angle
                 Rigidbody heldObjectRigidbody = HeldObject.GetComponent<Rigidbody>();
-                heldObjectRigidbody.AddForce(throwDirection * ThrowForce, ForceMode.Impulse);
-        
+                heldObjectRigidbody.velocity = throwVelocity;
+
+                // Add torque to the object to give it spin
+                heldObjectRigidbody.AddTorque(transform.right * PlayerThrowAngle, ForceMode.Impulse);
+                StartCoroutine(HeldObject.GetComponent<CharacterControllerEnabler>().EnableCharacterController());
+
                 // Reset held object and grab flag
                 HeldObject = null;
                 IsGrabbing = false;
             }
         }
-
         HeldObject = null;
         IsGrabbing = false;
     }
-
+    
 
     private void OnControllerColliderHit(ControllerColliderHit controllerHit)
     {
@@ -306,5 +309,5 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private bool IsGrounded() => Controller.isGrounded;
+    public bool IsGrounded() => Controller.isGrounded;
 }

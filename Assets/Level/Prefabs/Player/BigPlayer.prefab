@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3340628936801939397}
   - component: {fileID: -3398990677721057622}
   - component: {fileID: -5735562919140371940}
+  - component: {fileID: 5333211383473496916}
   m_Layer: 0
   m_Name: BigPlayer
   m_TagString: Player
@@ -246,13 +247,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4ec3be11ace8f41ac2f1d4fd5a3026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterControllerEnabler: {fileID: 5333211383473496916}
   Controller: {fileID: 3340628936801939402}
   Speed: 3
   JumpForce: 3
   GrabDistance: 1.5
   MaxGrabWeight: 100
   ThrowForce: 350
+  PlayerThrowForce: 10
   throwAngle: 99.2
+  PlayerThrowAngle: 12.52
 --- !u!136 &-3398990677721057622
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -283,6 +287,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5333211383473496916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340628936801939403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f529af5590c0ae64185b7ed3ce384764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 3340628936801939397}
+  CharController: {fileID: 3340628936801939402}
+  CharRigidbody: {fileID: -5735562919140371940}
 --- !u!1 &3340628938377797061
 GameObject:
   m_ObjectHideFlags: 0
