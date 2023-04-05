@@ -4880,7 +4880,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5323,7 +5323,7 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayerPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 3340628936801939403, guid: d35171cce973ade4c87ecf4d1d78d056,
+      objectReference: {fileID: 3340628936801939403, guid: dd6ee4aa7959af146b3c9a98f1a53648,
         type: 3}
     - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
         type: 3}
