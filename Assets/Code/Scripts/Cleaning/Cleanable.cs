@@ -54,7 +54,7 @@ public class Cleanable : MonoBehaviour
 
         // Check if the player is within a certain distance of the object
         float distance = Vector3.Distance(transform.position, playerPosition);
-        if (distance <= 1f) // Adjust the distance as needed
+        if (distance <= 2f) // Adjust the distance as needed
         {
             // Call the Clean() method
             Clean();
