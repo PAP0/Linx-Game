@@ -181,7 +181,19 @@ MonoBehaviour:
     m_ActionId: 5bffa98b-07ed-4f61-9517-45d022996c5c
     m_ActionName: Universal Map/Grab[/Keyboard/f,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3340628936801939403}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 41c57da0-080f-498e-9a3c-65d61d0df39e
     m_ActionName: Universal Map/Use Item/Special[/Keyboard/e,/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
