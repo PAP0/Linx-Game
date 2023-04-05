@@ -1,13 +1,14 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField]private float TimeLeft;
     private bool TimerOn = false;
 
-    [SerializeField] private Text TimerTxt;
+    [SerializeField] private TMP_Text TimerTxt;
 
     void Start()
     {
