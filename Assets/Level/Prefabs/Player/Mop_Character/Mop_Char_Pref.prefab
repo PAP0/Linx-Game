@@ -718,9 +718,9 @@ GameObject:
   - component: {fileID: 3340628936801939402}
   - component: {fileID: 3340628936801939401}
   - component: {fileID: 3340628936801939397}
-  - component: {fileID: -4393832189198412578}
   - component: {fileID: 7319076561262938601}
   - component: {fileID: -988229500232767267}
+  - component: {fileID: 6250059008243326917}
   m_Layer: 0
   m_Name: Mop_Char_Pref
   m_TagString: Player
@@ -948,25 +948,11 @@ MonoBehaviour:
   Speed: 5
   JumpForce: 4
   GrabDistance: 1.5
-  MaxGrabWeight: 100
+  MaxGrabWeight: 20
   ThrowForce: 350
   PlayerThrowForce: 10
   throwAngle: 99.2
   PlayerThrowAngle: 12.52
---- !u!136 &-4393832189198412578
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3340628936801939403}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!54 &7319076561262938601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -999,6 +985,20 @@ MonoBehaviour:
   playerController: {fileID: 3340628936801939397}
   CharController: {fileID: 3340628936801939402}
   CharRigidbody: {fileID: 7319076561262938601}
+--- !u!136 &6250059008243326917
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340628936801939403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!1 &3353785874692781340
 GameObject:
   m_ObjectHideFlags: 0
