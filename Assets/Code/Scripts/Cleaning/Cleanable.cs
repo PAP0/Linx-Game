@@ -136,4 +136,94 @@ public class Cleanable : MonoBehaviour
         return Mathf.RoundToInt(DirtAmount / DirtAmountTotal * 100);
     }
 
+    #region fixes?
+    /*
+ private bool isCleaning = false;
+
+    private IEnumerator CleanCoroutine()
+    {
+        // Check if the player is within a certain distance of the object
+        float distance = Vector3.Distance(transform.position, playerPosition);
+        if (distance <= 2f) // Adjust the distance as needed
+        {
+            if (!isCleaning)
+            {
+                isCleaning = true;
+                Clean();
+                yield return new WaitForSeconds(0.1f); // Wait for a short amount of time before cleaning again
+                isCleaning = false;
+            }
+        }
+    }
+    
+    private void Update()
+    {
+        // Get the player's position
+        Player = GameObject.Find("Mop_Char_Pref(Clone)");
+        playerPosition = Player.transform.position;
+
+        StartCoroutine(CleanCoroutine());
+    }
+    private void Clean()
+    {
+        if (GetDirtAmount() <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+        //UIText.text = GetDirtAmount() + "%";
+        if (Physics.Raycast(playerPosition, -Vector3.up, out RaycastHit raycastHit))
+        {
+            Vector2 textureCoord = raycastHit.textureCoord;
+
+            int pixelX = (int)(textureCoord.x * DirtMaskTexture.width);
+            int pixelY = (int)(textureCoord.y * DirtMaskTexture.height);
+
+            Vector2Int paintPixelPosition = new Vector2Int(pixelX, pixelY);
+            //Debug.Log("UV: " + textureCoord + "; Pixels: " + paintPixelPosition);
+
+            int paintPixelDistance = Mathf.Abs(paintPixelPosition.x - LastPaintPixelPosition.x) + Mathf.Abs(paintPixelPosition.y - LastPaintPixelPosition.y);
+            int maxPaintDistance = 0;
+            if (paintPixelDistance < maxPaintDistance)
+            {
+                // Painting too close to last position
+                return;
+            }
+            LastPaintPixelPosition = paintPixelPosition;
+            
+            int pixelXOffset = pixelX - (DirtBrush.width / 2);
+            int pixelYOffset = pixelY - (DirtBrush.height / 2);
+
+            for (int x = 0; x < DirtBrush.width; x++)
+            {
+                for (int y = 0; y < DirtBrush.height; y++)
+                {
+                    int pixelXPos = pixelXOffset + x;
+                    int pixelYPos = pixelYOffset + y;
+
+                    if (pixelXPos >= 0 && pixelXPos < DirtMaskTexture.width && pixelYPos >= 0 && pixelYPos < DirtMaskTexture.height)
+                    {
+                        Color pixelDirt = DirtBrush.GetPixel(x, y);
+                        Color pixelDirtMask = DirtMaskTexture.GetPixel(pixelXPos, pixelYPos);
+
+                        float removedAmount = pixelDirtMask.g - (pixelDirtMask.g * pixelDirt.g);
+                        DirtAmount -= removedAmount;
+
+                        DirtMaskTexture.SetPixel(
+                            pixelXPos,
+                            pixelYPos,
+                            new Color(0, pixelDirtMask.g * pixelDirt.g, 0)
+                        );
+                    }
+                }
+            }
+            DirtMaskTexture.Apply();
+        }
+    }
+    private float GetDirtAmount()
+    {
+        return Mathf.RoundToInt(DirtAmount / DirtAmountTotal * 100);
+    }
+    */
+
+    #endregion
 }

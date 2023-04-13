@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Velocity += GravityMagnitude * Time.deltaTime;
+            Velocity += GravityMagnitude * Time.fixedDeltaTime;
         }
     }
 
@@ -139,11 +139,11 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrabbing)
         {
-            Controller.Move(move * GrabSpeed * Time.deltaTime);
+            Controller.Move(move * GrabSpeed * Time.fixedDeltaTime);
         }
         else
         {
-            Controller.Move(move * Speed * Time.deltaTime);
+            Controller.Move(move * Speed * Time.fixedDeltaTime);
         }
     }
 
@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(Movement.x, 0f, Movement.y);
 
-        transform.Translate(movement * Speed * Time.deltaTime, Space.World);
+        transform.Translate(movement * Speed * Time.fixedDeltaTime, Space.World);
     }
 
     private void GrabObject()
