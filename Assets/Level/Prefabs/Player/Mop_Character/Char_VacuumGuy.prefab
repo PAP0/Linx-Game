@@ -244,6 +244,7 @@ MonoBehaviour:
   JumpForce: 3
   GrabDistance: 1.5
   MaxGrabWeight: 100
+  HeldObjectCollider: {fileID: 0}
   ThrowForce: 350
   PlayerThrowForce: 10
   throwAngle: 99.2
