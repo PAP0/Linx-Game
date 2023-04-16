@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public float transitionDelayTime = 1f; // The time to delay before loading the next scene
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadSceneWithTransition());
     }
 
     public void Quitgame()
     {
         Application.Quit();
+    }
+
+    private IEnumerator LoadSceneWithTransition()
+    {
+        yield return new WaitForSeconds(transitionDelayTime);
+
+        // Load the next scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
