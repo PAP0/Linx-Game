@@ -16,9 +16,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")] [SerializeField] private float Speed = 5.0f;
     [SerializeField] private float JumpForce = 1.5f;
 
-    [Header("Grabbing")] [SerializeField] private float GrabDistance = 3f;
-
+    [Header("Grabbing")] 
+    [SerializeField] private float GrabDistance = 3f;
     [SerializeField] private float MaxGrabWeight = 50.0f;
+    [SerializeField] private BoxCollider HeldObjectCollider;
     //[SerializeField] private float GravityMultiplier = 1f;
     //[Header("Pushing")]
     //[SerializeField] private float ForceMagnitude = 1.0f;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float throwAngle = 10.0f;
     [SerializeField] private float PlayerThrowAngle = 30.0f;
  
+
     private GameObject HeldObject = null;
 
     private bool IsGrabbing;
@@ -86,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Controller.detectCollisions = !IsGrabbing;
         Gravity();
 
         if (JoystickLook.x == 0 && JoystickLook.y == 0)
@@ -107,6 +110,16 @@ public class PlayerController : MonoBehaviour
             // Update the position of the grabbed object
             HeldObject.transform.position = newPosition;
         }
+
+        if(IsGrabbing)
+        {
+            HeldObjectCollider.enabled = true;
+        }
+        else
+        {
+            HeldObjectCollider.enabled = false;
+
+        }
     }
 
     private void Gravity()
@@ -117,7 +130,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Velocity += GravityMagnitude * Time.deltaTime;
+            Velocity += GravityMagnitude * Time.fixedDeltaTime;
         }
     }
 
@@ -139,11 +152,11 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrabbing)
         {
-            Controller.Move(move * GrabSpeed * Time.deltaTime);
+            Controller.Move(move * GrabSpeed * Time.fixedDeltaTime);
         }
         else
         {
-            Controller.Move(move * Speed * Time.deltaTime);
+            Controller.Move(move * Speed * Time.fixedDeltaTime);
         }
     }
 
@@ -165,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(Movement.x, 0f, Movement.y);
 
-        transform.Translate(movement * Speed * Time.deltaTime, Space.World);
+        transform.Translate(movement * Speed * Time.fixedDeltaTime, Space.World);
     }
 
     private void GrabObject()
@@ -232,8 +245,12 @@ public class PlayerController : MonoBehaviour
                 HeldObject.GetComponent<Rigidbody>().isKinematic = false;
             }
 
+            HeldObject.transform.parent = null;
             HeldObject = null;
             IsGrabbing = false;
+
+            // Enable collisions
+            Controller.detectCollisions = true;
         }
     }
 
@@ -310,4 +327,11 @@ public class PlayerController : MonoBehaviour
     }
     
     public bool IsGrounded() => Controller.isGrounded;
+
+    private void OnDrawGizmosSelected()
+    {
+        // Draw a line in the scene view to show the grab distance
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * GrabDistance);
+    }
 }
