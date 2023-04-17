@@ -245,9 +245,9 @@ MonoBehaviour:
   GrabDistance: 1.5
   MaxGrabWeight: 100
   HeldObjectCollider: {fileID: 0}
-  ThrowForce: 350
+  ThrowForce: 6.51
   PlayerThrowForce: 10
-  throwAngle: 99.2
+  throwAngle: 2.18
   PlayerThrowAngle: 12.52
 --- !u!136 &-3398990677721057622
 CapsuleCollider:

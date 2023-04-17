@@ -206,9 +206,6 @@ public class PlayerController : MonoBehaviour
                     {
                         GrabSpeed = 0.5f;
                     }
-
-                    // Set the parent of the held object to be the player
-                    HeldObject.transform.parent = transform;
                 }
             }
             else if (hit.collider.CompareTag("Player"))
