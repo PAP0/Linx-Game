@@ -1584,8 +1584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba91b6d1bd416b647b734e011324dc87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeft: 60
-  TimerTxt: {fileID: 912687936}
+  TimeLeft: 0
+  TimerTxt: {fileID: 0}
 --- !u!114 &1000530707
 MonoBehaviour:
   m_ObjectHideFlags: 0

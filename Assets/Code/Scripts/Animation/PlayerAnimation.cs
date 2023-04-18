@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator PlayerAnimator;
+   /* [SerializeField] private Animator PlayerAnimator;
     private PlayerController playerController;
 
     // Update is called once per frame
@@ -21,5 +21,5 @@ public class PlayerAnimation : MonoBehaviour
             PlayerAnimator.SetBool("WalkingAnim", false);
             PlayerAnimator.SetBool("CircleWipe_Out", true);
         }
-    }
+    }*/
 }

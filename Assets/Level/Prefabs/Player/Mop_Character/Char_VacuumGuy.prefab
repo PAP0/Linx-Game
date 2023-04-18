@@ -16,8 +16,7 @@ GameObject:
   - component: {fileID: -3398990677721057622}
   - component: {fileID: -5735562919140371940}
   - component: {fileID: 5333211383473496916}
-  - component: {fileID: 7050408424951050768}
-  - component: {fileID: -882335176864558100}
+  - component: {fileID: 8566574233264798288}
   m_Layer: 0
   m_Name: Char_VacuumGuy
   m_TagString: Player
@@ -251,7 +250,7 @@ MonoBehaviour:
   PlayerThrowForce: 10
   throwAngle: 2.18
   PlayerThrowAngle: 12.52
-  IsWalking: 0
+  anim: {fileID: 8566574233264798288}
 --- !u!136 &-3398990677721057622
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -298,7 +297,7 @@ MonoBehaviour:
   playerController: {fileID: 3340628936801939397}
   CharController: {fileID: 3340628936801939402}
   CharRigidbody: {fileID: -5735562919140371940}
---- !u!95 &7050408424951050768
+--- !u!95 &8566574233264798288
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -306,9 +305,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340628936801939403}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 50101291aa8dd014180441d2f1892eb6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 282810f7cda4f234caa612df3e7e5f2a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -318,19 +317,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-882335176864558100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3340628936801939403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c5918a302d198418890bd65209c76f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerAnimator: {fileID: 7050408424951050768}
 --- !u!1001 &3151929291718947868
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float PlayerThrowAngle = 30.0f;
 
     [Header("Animation")]
-     public bool IsWalking;
+    [SerializeField] private Animator anim;
 
  
 
@@ -50,13 +50,13 @@ public class PlayerController : MonoBehaviour
     {
         Controller = GetComponent<CharacterController>();
         this.GetComponent<Rigidbody>().isKinematic = true;
-        IsWalking = false;
+        anim = GetComponentInChildren<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
-        IsWalking = true;
+        anim.SetFloat("AnimateState", 0.5f);
     }
 
     public void OnJoystickLook(InputAction.CallbackContext context)
@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!context.started) return;
         if (!IsGrounded()) return;
+        anim.SetFloat("AnimateState", 1f);
 
         Velocity += JumpForce;
     }
