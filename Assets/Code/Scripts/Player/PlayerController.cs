@@ -10,13 +10,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterControllerEnabler characterControllerEnabler;
-    [Header("References")] [SerializeField]
+    [Header("References")][SerializeField]
     private CharacterController Controller;
 
-    [Header("Movement")] [SerializeField] private float Speed = 5.0f;
+    [Header("Movement")][SerializeField] private float Speed = 5.0f;
     [SerializeField] private float JumpForce = 1.5f;
 
-    [Header("Grabbing")] 
+    [Header("Grabbing")]
     [SerializeField] private float GrabDistance = 3f;
     [SerializeField] private float MaxGrabWeight = 50.0f;
     [SerializeField] private BoxCollider HeldObjectCollider;
@@ -24,11 +24,15 @@ public class PlayerController : MonoBehaviour
     //[Header("Pushing")]
     //[SerializeField] private float ForceMagnitude = 1.0f;
 
-    [Header("Throwing")] 
+    [Header("Throwing")]
     [SerializeField] private float ThrowForce = 50.0f;
     [SerializeField] private float PlayerThrowForce = 50.0f;
     [SerializeField] private float throwAngle = 10.0f;
     [SerializeField] private float PlayerThrowAngle = 30.0f;
+
+    [Header("Animation")]
+     public bool IsWalking;
+
  
 
     private GameObject HeldObject = null;
@@ -46,11 +50,13 @@ public class PlayerController : MonoBehaviour
     {
         Controller = GetComponent<CharacterController>();
         this.GetComponent<Rigidbody>().isKinematic = true;
+        IsWalking = false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
+        IsWalking = true;
     }
 
     public void OnJoystickLook(InputAction.CallbackContext context)
