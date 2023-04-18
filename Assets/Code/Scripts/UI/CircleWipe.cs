@@ -6,22 +6,22 @@ using UnityEngine.UI;
 public class CircleWipe : MonoBehaviour
 {
 
-    private Animator _animator;
-    private Image _image;
-    private readonly int _circleSizeId = Shader.PropertyToID("_Circle_Size");
+    private Animator CircleAnimator;
+    private Image CircleImage;
+    private readonly int CircleSizeId = Shader.PropertyToID("_Circle_Size");
 
-    public float circleSize = 0;
+    [SerializeField] private float CircleSize = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        _animator = gameObject.GetComponent<Animator>();
-        _image = gameObject.GetComponent<Image>();
+        CircleAnimator = gameObject.GetComponent<Animator>();
+        CircleImage = gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _image.materialForRendering.SetFloat(_circleSizeId, circleSize);
+        CircleImage.materialForRendering.SetFloat(CircleSizeId, CircleSize);
     }
 }

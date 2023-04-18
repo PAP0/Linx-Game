@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 public class SplashScreen : MonoBehaviour
 {
 
-    public float wait_time = 5f;
+    [SerializeField] private float Waittime = 5f;
 
     void Start()
     {
-        StartCoroutine(Wait_for_intro());
+        StartCoroutine(WaitForIntro());
     }
 
-    IEnumerator Wait_for_intro()
+    IEnumerator WaitForIntro()
     {
 
-        yield return new WaitForSeconds(wait_time);
+        yield return new WaitForSeconds(Waittime);
 
         SceneManager.LoadScene(1);  
 

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public float transitionDelayTime = 1f; // The time to delay before loading the next scene
+    [SerializeField] private float TransitionDelayTime = 1f; // The time to delay before loading the next scene
 
     public void PlayGame()
     {
@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator LoadSceneWithTransition()
     {
-        yield return new WaitForSeconds(transitionDelayTime);
+        yield return new WaitForSeconds(TransitionDelayTime);
 
         // Load the next scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
