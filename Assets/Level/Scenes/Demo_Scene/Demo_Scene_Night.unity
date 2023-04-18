@@ -1002,11 +1002,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeac58690d772e14f924db0e13eae0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 200
-  amplitude: 100
-  frequency: 5
-  phase: 0
-  fadeTime: 6
+  Intensity: 200
+  Amplitude: 100
+  Frequency: 5
+  Phase: 0
+  FadeTime: 6
 --- !u!1 &360855590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,11 +1364,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeac58690d772e14f924db0e13eae0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 800
-  amplitude: 400
-  frequency: 5
-  phase: 4
-  fadeTime: 6
+  Intensity: 800
+  Amplitude: 400
+  Frequency: 5
+  Phase: 2.5
+  FadeTime: 6
 --- !u!1 &496511905
 GameObject:
   m_ObjectHideFlags: 0
