@@ -8,10 +8,11 @@ public class PropPlaceback : MonoBehaviour
     [Tooltip("Reference to the variables script")]
     [SerializeField] private PropPlaceBackVariables propPlaceBackVariables; // Reference to the variables script
     [Tooltip("Material of which the alpha is changed once the Target object is in place")]
-    [SerializeField] public Material SeeThroughMaterial; // Material of which the alpha is changed once the Target object is in place
+    [SerializeField] private Material SeeThroughMaterial; // Material of which the alpha is changed once the Target object is in place
     [Tooltip("The time it takes to fade that alpha")]
     [SerializeField] private float fadeTime = 0.1f; // The time it takes to fade that alpha
-    [Range(0f, 0.5f)] private float AlphaValue;
+    [Tooltip("The value of how transparent the SeeThroughMaterial is")]
+    [Range(0f, 0.5f)] private float AlphaValue; // The value of how transparent the SeeThroughMaterial is
 
     private void Start()
     {

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SeeTroughProp
+  m_Name: SeeTroughExampleMat
   m_Shader: {fileID: -6465566751694194690, guid: 384ac37ac7065ba4893ed44a78fa8276,
     type: 3}
   m_ValidKeywords: []
@@ -79,7 +79,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: -0.0039765984
+    - _Alpha: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
