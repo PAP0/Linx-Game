@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 /// 
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float PlayerThrowAngle = 30.0f;
 
     [Header("Animation")]
-    [SerializeField] private Animator anim;
+    [SerializeField] private PlayerAnimation playerAnimation;
 
  
 
@@ -50,13 +51,11 @@ public class PlayerController : MonoBehaviour
     {
         Controller = GetComponent<CharacterController>();
         this.GetComponent<Rigidbody>().isKinematic = true;
-        anim = GetComponentInChildren<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
-        anim.SetFloat("AnimateState", 0.5f);
     }
 
     public void OnJoystickLook(InputAction.CallbackContext context)
@@ -88,9 +87,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!context.started) return;
         if (!IsGrounded()) return;
-        anim.SetFloat("AnimateState", 1f);
 
         Velocity += JumpForce;
+        playerAnimation.AnimationNumer = 1f;
     }
 
     private void Update()
@@ -165,6 +164,9 @@ public class PlayerController : MonoBehaviour
         {
             Controller.Move(move * Speed * Time.fixedDeltaTime);
         }
+
+     playerAnimation.AnimationNumer = 0.5f;
+
     }
 
     private void RotatePlayerWithAim()

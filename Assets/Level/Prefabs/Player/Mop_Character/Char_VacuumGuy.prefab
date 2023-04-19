@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -5735562919140371940}
   - component: {fileID: 5333211383473496916}
   - component: {fileID: 8566574233264798288}
+  - component: {fileID: 1135325754032609352}
   m_Layer: 0
   m_Name: Char_VacuumGuy
   m_TagString: Player
@@ -317,6 +318,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1135325754032609352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340628936801939403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c5918a302d198418890bd65209c76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 8566574233264798288}
+  AnimationNumer: 0
 --- !u!1001 &3151929291718947868
 PrefabInstance:
   m_ObjectHideFlags: 0
