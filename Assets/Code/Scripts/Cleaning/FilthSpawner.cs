@@ -17,7 +17,7 @@ public class FilthSpawner : MonoBehaviour
     [SerializeField] private Vector2 MinimumSpawnPosition;
     [SerializeField] private Vector2 MaximumSpawnPosition;
 
-    private int randomIndex;
+    private int RandomIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +34,8 @@ public class FilthSpawner : MonoBehaviour
                 {
                     if (SpawnChance > Random.Range(0, 101))
                     {
-                        Instantiate(SpawnObjects[randomIndex], new Vector3(hit.point.x, hit.point.y + 0.03f, hit.point.z), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
-                        randomIndex = Random.Range(0, SpawnObjects.Length);
+                        Instantiate(SpawnObjects[RandomIndex], new Vector3(hit.point.x, hit.point.y + 0.03f, hit.point.z), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
+                        RandomIndex = Random.Range(0, SpawnObjects.Length);
                     }
                 }
             }
