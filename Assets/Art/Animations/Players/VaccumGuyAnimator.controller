@@ -17,9 +17,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.47885895
+  m_TransitionDuration: 0.0673277
   m_TransitionOffset: 0
-  m_ExitTime: 0.042617794
+  m_ExitTime: 0.04261779
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -33,7 +33,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3265483976722150902}
@@ -182,9 +182,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.031582057
-  m_TransitionOffset: 0
-  m_ExitTime: 0
+  m_TransitionDuration: 0.012863519
+  m_TransitionOffset: 0.019161768
+  m_ExitTime: 0.006515078
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

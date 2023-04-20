@@ -155,11 +155,11 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrabbing)
         {
-            Controller.Move(move * GrabSpeed * Time.fixedDeltaTime);
+            Controller.Move(move * GrabSpeed * Time.deltaTime);
         }
         else
         {
-            Controller.Move(move * Speed * Time.fixedDeltaTime);
+            Controller.Move(move * Speed * Time.deltaTime);
         }
     }
 

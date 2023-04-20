@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterControllerEnabler: {fileID: 5333211383473496916}
   Controller: {fileID: 3340628936801939402}
-  Speed: 3
+  Speed: 6
   JumpForce: 3
   GrabDistance: 1.5
   MaxGrabWeight: 100
@@ -248,7 +248,7 @@ MonoBehaviour:
   PlayerThrowForce: 10
   throwAngle: 2.18
   PlayerThrowAngle: 12.52
-  VacuumGuyAnimator: {fileID: 6938388494979025700}
+  PlayerAnimator: {fileID: 6938388494979025700}
 --- !u!136 &-3398990677721057622
 CapsuleCollider:
   m_ObjectHideFlags: 0

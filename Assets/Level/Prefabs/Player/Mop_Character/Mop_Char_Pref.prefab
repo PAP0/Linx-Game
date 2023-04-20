@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterControllerEnabler: {fileID: -988229500232767267}
   Controller: {fileID: 3340628936801939402}
-  Speed: 5
+  Speed: 10
   JumpForce: 4
   GrabDistance: 1.5
   MaxGrabWeight: 20
