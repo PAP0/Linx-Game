@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float throwAngle = 10.0f;
     [SerializeField] private float PlayerThrowAngle = 30.0f;
 
-    [Header("Animation")]
-    [SerializeField] private PlayerAnimation playerAnimation;
+    [Header("Animation")] 
+    [SerializeField] private Animator PlayerAnimator;
 
  
 
@@ -86,9 +86,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!context.started) return;
         if (!IsGrounded()) return;
-
         Velocity += JumpForce;
-        playerAnimation.AnimationNumer = 1f;
+        PlayerAnimator.SetTrigger("IsJumping");
     }
 
     private void Update()
@@ -96,6 +95,15 @@ public class PlayerController : MonoBehaviour
         Controller.detectCollisions = !IsGrabbing;
         Gravity();
 
+        if (Movement.x >= 0.1f || Movement.y >= 0.1f || Movement.x <= -0.1f || Movement.y <= -0.1f)
+        {
+            PlayerAnimator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("IsRunning", false);
+        }
+        
         if (JoystickLook.x == 0 && JoystickLook.y == 0)
         {
             MovePlayer();
@@ -153,9 +161,6 @@ public class PlayerController : MonoBehaviour
         {
             Controller.Move(move * Speed * Time.fixedDeltaTime);
         }
-
-     playerAnimation.AnimationNumer = 0.5f;
-
     }
 
     private void RotatePlayerWithAim()

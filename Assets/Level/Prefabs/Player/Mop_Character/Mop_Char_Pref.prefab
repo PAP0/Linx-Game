@@ -836,7 +836,6 @@ GameObject:
   - component: {fileID: 7319076561262938601}
   - component: {fileID: -988229500232767267}
   - component: {fileID: 6250059008243326917}
-  - component: {fileID: 8409182012250492951}
   m_Layer: 0
   m_Name: Mop_Char_Pref
   m_TagString: Player
@@ -1066,12 +1065,11 @@ MonoBehaviour:
   JumpForce: 4
   GrabDistance: 1.5
   MaxGrabWeight: 20
-  HeldObjectCollider: {fileID: 0}
   ThrowForce: 350
   PlayerThrowForce: 10
   throwAngle: 99.2
   PlayerThrowAngle: 12.52
-  anim: {fileID: 8409182012250492951}
+  PlayerAnimator: {fileID: 5525172876759080575}
 --- !u!54 &7319076561262938601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1118,26 +1116,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
---- !u!95 &8409182012250492951
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3340628936801939403}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef9b34652a126fd45a8c82436ea01f53, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &3353785874692781340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,7 +3921,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
         type: 3}
@@ -3953,7 +3931,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
         type: 3}
@@ -3968,7 +3946,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
         type: 3}
@@ -4018,6 +3996,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6897930291023327846}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6015462047646945079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
+    type: 3}
+  m_PrefabInstance: {fileID: 6897930291023327846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5525172876759080575
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015462047646945079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 366832de03b84e24595c921ea13b294f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &6354832447081239949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aba1c5eb1cf948c4aa5705fdc9f7ad39,
