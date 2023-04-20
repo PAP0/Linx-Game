@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     [Header("Grabbing")]
     [SerializeField] private float GrabDistance = 3f;
     [SerializeField] private float MaxGrabWeight = 50.0f;
-    [SerializeField] private BoxCollider HeldObjectCollider;
     //[SerializeField] private float GravityMultiplier = 1f;
     //[Header("Pushing")]
     //[SerializeField] private float ForceMagnitude = 1.0f;
@@ -115,16 +114,6 @@ public class PlayerController : MonoBehaviour
 
             // Update the position of the grabbed object
             HeldObject.transform.position = newPosition;
-        }
-
-        if(IsGrabbing)
-        {
-            HeldObjectCollider.enabled = true;
-        }
-        else
-        {
-            HeldObjectCollider.enabled = false;
-
         }
     }
 
