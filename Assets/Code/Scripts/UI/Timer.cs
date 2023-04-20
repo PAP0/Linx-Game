@@ -1,34 +1,43 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField]private float TimeLeft;
-    private bool TimerOn = false;
+    [SerializeField] private float timeLeft;
+    [SerializeField] private bool timerOn = false;
 
-    [SerializeField] private TMP_Text TimerTxt;
+    [SerializeField] private TMP_Text timerTxt;
+    [SerializeField] private GameObject[] objectsToEnable;
+    [SerializeField] private float[] enableTimes;
 
     void Start()
     {
-        TimerOn = true;
+        timerOn = true;
     }
 
     void Update()
     {
-        if (TimerOn)
+        if (timerOn)
         {
-            if (TimeLeft > 0)
+            if (timeLeft > 0)
             {
-                TimeLeft -= Time.deltaTime;
-                updateTimer(TimeLeft);
+                timeLeft -= Time.deltaTime;
+                updateTimer(timeLeft);
+
+                for (int i = 0; i < objectsToEnable.Length; i++)
+                {
+                    if (timeLeft <= enableTimes[i])
+                    {
+                        objectsToEnable[i].SetActive(true);
+                    }
+                }
             }
             else
             {
                 Debug.Log("Time is UP!");
-                TimeLeft = 0;
-                TimerOn = false;
+                timeLeft = 0;
+                timerOn = false;
             }
         }
     }
@@ -40,7 +49,6 @@ public class Timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
-        TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-
 }
