@@ -8880,9 +8880,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Targets: []
   Offset: {x: 0, y: 13, z: -8}
-  MaxZoom: 22.2
-  MinZoom: 151.4
-  ZoomLimiter: 98.6
+  MaxZoom: 30
+  MinZoom: 147.2
+  ZoomLimiter: 30
   Smoothtime: 0.5
 --- !u!1 &334222520 stripped
 GameObject:
