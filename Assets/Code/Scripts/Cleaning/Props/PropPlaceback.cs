@@ -10,7 +10,7 @@ public class PropPlaceback : MonoBehaviour
     [Tooltip("Material of which the alpha is changed once the Target object is in place")]
     [SerializeField] private Material SeeThroughMaterial; // Material of which the alpha is changed once the Target object is in place
     [Tooltip("The time it takes to fade that alpha")]
-    [SerializeField] private float fadeTime = 0.1f; // The time it takes to fade that alpha
+    [SerializeField] private float FadeTime = 0.1f; // The time it takes to fade that alpha
     [Tooltip("The value of how transparent the SeeThroughMaterial is")]
     [Range(0f, 0.5f)] private float AlphaValue; // The value of how transparent the SeeThroughMaterial is
 
@@ -20,12 +20,13 @@ public class PropPlaceback : MonoBehaviour
         AlphaValue = SeeThroughMaterial.GetFloat("_Alpha");
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == propPlaceBackVariables.TargetObject)
         {
             propPlaceBackVariables.IsInPlace = true;
             Debug.Log(propPlaceBackVariables.TargetObject.name + " has entered the trigger.");
+            propPlaceBackVariables.TargetObject.transform.position = transform.parent.position;
             StartCoroutine(FadeOut());
         }
     }
@@ -44,7 +45,7 @@ public class PropPlaceback : MonoBehaviour
     {
         while (SeeThroughMaterial.GetFloat("_Alpha") > 0f)
         {
-            AlphaValue -= (fadeTime * Time.deltaTime);
+            AlphaValue -= (FadeTime * Time.deltaTime);
             SeeThroughMaterial.SetFloat("_Alpha", AlphaValue);
             yield return new WaitForEndOfFrame();
         }
@@ -54,7 +55,7 @@ public class PropPlaceback : MonoBehaviour
     {
         while (SeeThroughMaterial.GetFloat("_Alpha") < 0.5f)
         {
-            AlphaValue += (fadeTime * Time.deltaTime);
+            AlphaValue += (FadeTime * Time.deltaTime);
             SeeThroughMaterial.SetFloat("_Alpha", AlphaValue);
             yield return new WaitForEndOfFrame();
         }

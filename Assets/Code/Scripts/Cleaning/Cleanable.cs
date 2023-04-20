@@ -46,7 +46,7 @@ public class Cleanable : MonoBehaviour
         DirtAmount = DirtAmountTotal;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         // Get the player's position
         Player = GameObject.Find("Mop_Char_Pref(Clone)");
@@ -60,6 +60,9 @@ public class Cleanable : MonoBehaviour
             Clean();
         }
     }
+    
+    
+    
     private void Clean()
     {
         if (GetDirtAmount() <= 0)
