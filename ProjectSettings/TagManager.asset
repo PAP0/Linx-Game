@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Grabbable
   - Ground
-  - Bullet
-  - Player2
+  - Placeback
   layers:
   - Default
   - TransparentFX
