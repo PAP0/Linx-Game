@@ -11,7 +11,7 @@ public class Vacuum : MonoBehaviour
     [SerializeField] private AnimationCurve VelocityCurve;
     [SerializeField] private float AccelerationSpeed;
 
-    private float Accelaration;
+    private float Acceleration;
     private float Speed;
     private bool IsSucking;
 
@@ -33,8 +33,8 @@ public class Vacuum : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, collider.transform.position);
             Vector3 direction = transform.position - collider.transform.position;
-            Accelaration += Time.deltaTime * AccelerationSpeed;
-            Speed = Mathf.Lerp(SuctionStartSpeed, SuctionMaxSpeed, VelocityCurve.Evaluate(Accelaration / 1f));
+            Acceleration += Time.deltaTime * AccelerationSpeed;
+            Speed = Mathf.Lerp(SuctionStartSpeed, SuctionMaxSpeed, VelocityCurve.Evaluate(Acceleration / 1f));
             Rigidbody rb = collider.GetComponent<Rigidbody>();
             if (IsSucking)
             {
@@ -45,14 +45,14 @@ public class Vacuum : MonoBehaviour
                     if (distance - SuctionRadius >= 0.1f)
                     {
                         rb.velocity = Vector3.zero;
-                        Accelaration = 0;
+                        Acceleration = 0;
                     }
                 }
             }
             else
             {
                 rb.velocity = Vector3.zero;
-                Accelaration = 0;
+                Acceleration = 0;
             }
         }
     }
