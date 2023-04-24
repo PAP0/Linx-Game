@@ -18,5 +18,6 @@ public class ScorePrinter : MonoBehaviour
     private void Update()
     {
         ScoreText.text = "Score: " + ScoreHolder.ScoreValue;
+        //EndScoreText.text = "Score: " + ScoreHolder.ScoreValue;
     }
 }
