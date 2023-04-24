@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FilthStain : MonoBehaviour
 {
+    [SerializeField] private ScoreScriptableObject ScoreHolder;
+
     [Header("Blood")]
     [SerializeField] private bool IsBloodStain;
 
@@ -21,6 +23,7 @@ public class FilthStain : MonoBehaviour
     {
         if (other.name == "Char_VacuumGuy(Clone)" && IsGarbagePatch)
         {
+            ScoreHolder.ScoreValue++;
             Destroy(gameObject);
         }
 
@@ -31,6 +34,7 @@ public class FilthStain : MonoBehaviour
     }
     IEnumerator Fade()
     {
+        ScoreHolder.ScoreValue++;
         BloodAnimator.SetTrigger("IsSoaped");
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
