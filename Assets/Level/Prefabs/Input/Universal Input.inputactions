@@ -37,7 +37,7 @@
                     "type": "Button",
                     "id": "41c57da0-080f-498e-9a3c-65d61d0df39e",
                     "expectedControlType": "Button",
-                    "processors": "",
+                    "processors": "Scale",
                     "interactions": "",
                     "initialStateCheck": false
                 },
