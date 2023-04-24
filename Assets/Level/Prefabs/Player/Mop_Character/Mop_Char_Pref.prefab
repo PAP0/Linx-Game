@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4121607498070449399
 Transform:
   m_ObjectHideFlags: 0
@@ -1063,11 +1063,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterControllerEnabler: {fileID: -988229500232767267}
   Controller: {fileID: 3340628936801939402}
-  Speed: 10
-  JumpForce: 4
+  Speed: 5
+  JumpForce: 6
   GrabDistance: 1.5
   MaxGrabWeight: 20
-  HeldObjectCollider: {fileID: 2936355217442131043}
   ThrowForce: 350
   PlayerThrowForce: 10
   throwAngle: 99.2
