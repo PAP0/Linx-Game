@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 /// 
@@ -10,25 +11,28 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterControllerEnabler characterControllerEnabler;
-    [Header("References")] [SerializeField]
+    [Header("References")][SerializeField]
     private CharacterController Controller;
 
-    [Header("Movement")] [SerializeField] private float Speed = 5.0f;
+    [Header("Movement")][SerializeField] private float Speed = 5.0f;
     [SerializeField] private float JumpForce = 1.5f;
 
-    [Header("Grabbing")] 
+    [Header("Grabbing")]
     [SerializeField] private float GrabDistance = 3f;
     [SerializeField] private float MaxGrabWeight = 50.0f;
-    [SerializeField] private BoxCollider HeldObjectCollider;
     //[SerializeField] private float GravityMultiplier = 1f;
     //[Header("Pushing")]
     //[SerializeField] private float ForceMagnitude = 1.0f;
 
-    [Header("Throwing")] 
+    [Header("Throwing")]
     [SerializeField] private float ThrowForce = 50.0f;
     [SerializeField] private float PlayerThrowForce = 50.0f;
     [SerializeField] private float throwAngle = 10.0f;
     [SerializeField] private float PlayerThrowAngle = 30.0f;
+
+    [Header("Animation")] 
+    [SerializeField] private Animator PlayerAnimator;
+
  
 
     private GameObject HeldObject = null;
@@ -82,8 +86,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!context.started) return;
         if (!IsGrounded()) return;
-
         Velocity += JumpForce;
+        PlayerAnimator.SetTrigger("IsJumping");
     }
 
     private void Update()
@@ -91,6 +95,15 @@ public class PlayerController : MonoBehaviour
         Controller.detectCollisions = !IsGrabbing;
         Gravity();
 
+        if (Movement.x >= 0.1f || Movement.y >= 0.1f || Movement.x <= -0.1f || Movement.y <= -0.1f)
+        {
+            PlayerAnimator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("IsRunning", false);
+        }
+        
         if (JoystickLook.x == 0 && JoystickLook.y == 0)
         {
             MovePlayer();
@@ -109,16 +122,6 @@ public class PlayerController : MonoBehaviour
 
             // Update the position of the grabbed object
             HeldObject.transform.position = newPosition;
-        }
-
-        if(IsGrabbing)
-        {
-            HeldObjectCollider.enabled = true;
-        }
-        else
-        {
-            HeldObjectCollider.enabled = false;
-
         }
     }
 
@@ -152,11 +155,11 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrabbing)
         {
-            Controller.Move(move * GrabSpeed * Time.fixedDeltaTime);
+            Controller.Move(move * GrabSpeed * Time.deltaTime);
         }
         else
         {
-            Controller.Move(move * Speed * Time.fixedDeltaTime);
+            Controller.Move(move * Speed * Time.deltaTime);
         }
     }
 

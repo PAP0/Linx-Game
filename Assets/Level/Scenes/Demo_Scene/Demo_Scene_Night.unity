@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49984732, g: 0.78856695, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.49984735, g: 0.78856695, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1002,9 +1002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeac58690d772e14f924db0e13eae0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 200
-  Amplitude: 100
-  Frequency: 5
+  Intensity: 1
+  Amplitude: 1
+  Frequency: 1
   Phase: 0
   FadeTime: 6
 --- !u!1 &360855590
@@ -1364,10 +1364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeac58690d772e14f924db0e13eae0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 800
-  Amplitude: 400
-  Frequency: 5
-  Phase: 2.5
+  Intensity: 1
+  Amplitude: 1
+  Frequency: 1
+  Phase: 0
   FadeTime: 6
 --- !u!1 &496511905
 GameObject:
@@ -1815,6 +1815,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7009335940870084632, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: m_JoinBehavior
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009335940870084632, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: m_JoinAction.m_Reference
+      value: 
+      objectReference: {fileID: 7452417241878721113, guid: da4793e4c59b8f54d8a136fbd6620533,
+        type: 3}
+    - target: {fileID: 7009335940870084632, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: m_JoinAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7009335940870084633, guid: 433bc8b880f68a04eaef5749db0939fd,
         type: 3}
       propertyPath: m_RootOrder
