@@ -9416,6 +9416,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.000001, y: 0, z: 2.000001}
   m_Center: {x: -0.00000047683716, y: 0, z: -0.0000023841858}
+--- !u!1 &386730536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386730537}
+  m_Layer: 0
+  m_Name: SpawnPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386730537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386730536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.77, y: -0.127, z: -0.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386755088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1733840970109832111, guid: 0c8ce4af0a412c64eac74a0dff7de7ec,
@@ -10158,6 +10189,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000005, y: 0, z: 2.0000005}
   m_Center: {x: -0.000005722046, y: 0, z: -0.0000076293945}
+--- !u!1 &442249193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 442249194}
+  m_Layer: 0
+  m_Name: SpawnPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &442249194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442249193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.87, y: -0.127, z: -2.82}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448318836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8741840518538282534, guid: 0c8ce4af0a412c64eac74a0dff7de7ec,
@@ -12744,6 +12806,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.000001, y: 0, z: 2.000001}
   m_Center: {x: 0.000005722046, y: 0, z: -0.000005722046}
+--- !u!1 &745284306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745284307}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &745284307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745284306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.92, y: -0.127, z: -0.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745338233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3087071357127312096, guid: 0c8ce4af0a412c64eac74a0dff7de7ec,
@@ -14170,9 +14263,29 @@ PrefabInstance:
       objectReference: {fileID: 910912307}
     - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
         type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
       propertyPath: PlayerPrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 745284307}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 442249194}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 386730537}
     - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
         type: 3}
       propertyPath: PlayerPrefabs.Array.data[0]
