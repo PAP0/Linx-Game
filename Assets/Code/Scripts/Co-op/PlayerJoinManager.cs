@@ -23,9 +23,9 @@ public class PlayerJoinManager : MonoBehaviour
     [SerializeField] private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
     [Tooltip("The Player Prefabs")]
     [SerializeField] private GameObject[] PlayerPrefabs; // An array of player prefabs to choose from.
-    private int CurrentPrefabIndex = 0; // Index of current prefab to use.
     [Tooltip("The spawn points for players")]
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform[] SpawnPoints;
+    private int CurrentPrefabIndex = 0; // Index of current prefab to use.
 
     public void Start()
     {
@@ -33,7 +33,7 @@ public class PlayerJoinManager : MonoBehaviour
         PlayerInputManager.playerPrefab = PlayerPrefabs[0];
 
         // Set the position of the player prefab to the first available spawn point.
-        PlayerInputManager.playerPrefab.transform.position = spawnPoints[0].position;
+        PlayerInputManager.playerPrefab.transform.position = SpawnPoints[0].position;
 
         // Skip the first prefab of the array so that it doesn't spawn in 2 players with the same prefab.
         CurrentPrefabIndex = 1;
@@ -42,11 +42,11 @@ public class PlayerJoinManager : MonoBehaviour
     public void OnPlayerJoined()
     {  
         // Set the new player prefab.
-        PlayerInputManager.playerPrefab = PlayerPrefabs[CurrentPrefadibIndex];
+        PlayerInputManager.playerPrefab = PlayerPrefabs[CurrentPrefabIndex];
 
         // Set the player's position to the next available spawn point.
-        int spawnPointIndex = CurrentPrefabIndex % spawnPoints.Length;
-        PlayerInputManager.playerPrefab.transform.position = spawnPoints[spawnPointIndex].position;
+        int spawnPointIndex = CurrentPrefabIndex % SpawnPoints.Length;
+        PlayerInputManager.playerPrefab.transform.position = SpawnPoints[spawnPointIndex].position;
 
         // Set the prefab array index to the next prefab in the array.
         CurrentPrefabIndex = (CurrentPrefabIndex + 1) % PlayerPrefabs.Length;
