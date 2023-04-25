@@ -4,40 +4,40 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float timeLeft;
-    [SerializeField] private bool timerOn = false;
+    [SerializeField] private float TimeLeft;
+    [SerializeField] private bool TimerOn = false;
 
-    [SerializeField] private TMP_Text timerTxt;
-    [SerializeField] private GameObject[] objectsToEnable;
-    [SerializeField] private float[] enableTimes;
+    [SerializeField] private TMP_Text TimerTxt;
+    [SerializeField] private GameObject[] ObjectsToEnable;
+    [SerializeField] private float[] EnableTimes;
 
     void Start()
     {
-        timerOn = true;
+        TimerOn = true;
     }
 
     void Update()
     {
-        if (timerOn)
+        if (TimerOn)
         {
-            if (timeLeft > 0)
+            if (TimeLeft > 0)
             {
-                timeLeft -= Time.deltaTime;
-                updateTimer(timeLeft);
+                TimeLeft -= Time.deltaTime;
+                updateTimer(TimeLeft);
 
-                for (int i = 0; i < objectsToEnable.Length; i++)
+                for (int i = 0; i < ObjectsToEnable.Length; i++)
                 {
-                    if (timeLeft <= enableTimes[i])
+                    if (TimeLeft <= EnableTimes[i])
                     {
-                        objectsToEnable[i].SetActive(true);
+                        ObjectsToEnable[i].SetActive(true);
                     }
                 }
             }
             else
             {
                 Debug.Log("Time is UP!");
-                timeLeft = 0;
-                timerOn = false;
+                TimeLeft = 0;
+                TimerOn = false;
             }
         }
     }
@@ -49,6 +49,6 @@ public class Timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
-        timerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8091764987791123024}
   - component: {fileID: 8091764987791123025}
   - component: {fileID: 8091764987791123038}
+  - component: {fileID: 353445328712640349}
   - component: {fileID: 4549577134447087484}
   - component: {fileID: 1098536616}
   - component: {fileID: 1767012064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Garbage_Pref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,6 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &353445328712640349
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091764987791123036}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &4549577134447087484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,5 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6a15b62a34c774e812ce0d38ae33f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreHolder: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62, type: 2}
   IsBloodStain: 0
   IsGarbagePatch: 1
