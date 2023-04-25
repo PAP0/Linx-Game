@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27acc4837ca40584cbc0485294eea412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransitionDelayTime: 1
+  TransitionDelayTime: 1.5
 --- !u!95 &21008841
 Animator:
   serializedVersion: 5
@@ -1738,6 +1738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3353761975367936514, guid: 358eec5223ecca0459577f88d48f3356,
+        type: 3}
+      propertyPath: TransitionDelayTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3353761975708387942, guid: 358eec5223ecca0459577f88d48f3356,
         type: 3}

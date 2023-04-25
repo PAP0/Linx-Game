@@ -1585,7 +1585,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeLeft: 0
+  TimerOn: 0
   TimerTxt: {fileID: 0}
+  ObjectsToEnable: []
+  EnableTimes: []
 --- !u!114 &1000530707
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Level/Scenes/Placebo_Splash/Placebo_Splash.unity
     guid: 7657465f24a2fe04cb0d72d9b66f3884
@@ -15,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Level/Scenes/MainMenu/MainMenu.unity
     guid: 7d6e777a41d597e4893863fb62ef40b9
   - enabled: 1
-    path: Assets/Level/Scenes/Demo_Scene/Demo_Scene_Night.unity
-    guid: 73f933ae9c0b0ee46bcfb9eac04f8e97
+    path: Assets/Level/Scenes/Level_1/Level_1.unity
+    guid: 3120a7912ebe0374b9698bf14d753c2b
   m_configObjects: {}
