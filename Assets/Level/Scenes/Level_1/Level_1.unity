@@ -4022,13 +4022,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508154157}
   serializedVersion: 2
-  m_Mass: 30
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1001 &512731313
 PrefabInstance:
@@ -10131,13 +10131,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377960796}
   serializedVersion: 2
-  m_Mass: 30
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1001 &1382925843
 PrefabInstance:
@@ -10596,7 +10596,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e63563023922c0e42815b3723e39cb0a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0017971719
+      value: -0.0017989989
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e63563023922c0e42815b3723e39cb0a,
         type: 3}
@@ -14020,13 +14020,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801190233}
   serializedVersion: 2
-  m_Mass: 30
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &1801190237
 BoxCollider:
