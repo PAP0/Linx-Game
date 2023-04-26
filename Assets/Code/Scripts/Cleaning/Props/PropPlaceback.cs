@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PropPlaceback : MonoBehaviour
 {
+    [Tooltip("The gameobject that gets turned on when the furniture is placed")]
+    public GameObject SolidObject; // The gameobject that gets turned on when the furniture is placed
+    
     [Tooltip("Reference to the variables script")]
     [SerializeField] private PropPlaceBackVariables propPlaceBackVariables; // Reference to the variables script
     [Tooltip("Material of which the alpha is changed once the Target object is in place")]
@@ -16,6 +19,7 @@ public class PropPlaceback : MonoBehaviour
 
     private void Start()
     {
+        SolidObject.SetActive(false);
         SeeThroughMaterial.SetFloat("_Alpha", 0.5f);
         AlphaValue = SeeThroughMaterial.GetFloat("_Alpha");
     }
@@ -31,6 +35,7 @@ public class PropPlaceback : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == propPlaceBackVariables.TargetObject)
@@ -40,6 +45,7 @@ public class PropPlaceback : MonoBehaviour
             StartCoroutine(FadeIn());
         }
     }
+    */
     
     IEnumerator FadeOut()
     {
@@ -47,10 +53,13 @@ public class PropPlaceback : MonoBehaviour
         {
             AlphaValue -= (FadeTime * Time.deltaTime);
             SeeThroughMaterial.SetFloat("_Alpha", AlphaValue);
+            SolidObject.SetActive(true);
+            Destroy(propPlaceBackVariables.TargetObject);
             yield return new WaitForEndOfFrame();
         }
     }
     
+    /*
     IEnumerator FadeIn()
     {
         while (SeeThroughMaterial.GetFloat("_Alpha") < 0.5f)
@@ -60,4 +69,5 @@ public class PropPlaceback : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    */
 }
