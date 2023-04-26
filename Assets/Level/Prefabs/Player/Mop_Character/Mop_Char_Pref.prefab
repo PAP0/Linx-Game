@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 5103511893994390443}
   - component: {fileID: 196400819409375685}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,14 +628,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3172790912518958929}
-  m_LocalRotation: {x: 0.14643325, y: -0, z: -0, w: 0.98922056}
-  m_LocalPosition: {x: -0.4790001, y: 0.485, z: 0.29500008}
+  m_LocalRotation: {x: 0.026687639, y: -0, z: -0, w: 0.99964386}
+  m_LocalPosition: {x: -0.269, y: 0.296, z: 0.391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3340628936801939398}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 16.841, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.059, y: 0, z: 0}
 --- !u!108 &5103511893994390443
 Light:
   m_ObjectHideFlags: 0
@@ -836,6 +836,7 @@ GameObject:
   - component: {fileID: 7319076561262938601}
   - component: {fileID: -988229500232767267}
   - component: {fileID: 6250059008243326917}
+  - component: {fileID: 2936355217442131043}
   m_Layer: 0
   m_Name: Mop_Char_Pref
   m_TagString: Player
@@ -851,7 +852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340628936801939403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.198, z: 2.465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -913,13 +914,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.9999999
+  m_Height: 1.35
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.85, z: 0}
+  m_Center: {x: 0, y: 0.63, z: 0}
 --- !u!114 &3340628936801939401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,8 +1062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterControllerEnabler: {fileID: -988229500232767267}
   Controller: {fileID: 3340628936801939402}
-  Speed: 10
-  JumpForce: 4
+  Speed: 5
+  JumpForce: 6
   GrabDistance: 1.5
   MaxGrabWeight: 20
   ThrowForce: 350
@@ -1116,6 +1117,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
+--- !u!65 &2936355217442131043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340628936801939403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3353785874692781340
 GameObject:
   m_ObjectHideFlags: 0
