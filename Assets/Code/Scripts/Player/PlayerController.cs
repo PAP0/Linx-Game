@@ -78,17 +78,16 @@ public class PlayerController : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit controllerHit)
     {
         Rigidbody rigidbody = controllerHit.collider.attachedRigidbody;
-        //float Pushstrength = RB.mass - rigidbody.mass;
 
-        if (rigidbody != null)
+        if (rigidbody != null && controllerHit.gameObject.CompareTag("Grabbable"))
         {
-            if (RB.mass >= rigidbody.mass)
+            if (MaxGrabWeight >= rigidbody.mass)
             {
                 Vector3 forceDirection = controllerHit.gameObject.transform.position - transform.position;
                 forceDirection.y = 0;
                 forceDirection.Normalize();
 
-                rigidbody.AddForceAtPosition(forceDirection * ((RB.mass - rigidbody.mass) / 100 + 1), transform.position, ForceMode.Impulse);
+                rigidbody.AddForceAtPosition(forceDirection * ((MaxGrabWeight - rigidbody.mass) / 100 + 0.5f), transform.position, ForceMode.Impulse);
             }
         }
         
