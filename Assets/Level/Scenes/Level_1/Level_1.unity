@@ -6937,6 +6937,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Co-op Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7009335940870084634, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: TimerScript
+      value: 
+      objectReference: {fileID: 1000530706}
     - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
         type: 3}
       propertyPath: PlayerInputManager
@@ -6959,6 +6969,11 @@ PrefabInstance:
       objectReference: {fileID: 362915233}
     - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
         type: 3}
+      propertyPath: HudJoinElements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
       propertyPath: PlayerPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 3340628936801939403, guid: d35171cce973ade4c87ecf4d1d78d056,
@@ -6969,6 +6984,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3340628936801939403, guid: c7cbf7005a607d7428444b96d4e303ef,
         type: 3}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: HudJoinElements.Array.data[0]
+      value: 
+      objectReference: {fileID: 1487115813}
+    - target: {fileID: 7009335940870084647, guid: 433bc8b880f68a04eaef5749db0939fd,
+        type: 3}
+      propertyPath: HudJoinElements.Array.data[1]
+      value: 
+      objectReference: {fileID: 1370154593}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 433bc8b880f68a04eaef5749db0939fd, type: 3}
 --- !u!114 &910912307 stripped
@@ -7621,7 +7646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeLeft: 60
-  TimerOn: 0
   TimerTxt: {fileID: 912687936}
   ObjectsToEnable:
   - {fileID: 830470178}
@@ -7637,6 +7661,8 @@ MonoBehaviour:
   - 3
   - 2
   - 1
+  ElevatorAnimator: {fileID: 948568536}
+  TimerOn: 0
 --- !u!114 &1000530707
 MonoBehaviour:
   m_ObjectHideFlags: 0
