@@ -18,7 +18,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 /// 
 public class PlayerJoinManager : MonoBehaviour
-{
+{ 
     [Tooltip("The Player Input Manager")]
     [SerializeField] private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
     [Tooltip("The Player Prefabs")]
@@ -26,6 +26,7 @@ public class PlayerJoinManager : MonoBehaviour
     [Tooltip("The spawn points for players")]
     [SerializeField] private Transform[] SpawnPoints;
     private int CurrentPrefabIndex = 0; // Index of current prefab to use.
+    private int NumPlayersJoined = 0; // Number of players that have joined.
 
     public void Start()
     {
@@ -36,11 +37,17 @@ public class PlayerJoinManager : MonoBehaviour
         PlayerInputManager.playerPrefab.transform.position = SpawnPoints[0].position;
 
         // Skip the first prefab of the array so that it doesn't spawn in 2 players with the same prefab.
-        CurrentPrefabIndex = 1;
+        CurrentPrefabIndex = 1; // Start with one player already joined.
+        Time.timeScale = 0.000001f;
     }
 
     public void OnPlayerJoined()
     {  
+        if (GetComponent<PlayerInputManager>().playerCount == 2)
+        {
+            Time.timeScale = 1f;
+        }
+
         // Set the new player prefab.
         PlayerInputManager.playerPrefab = PlayerPrefabs[CurrentPrefabIndex];
 
