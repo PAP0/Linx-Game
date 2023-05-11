@@ -1,41 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
+///----------------------------------------$$$$$$$\   $$$$$$\  $$$$$$$\   $$$$$$\  
+///----------------------------------------$$  __$$\ $$  __$$\ $$  __$$\ $$$ __$$\ 
+///----------------------------------------$$ |  $$ |$$ /  $$ |$$ |  $$ |$$$$\ $$ |
+///----------Author------------------------$$$$$$$  |$$$$$$$$ |$$$$$$$  |$$\$$\$$ |
+///----------Patryk Podworny---------------$$  ____/ $$  __$$ |$$  ____/ $$ \$$$$ |
+///----------------------------------------$$ |      $$ |  $$ |$$ |      $$ |\$$$ |
+///----------------------------------------$$ |      $$ |  $$ |$$ |      \$$$$$$  /
+///----------------------------------------\__|      \__|  \__|\__|       \______/
+
+/// <summary>  
+/// This script checks if all the players are inside the escape area.
+/// </summary>
 
 public class PlayerAreaDetector : MonoBehaviour
 {
-    [Tooltip("Value that equals the amount of players needed in the area to finish the level")]
-    [SerializeField] private int PlayersNeeded; //Value that equals the amount of players needed in the area to finish the level
+    [Header("Player Input Reference")] [Tooltip("The Player Input Manager")] [SerializeField]
+    private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
+
     private List<GameObject> PlayersInArea = new List<GameObject>(); //List of the players that are currently in the area
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // Checks and adds the amount of players inside collider and adds them to the PlayersInArea list.
     {
-    if (other.CompareTag("Player"))
-    {
-        // Check if the player is already in the list
-        if (!PlayersInArea.Contains(other.gameObject))
+        if (other.CompareTag("Player")) // If the collider that enters is a player
         {
-            // Add the player to the list of players in the area
-            PlayersInArea.Add(other.gameObject);
-
-            // Check if the required number of players are in the area
-            if (PlayersInArea.Count >= PlayersNeeded)
+            // Check if the player is already in the list
+            if (!PlayersInArea.Contains(other.gameObject))
             {
-                Debug.Log("All players are in the area!");
+                // Add the player to the list of players in the area
+                PlayersInArea.Add(other.gameObject);
+
+                // Check if the required number of players are in the area
+                if (PlayersInArea.Count >= PlayerInputManager.playerCount)
+                {
+                    Debug.Log("All players are in the area!");
+                }
             }
         }
     }
-    }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) // Checks if player has exited the collider and removes them from the PlayersInArea list.
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // If the collider that exits is a player
         {
             // Remove the player from the list of players in the area
             PlayersInArea.Remove(other.gameObject);
 
             // Check if the required number of players are no longer in the area
-            if (PlayersInArea.Count < PlayersNeeded)
+            if (PlayersInArea.Count < PlayerInputManager.playerCount)
             {
                 Debug.Log("Not enough players in the area!");
             }
