@@ -10200,7 +10200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Share To Join
+  m_text: Press Share To Join As Player 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a45ff68b085207442ae42d12e02cfab4, type: 2}
   m_sharedMaterial: {fileID: -7494463119651972377, guid: a45ff68b085207442ae42d12e02cfab4,
@@ -10210,8 +10210,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287549417
-  m_fontColor: {r: 0.9150943, g: 0.81248534, b: 0.555963, a: 1}
+    rgba: 4278218495
+  m_fontColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10235,7 +10235,7 @@ MonoBehaviour:
   m_fontSizeMin: 50
   m_fontSizeMax: 80
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -12441,7 +12441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Share To Join
+  m_text: Press Share To Join As Player 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a45ff68b085207442ae42d12e02cfab4, type: 2}
   m_sharedMaterial: {fileID: -7494463119651972377, guid: a45ff68b085207442ae42d12e02cfab4,
@@ -12451,8 +12451,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287549417
-  m_fontColor: {r: 0.9150943, g: 0.81248534, b: 0.555963, a: 1}
+    rgba: 4294940672
+  m_fontColor: {r: 0, g: 0.59607846, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12476,7 +12476,7 @@ MonoBehaviour:
   m_fontSizeMin: 50
   m_fontSizeMax: 80
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -10,7 +10,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private CharacterControllerEnabler characterControllerEnabler;
     [Header("References")][SerializeField]
     private CharacterController Controller;
 
@@ -302,7 +301,6 @@ public class PlayerController : MonoBehaviour
 
                 // Add torque to the object to give it spin
                 heldObjectRigidbody.AddTorque(transform.right * PlayerThrowAngle, ForceMode.Impulse);
-                StartCoroutine(HeldObject.GetComponent<CharacterControllerEnabler>().EnableCharacterController());
 
                 // Reset held object and grab flag
                 HeldObject = null;
