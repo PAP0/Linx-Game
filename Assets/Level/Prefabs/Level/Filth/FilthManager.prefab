@@ -47,8 +47,9 @@ MonoBehaviour:
   SpawnChance: 50
   SpawnObjects:
   - {fileID: 8091764987791123036, guid: f1a14f5522a10594e8c9996b65d589cc, type: 3}
-  - {fileID: 8091764987791123036, guid: 629b1dd84418f874a9212f79bf4c3c62, type: 3}
   - {fileID: 8091764987791123036, guid: f1a14f5522a10594e8c9996b65d589cc, type: 3}
+  - {fileID: 919132149155446097, guid: fbe3d1b18adab19419f94eb540a24c44, type: 3}
+  - {fileID: 919132149155446097, guid: c805c546634d73041bdf89c8dd1303fd, type: 3}
   Distance: 0.75
   Range: 30
   Mask:
