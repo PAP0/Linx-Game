@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [Header("Grabbing")]
     [SerializeField] private float MaxGrabDistance = 2f;   // Maximum distance the player can grab an object from.
     [SerializeField] private float MaxGrabWeight = 50.0f;
+    [SerializeField] private float GrabSpeed = 20f;
     [SerializeField] private LayerMask GrabMask;          // Layer mask for objects that can be grabbed
     [SerializeField] private bool IsGrabbing;
 
@@ -109,27 +110,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             Quaternion lookRotation = Quaternion.LookRotation((heldObject.transform.position - transform.position).normalized);
-            transform.rotation = lookRotation;
+            transform.rotation = Quaternion.Slerp(lookRotation, Quaternion.LookRotation(new Vector3(lookRotation.x, 0, lookRotation.z)), 0.15f);
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit controllerHit)
-    {
-        Rigidbody rigidbody = controllerHit.collider.attachedRigidbody;
-        Vector3 forceDirection;
 
-        if (rigidbody != null && controllerHit.gameObject.CompareTag("Grabbable"))
-        {
-            if (MaxGrabWeight >= rigidbody.mass)
-            {
-                forceDirection = controllerHit.gameObject.transform.position - transform.position;
-                forceDirection.y = 0;
-                forceDirection.Normalize();
-
-                rigidbody.AddForceAtPosition(forceDirection * ((MaxGrabWeight - rigidbody.mass) / 100 + 0.5f), transform.position, ForceMode.Impulse);
-            }
-        }
-    }
     //void GrabObject()
     //{
     //    // Raycast to find the closest grabbable object within range
@@ -195,15 +180,38 @@ public class PlayerController : MonoBehaviour
     //{
     //    // Move the object towards the player's hand
     //    Vector3 targetPosition = transform.position - holdOffset;
-    //    heldObject.transform.position = Vector3.MoveTowards(heldObject.transform.position, targetPosition, grabSpeed * Time.deltaTime);
+    //    heldObject.transform.position = Vector3.MoveTowards(heldObject.transform.position, holdOffset, GrabSpeed * Time.deltaTime);
+    //}
+    //void UpdateHeldObjectPosition()
+    //{
+    //    Rigidbody rigidbody = heldObject.GetComponent<Rigidbody>();
+    //    Vector3 forceDirection = heldObject.transform.position - transform.position;
+
+    //    forceDirection.y = 0;
+    //    forceDirection.Normalize();
+    //    rigidbody.AddForceAtPosition(-forceDirection * ((MaxGrabWeight - rigidbody.mass) / 100 + 0.5f), heldObject.transform.position, ForceMode.Impulse);
+
+    //    //if (Vector3.Distance(transform.position, heldObject.transform.position) < MaxGrabDistance)
+    //    //{
+    //    //    forceDirection.y = 0;
+    //    //    forceDirection.Normalize();
+    //    //    rigidbody.AddForceAtPosition(-forceDirection * ((MaxGrabWeight - rigidbody.mass) / 100 + 0.5f), heldObject.transform.position, ForceMode.Impulse);
+    //    //}
     //}
     void UpdateHeldObjectPosition()
     {
         Rigidbody rigidbody = heldObject.GetComponent<Rigidbody>();
         Vector3 forceDirection = heldObject.transform.position - transform.position;
 
-        forceDirection.y = 0;
-        forceDirection.Normalize();
-        rigidbody.AddForceAtPosition(-forceDirection * ((MaxGrabWeight - rigidbody.mass) / 100 + 0.5f), heldObject.transform.position, ForceMode.Impulse);
+        if (Vector3.Distance(transform.position, heldObject.transform.position) < MaxGrabDistance)
+        {
+            forceDirection.y = 0;
+            forceDirection.Normalize();
+            rigidbody.AddForceAtPosition(-forceDirection * ((MaxGrabWeight - rigidbody.mass) / 100 + 0.5f), heldObject.transform.position, ForceMode.Impulse);
+        }
+        else if (Vector3.Distance(transform.position, heldObject.transform.position) > MaxGrabDistance)
+        {
+            ReleaseObject();
+        }
     }
 }
