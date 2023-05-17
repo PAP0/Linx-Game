@@ -1,25 +1,34 @@
+using System;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] private float TimeLeft;
-    [SerializeField] private bool TimerOn = false;
 
     [SerializeField] private TMP_Text TimerTxt;
     [SerializeField] private GameObject[] ObjectsToEnable;
     [SerializeField] private float[] EnableTimes;
+    [SerializeField] private Animator ElevatorAnimator;
+    
+    public bool TimerOn = false;
 
     void Start()
     {
-        TimerOn = true;
+        ElevatorAnimator.speed = 0;
+        TimerOn = false;
     }
 
     void Update()
     {
         if (TimerOn)
         {
+            ElevatorAnimator.speed = 1;
             if (TimeLeft > 0)
             {
                 TimeLeft -= Time.deltaTime;
