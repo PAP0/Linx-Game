@@ -8,9 +8,11 @@ public class FilthStain : MonoBehaviour
 
     [Header("Blood")]
     [SerializeField] private bool IsBloodStain;
+    [SerializeField] private bool IsSoaped;
 
     [Header("Garbage")]
     [SerializeField] private bool IsGarbagePatch;
+
 
     private Animator BloodAnimator;
 
@@ -27,7 +29,12 @@ public class FilthStain : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.name == "Mop_Char_Pref(Clone)" && IsBloodStain)
+        if (other.name == "AbilityBarrierMop" && IsBloodStain)
+        {
+            IsSoaped = true;
+        }
+
+        if (other.name == "AbilityBarrierVac" && IsBloodStain && IsSoaped)
         {
             StartCoroutine(Fade());
         }

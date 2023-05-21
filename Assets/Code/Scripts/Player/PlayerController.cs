@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 /// 
-/// Authors: Bjornraaf & PAP0
+/// Authors: Bjornraaf & PAP0 & TiesPostman
 /// 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")] 
     [SerializeField] private Animator PlayerAnimator;
 
- 
+    [Header("Abilities")]
+    [SerializeField] private GameObject AbilityBarrier;
 
     private GameObject HeldObject = null;
 
@@ -327,6 +328,11 @@ public class PlayerController : MonoBehaviour
             rigidbody.AddForceAtPosition(forceDirection * ((MaxGrabWeight / 100) * 0.5f), transform.position,
                 ForceMode.Impulse);
         }
+    }
+
+    public void UseAbility()
+    {
+        AbilityBarrier.SetActive(true);
     }
     
     public bool IsGrounded() => Controller.isGrounded;
