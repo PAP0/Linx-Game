@@ -23,7 +23,7 @@ public class FilthStain : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Char_VacuumGuy(Clone)" && IsGarbagePatch)
+        if (other.name == "AbilityBarrierVac" && IsGarbagePatch)
         {
             ScoreHolder.ScoreValue++;
             Destroy(gameObject);

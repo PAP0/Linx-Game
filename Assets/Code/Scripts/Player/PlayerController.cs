@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")] 
     [SerializeField] private Animator PlayerAnimator;
 
+    [Header("Ability")]
+    [SerializeField] private GameObject Abilitybarrier;
+
     private readonly float GravityMagnitude = Physics.gravity.y;
     private float Velocity;
 
@@ -83,6 +86,11 @@ public class PlayerController : MonoBehaviour
         {
             UpdateHeldObjectPosition();
         }
+    }
+
+    public void Ability()
+    {
+        Abilitybarrier.SetActive(true);
     }
 
     private void Gravity()
