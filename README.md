@@ -9,16 +9,16 @@ Een complete en uitgebreide beschrijving komt in het functioneel ontwerp (onderd
 
 # Geproduceerde Game Onderdelen
 
-Geef per teammember aan welke game onderdelen je hebt geproduceerd. Doe dit met behulp van omschrijvingen visual sheets en screenshots.
-Maak ook een overzicht van alle onderdelen met een link naar de map waarin deze terug te vinden zijn.
-
 Bjorn Ravensbergen:
   * x
   * x
   
 Patryk Podworny:
-  * x
-  * x
+  * [Player Input/Controller Scheme]
+  * [Co-Op]
+  * [Player Join Manager](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerJoinManager.cs)
+  * [Prop Placeback](https://github.com/Bjornraaf/Linx-Game/tree/develop/Assets/Code/Scripts/Cleaning/Props)
+  * [Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerAreaDetector.cs)
 
 Ties Postma:
   * x
