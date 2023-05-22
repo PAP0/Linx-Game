@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Environment_Tx
-    second: {fileID: 2100000, guid: 598c52a29c0b7f7419f3ff67db05812a, type: 2}
+    second: {fileID: 2100000, guid: 82aea21a9dd3a3b47adb008af3e33b80, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
