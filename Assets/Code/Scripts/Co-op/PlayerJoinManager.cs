@@ -4,15 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-///----------------------------------------$$$$$$$\   $$$$$$\  $$$$$$$\   $$$$$$\  
-///----------------------------------------$$  __$$\ $$  __$$\ $$  __$$\ $$$ __$$\ 
-///----------------------------------------$$ |  $$ |$$ /  $$ |$$ |  $$ |$$$$\ $$ |
-///----------Author------------------------$$$$$$$  |$$$$$$$$ |$$$$$$$  |$$\$$\$$ |
-///----------Patryk Podworny---------------$$  ____/ $$  __$$ |$$  ____/ $$ \$$$$ |
-///----------------------------------------$$ |      $$ |  $$ |$$ |      $$ |\$$$ |
-///----------------------------------------$$ |      $$ |  $$ |$$ |      \$$$$$$  /
-///----------------------------------------\__|      \__|  \__|\__|       \______/
-
 /// <summary>  
 /// This script changes the PlayerPrefab variant of the Player Input Manager every time a player joins so that every player has a different prefab/abilities.
 /// This also handles the "press to join" function so that the game only starts when enough players are joined in.
