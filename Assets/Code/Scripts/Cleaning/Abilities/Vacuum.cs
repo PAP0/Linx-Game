@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class Vacuum : MonoBehaviour
 {
     [Header("References")]
-    //[SerializeField] private Stamina PlayerStamina;
+    [SerializeField] private Stamina PlayerStamina;
+    [SerializeField] private StaminaScritableObject StaminaObject;
 
     [Header("Ranges")]
     [SerializeField] private float SuctionRadius; // the radius of the suction area
@@ -32,7 +33,15 @@ public class Vacuum : MonoBehaviour
     {
         Suck();
 
-        Stamina.Instance.UseEnergy(IsSucking);
+        if (StaminaObject.CurrentStamina <= 1)
+        {
+            IsSucking = false;
+        }
+        else
+        {
+            PlayerStamina.UseEnergy(IsSucking);
+        }
+        
     }
     private void Suck()
     {

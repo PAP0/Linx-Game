@@ -6,48 +6,36 @@ public class Stamina : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Slider StaminaSlider;
+    [SerializeField] private StaminaScritableObject StaminaObject;
 
     [Header("Variables")]
     [SerializeField] private float MaxStamina;
     [SerializeField] private float DecreaseValue;
 
-    [HideInInspector] public float CurrentStamina;
-
-    public static Stamina Instance;
-
     // Start is called before the first frame update
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     private void Start()
     {
-        CurrentStamina = MaxStamina;
+        StaminaObject.CurrentStamina = MaxStamina;
         StaminaSlider.maxValue = MaxStamina;
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void UseEnergy(bool isDraining)
     {
-        StaminaSlider.value = CurrentStamina;
+        StaminaSlider.value = StaminaObject.CurrentStamina;
 
         if (isDraining)
         {
-            if (CurrentStamina != 0)
+            if (StaminaObject.CurrentStamina != 0)
             {
-                CurrentStamina -= DecreaseValue * Time.deltaTime;
+                StaminaObject.CurrentStamina -= DecreaseValue * Time.deltaTime;
             }
         }
-        else if (!isDraining)
+        else
         {
-            if (CurrentStamina <= 100)
+            if (StaminaObject.CurrentStamina <= 100)
             {
-                CurrentStamina += (DecreaseValue / 2) * Time.deltaTime;
+                StaminaObject.CurrentStamina += (DecreaseValue / 2) * Time.deltaTime;
             }
         }
     }

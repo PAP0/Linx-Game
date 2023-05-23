@@ -399,8 +399,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 8530663963665923138}
   PlayerStamina: {fileID: 1920046613433095452}
+  StaminaObj: {fileID: 11400000, guid: 068ef2a82c6668d46be12947e6c65ae3, type: 2}
   Speed: 3
   ReviveDistance: 3
+  ReviveTime: 3
   Mask:
     serializedVersion: 2
     m_Bits: 128
@@ -418,6 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad97b2f6f86362d44b7142ffd63eebe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerStamina: {fileID: 1920046613433095452}
+  StaminaObject: {fileID: 11400000, guid: 068ef2a82c6668d46be12947e6c65ae3, type: 2}
   SuctionRadius: 2
   SuckableLayers:
     serializedVersion: 2
@@ -462,9 +466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StaminaSlider: {fileID: 4566060481239891015}
+  StaminaObject: {fileID: 11400000, guid: 068ef2a82c6668d46be12947e6c65ae3, type: 2}
   MaxStamina: 30
   DecreaseValue: 4
-  CurrentStamina: 0
 --- !u!1 &3568049464825115366
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,9 +840,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StaminaSlider: {fileID: 4566060481239891015}
+  StaminaObject: {fileID: 0}
   MaxStamina: 30
   DecreaseValue: 4
-  CurrentStamina: 0
 --- !u!1 &8282204304988315032
 GameObject:
   m_ObjectHideFlags: 0

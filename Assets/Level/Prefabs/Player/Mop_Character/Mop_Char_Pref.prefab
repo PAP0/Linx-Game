@@ -830,7 +830,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1665428468204468516}
   - component: {fileID: 5533910352229814220}
-  - component: {fileID: 5385386891658265586}
   m_Layer: 5
   m_Name: StaminaSlider
   m_TagString: Untagged
@@ -911,22 +910,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5385386891658265586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3304209791571712232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41264d96747bb149a0975276ec5a457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StaminaSlider: {fileID: 5533910352229814220}
-  MaxStamina: 30
-  DecreaseValue: 4
-  CurrentStamina: 0
 --- !u!1 &3340628936801939403
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +926,7 @@ GameObject:
   - component: {fileID: 3340628936801939401}
   - component: {fileID: 3340628936801939397}
   - component: {fileID: 1107050601146379997}
+  - component: {fileID: -398554893966368666}
   m_Layer: 7
   m_Name: Mop_Char_Pref
   m_TagString: Player
@@ -1108,14 +1092,10 @@ MonoBehaviour:
     m_ActionId: 5bffa98b-07ed-4f61-9517-45d022996c5c
     m_ActionName: Universal Map/Grab[/Keyboard/f,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 41c57da0-080f-498e-9a3c-65d61d0df39e
-    m_ActionName: Universal Map/Use Item/Special[/Keyboard/e,/XInputControllerWindows/buttonEast]
-  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3340628936801939397}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnJump
+      - m_Target: {fileID: -398554893966368666}
+        m_TargetAssemblyTypeName: Vacuum, Assembly-CSharp
+        m_MethodName: OnSuck
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1125,6 +1105,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_ActionId: 41c57da0-080f-498e-9a3c-65d61d0df39e
+    m_ActionName: Universal Map/Use Item/Special[/Keyboard/e,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: 4e02f5c0-c437-4455-aa3e-b6923029aa75
     m_ActionName: Universal Map/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -1162,8 +1146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 3340628936801939402}
   PlayerStamina: {fileID: 1107050601146379997}
+  StaminaObj: {fileID: 11400000, guid: 287eeb3316766844cbc29c4befadef46, type: 2}
   Speed: 5
   ReviveDistance: 3
+  ReviveTime: 3
   Mask:
     serializedVersion: 2
     m_Bits: 128
@@ -1182,9 +1168,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StaminaSlider: {fileID: 5533910352229814220}
+  StaminaObject: {fileID: 11400000, guid: 287eeb3316766844cbc29c4befadef46, type: 2}
   MaxStamina: 30
   DecreaseValue: 4
-  CurrentStamina: 0
+--- !u!114 &-398554893966368666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340628936801939403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad97b2f6f86362d44b7142ffd63eebe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStamina: {fileID: 1107050601146379997}
+  StaminaObject: {fileID: 11400000, guid: 287eeb3316766844cbc29c4befadef46, type: 2}
+  SuctionRadius: 2
+  SuckableLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  SuctionStartSpeed: 0
+  SuctionMaxSpeed: 2
+  VelocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AccelerationSpeed: 0.1
 --- !u!1 &3353785874692781340
 GameObject:
   m_ObjectHideFlags: 0

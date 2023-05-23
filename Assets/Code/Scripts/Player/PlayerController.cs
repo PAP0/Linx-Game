@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] private CharacterController Controller;
     [SerializeField] private Stamina PlayerStamina;
+    [SerializeField] private StaminaScritableObject StaminaObj;
 
     [Header("Movement")]
     [SerializeField] private float Speed = 5.0f;
 
     [Header("Revive")]
     [SerializeField] private float ReviveDistance;
+    [SerializeField] private float ReviveTime;
     [SerializeField] private LayerMask Mask;
     //[Header("Grabbing")]
     //[SerializeField] private float MaxGrabDistance = 2f;   // Maximum distance the player can grab an object from.
@@ -27,6 +29,10 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")] 
     [SerializeField] private Animator PlayerAnimator;
 
+    private float WaitTimer;
+    private bool isReviving = false;
+    private readonly float AutoReviveTime = 10f;
+    
     private readonly float GravityMagnitude = Physics.gravity.y;
     private float Velocity;
 
@@ -50,14 +56,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnRevive(InputAction.CallbackContext context)
     {
-        if (!context.started)
-        {
-            Revive(false);
-        }
-        else
-        {
-            Revive(true);
-        }
+        if (!context.started) return;
+
+        isReviving = !isReviving;
     }
     //public void OnGrab(InputAction.CallbackContext context)
     //{
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Gravity();
+        //Revive();
 
         if (Movement.x >= 0.1f || Movement.y >= 0.1f || Movement.x <= -0.1f || Movement.y <= -0.1f)
         {
@@ -87,12 +89,6 @@ public class PlayerController : MonoBehaviour
         {
             PlayerAnimator.SetBool("IsRunning", false);
         }
-
-        //// If the player is holding an object, update its position
-        //if (heldObject != null)
-        //{
-        //    UpdateHeldObjectPosition();
-        //}
     }
 
     private void Gravity()
@@ -109,10 +105,10 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (Stamina.Instance.CurrentStamina <= 1) 
+        if (StaminaObj.CurrentStamina <= 1) 
         {
             PlayerAnimator.SetBool("IsRunning", false);
-            enabled = false;
+            Controller.Move(Vector3.zero);
         }
         else
         {
@@ -132,23 +128,31 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    private void Revive(bool isReviving)
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, ReviveDistance, Mask);
-        if (colliders.Length > 0 && isReviving)
-        {
-            StartCoroutine(WaitForRevive());
-        }
-        else
-        {
-            StopCoroutine(WaitForRevive());
-        }
-    }
+    //private void Revive()
+    //{
+    //    Collider[] colliders = Physics.OverlapSphere(transform.position, ReviveDistance, Mask);
+    //    if (colliders.Length > 0 && isReviving)
+    //    {
+    //        WaitTimer = ReviveTime;
+    //        StartCoroutine(WaitForRevive());
+    //    }
+    //    else if (colliders.Length < 0)
+    //    {
+    //        StopCoroutine(WaitForRevive());
+    //    }
+    //    else
+    //    {
+    //        WaitTimer = AutoReviveTime;
+    //        StartCoroutine(WaitForRevive());
+    //    }
+    //}
 
     IEnumerator WaitForRevive()
     {
-        yield return new WaitForSeconds(5);
-        enabled = false;
+        yield return new WaitForSeconds(WaitTimer);
+        PlayerStamina.UseEnergy(false);
+        StaminaObj.CurrentStamina = 2;
+        enabled = true;
     }
 
     //void GrabObject()
