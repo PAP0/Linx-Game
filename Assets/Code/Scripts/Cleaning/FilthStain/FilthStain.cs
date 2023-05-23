@@ -12,6 +12,7 @@ public class FilthStain : MonoBehaviour
 
     [Header("Garbage")]
     [SerializeField] private bool IsGarbagePatch;
+    [SerializeField] private bool IsBrushed;
 
 
     private Animator BloodAnimator;
@@ -23,22 +24,36 @@ public class FilthStain : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "AbilityBarrierVac" && IsGarbagePatch)
+        if (other.name == "AbilityBarrierMop" && IsGarbagePatch)
+        {
+            IsBrushed = true;
+        }
+
+        if (other.name ==  "AbilityBarrierVac" && IsGarbagePatch && IsBrushed)
         {
             ScoreHolder.ScoreValue++;
             Destroy(gameObject);
         }
 
-        if (other.name == "AbilityBarrierMop" && IsBloodStain)
+        if (other.name == "AbilityBarrierVac" && IsBloodStain)
         {
             IsSoaped = true;
         }
 
-        if (other.name == "AbilityBarrierVac" && IsBloodStain && IsSoaped)
+        if (other.name == "AbilityBarrierMop" && IsBloodStain && IsSoaped)
         {
             StartCoroutine(Fade());
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "AbilityBarrierMop" && IsBloodStain && IsSoaped)
+        {
+            StopCoroutine(Fade());
+        }
+    }
+
     IEnumerator Fade()
     {
         ScoreHolder.ScoreValue++;
