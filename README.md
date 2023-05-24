@@ -102,7 +102,7 @@ The PlayerJoinManager manages the joining of players in a game, assigns player p
 ## Player Area Detector
 ![Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png)
 ~~~mermaid
-flowchart TD; 
+flowchart TD;
     A((Start))
     B[Check Collider Enter]
     C[Is Player in Collider]
@@ -125,7 +125,7 @@ flowchart TD;
     E --> F
     F -- Yes --> G
     H --> I
-    J --> E
+    J --> K
     K --> L
     L -- No --> M
     L -- Yes --> H
