@@ -9,21 +9,25 @@ Een complete en uitgebreide beschrijving komt in het functioneel ontwerp (onderd
 
 # Geproduceerde Game Onderdelen
 
-Geef per teammember aan welke game onderdelen je hebt geproduceerd. Doe dit met behulp van omschrijvingen visual sheets en screenshots.
-Maak ook een overzicht van alle onderdelen met een link naar de map waarin deze terug te vinden zijn.
-
 Bjorn Ravensbergen:
   * x
   * x
   
 Patryk Podworny:
-  * x
-  * x
+  * [Player Input/Controller Scheme](https://docs.unity3d.com/Packages/com.unity.inputsystem@0.2/manual/index.html)
+  * [Co-Op](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Components.html)
+  * [Player Join Manager](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerJoinManager.cs)
+  * [Prop Placeback](https://github.com/Bjornraaf/Linx-Game/tree/develop/Assets/Code/Scripts/Cleaning/Props)
+  * [Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerAreaDetector.cs)
 
 Ties Postma:
   * x
   * x
 
+## Player Input/Controller Scheme
+![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/ControllerScheme.png)
+![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerInput.png)
+We use Unity's New Input System to take care of the player's input and invoke Unity events to call the PlayerController functions
 
 ## Example
 
