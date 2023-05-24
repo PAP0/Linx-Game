@@ -38,7 +38,6 @@ public class PlayerJoinManager : MonoBehaviour
     [Tooltip("The Press To Join Hud Elements")]
     [SerializeField] private GameObject[] HudJoinElements; // An array of hud elements that are turned off depending on the player count.
     private int CurrentPrefabIndex = 0; // Index of current prefab to use.
-    private int NumPlayersJoined = 0; // Number of players that have joined.
 
     public void Start() // When the game is started
     {
