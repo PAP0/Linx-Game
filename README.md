@@ -25,8 +25,8 @@ Ties Postma:
   * x
 
 ## Player Input/Controller Scheme
-![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/ControllerScheme.png)
-![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerInput.png)We use Unity's New Input System to take care of the player's input and invoke Unity events to call the PlayerController functions
+![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/ControllerScheme.png)We use Unity's New Input System to take care of the player's input and invoke Unity events to call the PlayerController functions
+![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerInput.png)
 
 ## Example
 
