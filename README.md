@@ -114,7 +114,7 @@ flowchart TD;
     I[Is Player in Collider]
     J[Remove Player from List]
     K[Check Number of Players]
-    L[Enough Players in Area?]
+    L[Enough Players in Area]
     M[Display "Not enough players in the area"]
     
     A --> B
