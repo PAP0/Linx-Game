@@ -31,8 +31,6 @@ public class Vacuum : MonoBehaviour
 
     private void Update()
     {
-        Suck();
-
         if (StaminaObject.CurrentStamina <= 1)
         {
             IsSucking = false;
@@ -41,6 +39,8 @@ public class Vacuum : MonoBehaviour
         {
             PlayerStamina.UseEnergy(IsSucking);
         }
+
+        Suck();
     }
     private void Suck()
     {

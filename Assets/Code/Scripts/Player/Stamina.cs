@@ -15,8 +15,8 @@ public class Stamina : MonoBehaviour
 
     private void Awake()
     {
-        StaminaObject.CurrentStamina = MaxStamina;
         StaminaSlider.maxValue = MaxStamina;
+        StaminaObject.CurrentStamina = StaminaSlider.maxValue;
     }
 
     public void UseEnergy(bool isDraining)
@@ -32,7 +32,7 @@ public class Stamina : MonoBehaviour
         }
         else
         {
-            if (StaminaObject.CurrentStamina < 100)
+            if (StaminaObject.CurrentStamina <= MaxStamina)
             {
                 StaminaObject.CurrentStamina += (DecreaseValue / 2) * Time.deltaTime;
             }
