@@ -108,7 +108,7 @@ flowchart TD;
     C[Is Player in Collider]
     D[Add Player to List]
     E[Check Number of Players]
-    F[All Players in Area?]
+    F[All Players in Area]
     G[Display "All players are in the area"]
     H[Check Collider Exit]
     I[Is Player in Collider]
