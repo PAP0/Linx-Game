@@ -99,29 +99,38 @@ flowchart TD;
 The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the player prefabs and spawnpoints can be changed, ```TimerScript```, which is a reference to the Timer script, the timer is turned on once enough players have joined so that the game can start, ```PlayerPrefabs```, Which is an array that contains different player prefabs, so that each player has a different character and ability, ```SpawnPoints```,  which is an array of transform positions that represent spawn positions for the playes in the game scene, ```HudJoinElements```, which is an array of HUD "Press to join" Elements that are turned off when the players join, ```CurrentPrefabIndex```, which keeps track of the current player prefab to use from the ```PlayerPrefabs``` array.
 
 ## Player Area Detector
-![Player Join Manager](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerJoinManager.png)
+![Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerJoinManager.png)
 ~~~mermaid
 flowchart TD;
     A((Start))
-    B[Set Player Prefab]
-    C[Set Player Position]
-    D[Update Current Prefab Index]
-    E[Check if First Player Joined]
-    F[Turn Off Prompt for Player 1]
-    G[Check if Second Player Joined]
-    H[Turn Off Prompt for Player 2]
-    I[Start Game and Timer]
+    B[Check Collider Enter]
+    C[Is Player in Collider?]
+    D[Add Player to List]
+    E[Check Number of Players]
+    F[All Players in Area?]
+    G[Display "All players are in the area!"]
+    H[Check Collider Exit]
+    I[Is Player in Collider?]
+    J[Remove Player from List]
+    K[Check Number of Players]
+    L[Enough Players in Area?]
+    M[Display "Not enough players in the area!"]
     
     A --> B
     B --> C
-    C --> D
+    C -- Yes --> D
     D --> E
-    E -- Yes --> F
-    F --> G
-    G -- Yes --> H
+    E --> F
+    F -- Yes --> G
+    G --> H
     H --> I
-    G -- No --> G
-    E -- No --> E
+    I -- Yes --> J
+    J --> K
+    K --> L
+    L -- No --> M
+    L -- Yes --> H
+    C -- No --> H
+    I -- No --> B
 ~~~
 The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the player prefabs and spawnpoints can be changed, ```TimerScript```, which is a reference to the Timer script, the timer is turned on once enough players have joined so that the game can start, ```PlayerPrefabs```, Which is an array that contains different player prefabs, so that each player has a different character and ability, ```SpawnPoints```,  which is an array of transform positions that represent spawn positions for the playes in the game scene, ```HudJoinElements```, which is an array of HUD "Press to join" Elements that are turned off when the players join, ```CurrentPrefabIndex```, which keeps track of the current player prefab to use from the ```PlayerPrefabs``` array.
 
