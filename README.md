@@ -107,29 +107,27 @@ flowchart TD;
     B[Check Collider Enter]
     C[Is Player in Collider]
     D[Add Player to List]
-    E[Check Number of Players]
-    F[All Players in Area]
-    G[Display All players are in the area]
-    H[Check Collider Exit]
-    I[Is Player in Collider]
-    J[Remove Player from List]
-    K[Check Number of Players]
-    L[Enough Players in Area]
-    M[Display Not enough players in the area]
+    E[Check Collider Exit]
+    F[Is Player in Collider]
+    G[Remove Player from List]
+    H[Check Number of Players]
+    I[Enough Players in Area]
+    J[Display All players are in the area]
+    K[Display Not enough players in the area]
     
     A --> B
-    A --> H
+    A --> E
     B --> C
     C -- Yes --> D
-    D --> E
+    D --> H
     E --> F
-    F -- Yes --> G
+    F -- No --> G
+    G --> H
     H --> I
-    J --> K
-    K --> L
-    L -- No --> M
-    L -- Yes --> H
-    I -- No --> J
+    I -- Yes --> J
+    I -- No --> K
+   
+    
 ~~~
 
 The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the player prefabs and spawnpoints can be changed, ```TimerScript```, which is a reference to the Timer script, the timer is turned on once enough players have joined so that the game can start, ```PlayerPrefabs```, Which is an array that contains different player prefabs, so that each player has a different character and ability, ```SpawnPoints```,  which is an array of transform positions that represent spawn positions for the playes in the game scene, ```HudJoinElements```, which is an array of HUD "Press to join" Elements that are turned off when the players join, ```CurrentPrefabIndex```, which keeps track of the current player prefab to use from the ```PlayerPrefabs``` array.
