@@ -118,12 +118,12 @@ flowchart TD;
     M[Display Not enough players in the area]
     
     A --> B
+    A --> H
     B --> C
     C -- Yes --> D
     D --> E
     E --> F
     F -- Yes --> G
-    G --> H
     H --> I
     I -- Yes --> J
     J --> K
