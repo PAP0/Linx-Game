@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +13,7 @@ public class Stamina : MonoBehaviour
 
     // Start is called before the first frame update
 
-    private void Start()
+    private void Awake()
     {
         StaminaObject.CurrentStamina = MaxStamina;
         StaminaSlider.maxValue = MaxStamina;
@@ -33,7 +32,7 @@ public class Stamina : MonoBehaviour
         }
         else
         {
-            if (StaminaObject.CurrentStamina <= 100)
+            if (StaminaObject.CurrentStamina < 100)
             {
                 StaminaObject.CurrentStamina += (DecreaseValue / 2) * Time.deltaTime;
             }

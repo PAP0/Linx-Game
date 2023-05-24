@@ -41,7 +41,6 @@ public class Vacuum : MonoBehaviour
         {
             PlayerStamina.UseEnergy(IsSucking);
         }
-        
     }
     private void Suck()
     {

@@ -317,19 +317,7 @@ MonoBehaviour:
     m_ActionId: 9dc7fbe4-bfa2-43a8-a1a4-27f864f81675
     m_ActionName: Universal Map/Look[/Mouse/position,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1844890893650401379}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnGrab
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 5bffa98b-07ed-4f61-9517-45d022996c5c
     m_ActionName: Universal Map/Grab[/Keyboard/f,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:

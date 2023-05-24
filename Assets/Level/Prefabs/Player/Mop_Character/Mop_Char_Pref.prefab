@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 3340628936801939401}
   - component: {fileID: 3340628936801939397}
   - component: {fileID: 1107050601146379997}
-  - component: {fileID: -398554893966368666}
+  - component: {fileID: 6103468308989162297}
   m_Layer: 7
   m_Name: Mop_Char_Pref
   m_TagString: Player
@@ -948,6 +948,7 @@ Transform:
   m_Children:
   - {fileID: 6354832447081239949}
   - {fileID: 4121607498070449399}
+  - {fileID: 1166647670482438784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1093,7 +1094,7 @@ MonoBehaviour:
     m_ActionName: Universal Map/Grab[/Keyboard/f,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -398554893966368666}
+      - m_Target: {fileID: 6103468308989162297}
         m_TargetAssemblyTypeName: Vacuum, Assembly-CSharp
         m_MethodName: OnSuck
         m_Mode: 0
@@ -1171,7 +1172,7 @@ MonoBehaviour:
   StaminaObject: {fileID: 11400000, guid: 287eeb3316766844cbc29c4befadef46, type: 2}
   MaxStamina: 30
   DecreaseValue: 4
---- !u!114 &-398554893966368666
+--- !u!114 &6103468308989162297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2327,6 +2328,52 @@ MonoBehaviour:
     m_DampPosition: 0.1
     m_DampRotation: 0.1
     m_MaintainAim: 1
+--- !u!1 &7181101356353680674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1166647670482438784}
+  - component: {fileID: 8945635532663981439}
+  m_Layer: 0
+  m_Name: AbilityBarrierMop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1166647670482438784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181101356353680674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3340628936801939398}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8945635532663981439
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181101356353680674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.85
+  m_Height: 2.5644379
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.081229, z: 0}
 --- !u!1 &7373719465203880502
 GameObject:
   m_ObjectHideFlags: 0
