@@ -102,24 +102,34 @@ The PlayerJoinManager manages the joining of players in a game, assigns player p
 ## Player Area Detector
 ![Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png)
 ~~~mermaid
-graph TD;
-A[Start] --> B[OnTriggerEnter]
-B --> C{Is player?}
-C -- Yes --> D{Player already in list?}
-C -- No --> E{Add player to list}
-D -- Yes --> F{Check player count}
-D -- No --> E
-F -- Sufficient players? --> G[Log "All players are in the area!"]
-F -- Insufficient players? --> E
-G --> H[End]
-E --> I[OnTriggerExit]
-I --> J{Is player?}
-J -- Yes --> K{Remove player from list}
-J -- No --> I
-K -- Sufficient players? --> I
-K -- Insufficient players? --> L[Log "Not enough players in the area!"]
-L --> M[End]
-
+flowchart TD;
+    A((Start))
+    B[Turn Off Solid Object]
+    C[Set Alpha Value]
+    D[Assign Alpha Value]
+    E[Check Target Object]
+    F[Set IsInPlace to True]
+    G[Start FadeOut Coroutine]
+    H[Check Alpha Value]
+    I[Update Alpha Value]
+    J[Set Material Alpha]
+    K[Turn On Solid Object]
+    L[Destroy Target Object]
+    M[Check if Target Object Enters Collider]
+    
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -- Yes --> F
+    F --> G
+    G --> H
+    H -- Yes --> I
+    I --> J
+    J --> K
+    K --> L
+    H -- No --> L
+    M --> E
 ~~~
 
 The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the player prefabs and spawnpoints can be changed, ```TimerScript```, which is a reference to the Timer script, the timer is turned on once enough players have joined so that the game can start, ```PlayerPrefabs```, Which is an array that contains different player prefabs, so that each player has a different character and ability, ```SpawnPoints```,  which is an array of transform positions that represent spawn positions for the playes in the game scene, ```HudJoinElements```, which is an array of HUD "Press to join" Elements that are turned off when the players join, ```CurrentPrefabIndex```, which keeps track of the current player prefab to use from the ```PlayerPrefabs``` array.
