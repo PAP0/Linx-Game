@@ -105,17 +105,17 @@ The PlayerJoinManager manages the joining of players in a game, assigns player p
 flowchart TD; 
     A((Start))
     B[Check Collider Enter]
-    C[Is Player in Collider?]
+    C[Is Player in Collider]
     D[Add Player to List]
     E[Check Number of Players]
     F[All Players in Area?]
-    G[Display "All players are in the area!"]
+    G[Display "All players are in the area"]
     H[Check Collider Exit]
-    I[Is Player in Collider?]
+    I[Is Player in Collider]
     J[Remove Player from List]
     K[Check Number of Players]
     L[Enough Players in Area?]
-    M[Display "Not enough players in the area!"]
+    M[Display "Not enough players in the area"]
     
     A --> B
     B --> C
