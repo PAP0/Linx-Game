@@ -130,7 +130,6 @@ flowchart TD;
     K --> L
     L -- No --> M
     L -- Yes --> H
-    C -- No --> H
     I -- No --> B
 ~~~
 
