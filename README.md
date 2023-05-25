@@ -103,6 +103,22 @@ flowchart TD;
 Based on player actions, such as using skills, this script dynamically adjusts the stamina level. When the player engages in actions that drain stamina, the script ensures a gradual decrease in stamina over time, simulating the exertion or depletion of energy. This introduces an element of strategy and resource management, as players need to be mindful of their stamina consumption to avoid exhausting themselves.
 
 ## FilthSpawner
+~~~mermaid
+flowchart TD;
+A(Start) --> B(Set Score.TotalObjects to 0)
+B --> C(Spawn)
+C --> D[Loop: x += Distance]
+D --> E[Loop: z += Distance]
+E --> F(Raycast)
+F --> G[Hit Ground?]
+G -- Yes --> H(SpawnChance > RandomRange?)
+G -- No --> E
+H -- Yes --> I(Instantiate Object)
+H -- No --> E
+I --> J[Update Score.TotalObjects]
+J --> K[Select Random Index]
+K --> C
+~~~
 This script automates the process of spawning objects in the game scene based on predetermined settings. It ensures that objects are spawned within specified constraints, using raycasting to ensure they are placed on valid surfaces. This adds dynamism to the game world and introduces variety by spawning objects at different positions and orientations.
 
 ## Player Input/Controller Scheme
