@@ -103,6 +103,7 @@ The PropPlaceback and PropPlacebackVariables scripts are being used for handling
 <div style="display: flex;">
     <img src="https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png" alt="PlayerInputmanager" width="400">
 </div>
+
 ~~~mermaid
 flowchart TD;
     A((Start))
