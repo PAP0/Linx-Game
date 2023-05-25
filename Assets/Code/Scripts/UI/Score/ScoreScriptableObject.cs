@@ -4,4 +4,5 @@ using UnityEngine;
 public class ScoreScriptableObject : ScriptableObject
 {
     public int ScoreValue;
+    public int TotalObjects;
 }
