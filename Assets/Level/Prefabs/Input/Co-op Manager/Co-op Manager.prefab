@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7009335940870084634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 2
-  m_MaxPlayerCount: 4
+  m_MaxPlayerCount: 2
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -118,7 +118,7 @@ MonoBehaviour:
         m_Action: Join
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 8444112726059089626, guid: da4793e4c59b8f54d8a136fbd6620533,
+    m_Reference: {fileID: 7452417241878721113, guid: da4793e4c59b8f54d8a136fbd6620533,
       type: 3}
   m_PlayerPrefab: {fileID: 0}
   m_SplitScreen: 0
@@ -142,9 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa7b54a77ffa674ba34e88f85ffeb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInputManager: {fileID: 7009335940870084632}
-  playerPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  PlayerInputManager: {fileID: 0}
+  TimerScript: {fileID: 0}
+  PlayerPrefabs: []
+  SpawnPoints: []
+  HudJoinElements: []
