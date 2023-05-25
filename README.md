@@ -16,7 +16,7 @@ TidyTeam is played locally, with two players. Both players have different abilit
 
 Bjorn Ravensbergen:
   * [PlayerController](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Controller/PlayerController.cs)
-  * [CleanableSpot](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthSpawner.cs)
+  * [CleanableSpot](https://github.com/Bjornraaf/Linx-Game/blob/13ecb2bdaa95c14a757eb0b8bfdb7a0f5fe7029e/Assets/Code/Scripts/Cleaning/Cleanable.cs)
   * [PushCheck](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Controller/PushCheck.cs)
   * [Stamina](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Stamina/Stamina.cs)
   * [FilthSpawner](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthSpawner.cs)
