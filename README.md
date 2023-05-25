@@ -10,8 +10,10 @@ Een complete en uitgebreide beschrijving komt in het functioneel ontwerp (onderd
 # Geproduceerde Game Onderdelen
 
 Bjorn Ravensbergen:
-  * x
-  * x
+  * [PlayerController](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Controller/PlayerController.cs)
+  * [PushCheck](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Controller/PushCheck.cs)
+  * [Stamina](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Stamina/Stamina.cs)
+  * [FilthSpawner](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthSpawner.cs)
   
 Patryk Podworny:
   * [Player Input/Controller Scheme](https://docs.unity3d.com/Packages/com.unity.inputsystem@0.2/manual/index.html)
@@ -23,6 +25,18 @@ Patryk Podworny:
 Ties Postma:
   * x
   * x
+
+## PlayerController
+This script encompasses several essential aspects of character control and gameplay mechanics. Through responsive movement, stamina management, animation triggering, and revival handling, it actively contributes to creating an engaging and dynamic player experience within the game.
+
+## PushCheck
+By dynamically enabling or disabling colliders based on proximity, this script provides a mechanism for controlling the interaction between the game object and nearby objects. It allows for precise control over object interactions within a specified range, enhancing gameplay mechanics and enabling various gameplay scenarios such as pushing & blocking.
+
+## Stamina
+Based on player actions, such as using skills, this script dynamically adjusts the stamina level. When the player engages in actions that drain stamina, the script ensures a gradual decrease in stamina over time, simulating the exertion or depletion of energy. This introduces an element of strategy and resource management, as players need to be mindful of their stamina consumption to avoid exhausting themselves.
+
+## FilthSpawner
+This script automates the process of spawning objects in the game scene based on predetermined settings. It ensures that objects are spawned within specified constraints, using raycasting to ensure they are placed on valid surfaces. This adds dynamism to the game world and introduces variety by spawning objects at different positions and orientations.
 
 ## Player Input/Controller Scheme
 ![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/ControllerScheme.png)
