@@ -10,6 +10,7 @@ Een complete en uitgebreide beschrijving komt in het functioneel ontwerp (onderd
 # Geproduceerde Game Onderdelen
 
 Bjorn Ravensbergen:
+  * [CleanableSpot](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthSpawner.cs)
   * [PlayerController](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Controller/PlayerController.cs)
   * [PushCheck](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Controller/PushCheck.cs)
   * [Stamina](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Player/Stamina/Stamina.cs)
@@ -26,13 +27,79 @@ Ties Postma:
   * x
   * x
 
+## CleanableSpot
+~~~mermaid
+flowchart TD;
+B --> C(Update)
+C --> D(GetDirtAmount)
+D --> E[Is Dirt Amount <= 0?]
+E -- No --> F(Set Active to false)
+E -- Yes --> G(Find Player)
+G --> H(Raycast)
+H --> I[Hit Ground?]
+I -- Yes --> J(Get Texture Coordinate)
+I -- No --> H
+J --> K(Calculate Paint Pixel Position)
+K --> L[Paint Pixel Distance < Max Distance?]
+L -- Yes --> C
+L -- No --> M(Update Last Paint Position)
+M --> N(Paint in Dirt Mask)
+N --> C
+~~~
+The Cleanable script manages the cleaning functionality of an object in the game. It enables players to interact with the object and progressively clean it using a dirt brush texture. The script initializes textures and materials, calculates the total dirt amount, and updates the object based on the cleaning progress. It tracks the player's position, detects contact points, and applies cleaning based on raycasting and texture mapping. The script ensures realistic cleaning by preventing close painting. It iterates over brush pixels, removes dirt, and updates the DirtMaskTexture accordingly. The cleaned texture is applied, and the remaining dirt is calculated as a percentage.
+
 ## PlayerController
+~~~mermaid
+flowchart TD;
+A(Start) --> B(Update)
+B --> D[Stamina <= 1?]
+D -- No --> E(UseEnergy)
+D -- Yes --> F(Revive)
+F --> G[Colliders present?]
+G -- Yes --> H(Revive)
+G -- No --> I(AutoRevive)
+H --> J(WaitForRevive)
+I --> J
+J --> K(UseEnergy)
+K --> B
+B --> L[Movement >= Threshold?]
+L -- Yes --> M(Set IsRunning to true)
+M --> N(MovePlayer)
+L -- No --> O(Set IsRunning to false)
+~~~
 This script encompasses several essential aspects of character control and gameplay mechanics. Through responsive movement, stamina management, animation triggering, and revival handling, it actively contributes to creating an engaging and dynamic player experience within the game.
 
 ## PushCheck
+~~~mermaid
+flowchart TD;
+A(Start) --> B(Update)
+B --> C(RangeCheck)
+C --> D[Colliders present?]
+D -- Yes --> E(Enable Capsule Collider)
+D -- No --> F(Disable Capsule Collider)
+E --> C
+F --> C
+~~~
 By dynamically enabling or disabling colliders based on proximity, this script provides a mechanism for controlling the interaction between the game object and nearby objects. It allows for precise control over object interactions within a specified range, enhancing gameplay mechanics and enabling various gameplay scenarios such as pushing & blocking.
 
 ## Stamina
+~~~mermaid
+flowchart TD;
+    B[UseEnergy]
+    C[IsDraining]
+    D[CurrentStamina != 0]
+    E[CurrentStamina <= MaxStamina]
+    F[Decrease Stamina]
+    G[Increase Stamina]
+    
+    B --> C
+    C --> D
+    C --> E
+    D -- Yes --> F
+    D -- No --> B
+    E -- Yes --> G 
+    E -- No --> B
+~~~
 Based on player actions, such as using skills, this script dynamically adjusts the stamina level. When the player engages in actions that drain stamina, the script ensures a gradual decrease in stamina over time, simulating the exertion or depletion of energy. This introduces an element of strategy and resource management, as players need to be mindful of their stamina consumption to avoid exhausting themselves.
 
 ## FilthSpawner
