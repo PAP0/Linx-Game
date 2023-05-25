@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 public class FilthStain : MonoBehaviour
 {
+    [SerializeField] private float Range;       // The range within which the object is considered in range
     [SerializeField] private ScoreScriptableObject ScoreHolder;
 
     [Header("Blood")]
@@ -13,8 +16,7 @@ public class FilthStain : MonoBehaviour
     [Header("Garbage")]
     [SerializeField] private bool IsGarbagePatch;
     [SerializeField] private bool IsBrushed;
-
-
+    
     private Animator BloodAnimator;
 
     private void Start()
@@ -22,43 +24,43 @@ public class FilthStain : MonoBehaviour
         BloodAnimator = gameObject.GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.name == "AbilityBarrierMop" && IsGarbagePatch)
+        // Get the object with the specified tag
+        GameObject vacuumGuy = GameObject.FindGameObjectWithTag("AbilityBarrierVac");
+        GameObject mopGuy = GameObject.FindGameObjectWithTag("AbilityBarrierMop");
+        // Calculate the distance between the reference object and the current object
+        float distanceVacuum = Vector3.Distance(transform.position, vacuumGuy.transform.position);
+        float distanceMop = Vector3.Distance(transform.position, mopGuy.transform.position);
+        if (distanceMop <= Range && IsGarbagePatch)
         {
             IsBrushed = true;
         }
-
-        if (other.name ==  "AbilityBarrierVac" && IsGarbagePatch && IsBrushed)
+        if (distanceVacuum <= Range && IsGarbagePatch && IsBrushed)
         {
-            ScoreHolder.ScoreValue++;
             Destroy(gameObject);
         }
-
-        if (other.name == "AbilityBarrierVac" && IsBloodStain)
+        if (distanceVacuum <= Range && IsBloodStain)
         {
             IsSoaped = true;
         }
-
-        if (other.name == "AbilityBarrierMop" && IsBloodStain && IsSoaped)
-        {
+        if (distanceMop <= Range && IsBloodStain && IsSoaped)
+        {   
             StartCoroutine(Fade());
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    
+    private void OnDrawGizmos()
     {
-        if (other.name == "AbilityBarrierMop" && IsBloodStain && IsSoaped)
-        {
-            StopCoroutine(Fade());
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, Range);
     }
 
     IEnumerator Fade()
     {
         ScoreHolder.ScoreValue++;
         BloodAnimator.SetTrigger("IsSoaped");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }

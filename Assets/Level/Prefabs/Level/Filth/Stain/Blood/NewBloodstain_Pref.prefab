@@ -131,6 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6a15b62a34c774e812ce0d38ae33f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Range: 0.85
   ScoreHolder: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62, type: 2}
   IsBloodStain: 1
+  IsSoaped: 0
   IsGarbagePatch: 0
+  IsBrushed: 0
+  SeeThroughMaterial: {fileID: 2100000, guid: d0ae1eb0519951044bf9e26ecb1d943e, type: 2}
+  FadeTime: 0.2

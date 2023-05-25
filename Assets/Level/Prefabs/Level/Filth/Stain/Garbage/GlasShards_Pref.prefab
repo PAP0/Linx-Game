@@ -99,9 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6a15b62a34c774e812ce0d38ae33f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Range: 0.85
   ScoreHolder: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62, type: 2}
   IsBloodStain: 0
+  IsSoaped: 0
   IsGarbagePatch: 1
+  IsBrushed: 0
 --- !u!65 &1852874167375687999
 BoxCollider:
   m_ObjectHideFlags: 0
