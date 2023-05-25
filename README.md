@@ -63,7 +63,7 @@ flowchart TD;
     E -- No --> E
 ~~~
 
-The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the player prefabs and spawnpoints can be changed, ```TimerScript```, which is a reference to the Timer script, the timer is turned on once enough players have joined so that the game can start, ```PlayerPrefabs```, Which is an array that contains different player prefabs, so that each player has a different character and ability, ```SpawnPoints```,  which is an array of transform positions that represent spawn positions for the playes in the game scene, ```HudJoinElements```, which is an array of HUD "Press to join" Elements that are turned off when the players join, ```CurrentPrefabIndex```, which keeps track of the current player prefab to use from the ```PlayerPrefabs``` array.
+The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements.
 
 ## Prop Placeback
 ![Prop Placeback](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PropPlaceback.png)
@@ -97,7 +97,7 @@ flowchart TD;
     H -- No --> L
     M --> E
 ~~~
-The PropPlaceback and PropPlacebackVariables scripts are being used for handling the placement and replacement of furniture objects in the game. The scripts contain variables like ```SolidObject```, which is a reference to the furniture that gets turned on when a piece of furniture is succesfully placed,```SeeTroughMaterial```, which represents the material used for the furniture when it is in the placeholder/ghost state,```AlphaVlue```, the variable that stores the value of how transparent ```SeeTroughMateroal``` is,```FadeTime```, Which determines the time it takes for the alpha value to fade during the fadeout process,```propPlaceBackVariables```, which is a reference to another script that holds the ```TargetObject``` and ```IsInPlace``` variables. ```TargetObject``` being the object that the collider needs to detect, and ```IsInPlace``` being the bool that turns on when the target object has been placed correctly.
+The PropPlaceback and PropPlacebackVariables scripts are being used for handling the placement and replacement of furniture objects in the game.
 
 ## Player Area Detector
 ![Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png)
@@ -129,8 +129,4 @@ flowchart TD;
     K --> H
 ~~~
 
-The PlayerAreaDetector script detects how many players are inside the collider area and depending on the total amount of players, detects if all players in the getaway spot, so that the game ends. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the script can check how many players there are in total, and ```PlayersInArea```, which is a  list of gameobjects that stores the players that are currently in the collider area.
-
-## Example
-
-Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line.
+The PlayerAreaDetector script detects how many players are inside the collider area and depending on the total amount of players, detects if all players in the getaway spot, so that the game can end.
