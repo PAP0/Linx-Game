@@ -100,7 +100,9 @@ flowchart TD;
 The PropPlaceback and PropPlacebackVariables scripts are being used for handling the placement and replacement of furniture objects in the game.
 
 ## Player Area Detector
-![Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png)
+<div style="display: flex;">
+    <img src="https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png" alt="PlayerInputmanager" width="400">
+</div>
 ~~~mermaid
 flowchart TD;
     A((Start))
