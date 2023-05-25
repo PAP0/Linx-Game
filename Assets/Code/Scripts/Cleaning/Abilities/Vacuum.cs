@@ -3,9 +3,15 @@ using UnityEngine.InputSystem;
 
 public class Vacuum : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Stamina PlayerStamina;
+    [SerializeField] private StaminaScritableObject StaminaObject;
+
+    [Header("Ranges")]
     [SerializeField] private float SuctionRadius; // the radius of the suction area
     [SerializeField] private LayerMask SuckableLayers; // the layers that the vacuum can suck
 
+    [Header("Variables")]
     [SerializeField] private float SuctionStartSpeed;
     [SerializeField] private float SuctionMaxSpeed;
     [SerializeField] private AnimationCurve VelocityCurve;
@@ -13,17 +19,27 @@ public class Vacuum : MonoBehaviour
 
     private float Acceleration;
     private float Speed;
-    private bool IsSucking;
+    private bool IsSucking = false;
 
     public void OnSuck(InputAction.CallbackContext context)
     {
         if (!context.started) return;
 
-        IsSucking = !IsSucking;   
+        IsSucking = !IsSucking;
+
     }
 
     private void Update()
     {
+        if (StaminaObject.CurrentStamina <= 1)
+        {
+            IsSucking = false;
+        }
+        else
+        {
+            PlayerStamina.UseEnergy(IsSucking);
+        }
+
         Suck();
     }
     private void Suck()

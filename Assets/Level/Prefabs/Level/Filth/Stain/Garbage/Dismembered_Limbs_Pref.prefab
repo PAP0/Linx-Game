@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3158196499785991155}
   - component: {fileID: 1852874167375687999}
   - component: {fileID: 5233490140625932033}
+  - component: {fileID: -4445142148705440196}
   m_Layer: 6
   m_Name: Dismembered_Limbs_Pref
   m_TagString: Untagged
@@ -101,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreHolder: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62, type: 2}
-  IsBloodStain: 0
-  IsGarbagePatch: 1
+  IsBloodStain: 1
+  IsGarbagePatch: 0
 --- !u!65 &1852874167375687999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -132,6 +133,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &-4445142148705440196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091764987791123036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b77cd504d7306ed4da2b4af5836d171c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &3356298543842383712
 PrefabInstance:
   m_ObjectHideFlags: 0

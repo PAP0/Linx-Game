@@ -1,11 +1,5 @@
-using System;
-using System.Diagnostics.Tracing;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class Timer : MonoBehaviour
 {
@@ -32,7 +26,7 @@ public class Timer : MonoBehaviour
             if (TimeLeft > 0)
             {
                 TimeLeft -= Time.deltaTime;
-                updateTimer(TimeLeft);
+                UpdateTimer(TimeLeft);
 
                 for (int i = 0; i < ObjectsToEnable.Length; i++)
                 {
@@ -51,7 +45,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    void updateTimer(float currentTime)
+    void UpdateTimer(float currentTime)
     {
         currentTime += 1;
 
