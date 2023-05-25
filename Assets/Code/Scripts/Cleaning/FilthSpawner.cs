@@ -1,10 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FilthSpawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
+    [SerializeField] private ScoreScriptableObject Score;
+
+    [Header("Spawn Settings")]
+    [SerializeField] private float SpawnTime;
     [SerializeField] private float SpawnChance;
     [SerializeField] private GameObject[] SpawnObjects;
     
@@ -21,7 +24,16 @@ public class FilthSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Score.TotalObjects = 0;
+
         Spawn();
+
+        StartCoroutine(SpawnOverTime());
+    }
+
+    private void Update()
+    {
+       
     }
 
     private void Spawn()
@@ -34,11 +46,21 @@ public class FilthSpawner : MonoBehaviour
                 {
                     if (SpawnChance > Random.Range(0, 101))
                     {
+                        Score.TotalObjects++;
                         Instantiate(SpawnObjects[RandomIndex], new Vector3(hit.point.x, hit.point.y + 0.03f, hit.point.z), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
                         RandomIndex = Random.Range(0, SpawnObjects.Length);
                     }
                 }
             }
+        }
+    }
+    IEnumerator SpawnOverTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(SpawnTime);
+            Instantiate(SpawnObjects[RandomIndex], new Vector3(Random.Range(MinimumSpawnPosition.x, MaximumSpawnPosition.x), -0.95f, Random.Range(MinimumSpawnPosition.y, MaximumSpawnPosition.y)), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
+            Score.TotalObjects++;
         }
     }
 }
