@@ -268,34 +268,30 @@ The "FilthStain" script represents a filth object in a game. It provides functio
 ![FilthCleanup](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/GarbagePatch.png)
 
 ~~~mermaid
-flowchart TD;
- A((Start))
- B[Check if object is in range]
- C[Check if the object is a garbage patch or a blood stain]
- D[Check if the object touching is the Mop or the Vacuum]
- E[Object turns brushed, if already brushed it stays brushed]
- F[Check if the object is brushed]
- G[Delete the gameObject and add to the score]
- H[Object turns soaped, if already soaped it stays soaped]
- I[Check if the gameObject is soaped]
- J[Initiate the Fade coroutine]
+flowchart TD
+A((Start)) --> B{Update()}
+B --> |True| C(Find vacuumGuy and mopGuy)
+C --> D{Calculate distanceVacuum and distanceMop}
+D --> |IsGarbagePatch| E{distanceMop <= Range}
+E --> |True| F{IsBrushed = true}
+F --> G{distanceVacuum <= Range}
+G --> |True| H{IsGarbagePatch && IsBrushed}
+H --> I(Destroy gameObject)
+G --> |False| B
+E --> |False| G
+C --> |False| B
+G --> |True| J{IsBloodStain = true}
+J --> K{distanceVacuum <= Range}
+K --> |True| L{IsSoaped = true}
+L --> M{distanceMop <= Range}
+M --> |True| N(Run Fade coroutine)
+M --> |False| B
+N --> O{Fade()}
+O --> P{Increment ScoreValue}
+P --> Q[SetTrigger("IsSoaped")]
+Q --> R[WaitForSeconds(3f)]
+R --> S(Destroy gameObject)
 
- A --> B
- B --> C
- C -- Garbage patch --> D
- D -- Mop --> E
- E --> B
- D -- Vacuum --> F
- F -- no --> B
- F -- yes --> G
- G --> B
- C -- Blood stain --> D
- D -- Vacuum --> H
- H --> B
- D -- Mop --> I
- I -- No --> B
- I -- Yes --> J
- J --> B
  ~~~
  
  ## Timer + some other UI elements
