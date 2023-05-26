@@ -135,18 +135,15 @@ This script automates the process of spawning objects in the game scene based on
 ## Player Input/Controller Scheme
 ![Player Input Scheme](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/ControllerScheme.png)
 <div style="display: flex;">
-    <img src="https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerInput.png" alt="Player Input Scheme" width="400">
     <p style="margin-left: 20px; flex-grow: 1;">We use Unity's New Input System to take care of the player's input and invoke Unity events to call the PlayerController functions.</p>
 </div>
 
 ## Co-Op
 <div style="display: flex;">
-    <img src="https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerInputManager.png" alt="PlayerInputmanager" width="400">
     <p style="margin-left: 20px; flex-grow: 1;">We use Unity's Player Input Manager together with our custom Player Join Manager to take care of Co-Op so that players can join in and play the game together.</p>
 </div>
 
 ## Player Join Manager
-![Player Join Manager](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerJoinManager.png)
 ~~~mermaid
 flowchart TD;
     A((Start))
