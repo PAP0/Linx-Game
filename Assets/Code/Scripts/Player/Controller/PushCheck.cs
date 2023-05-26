@@ -18,15 +18,15 @@ public class PushCheck : MonoBehaviour
         {
             foreach (Collider collider in colliders)
             {
-                capsuleCollider = collider.GetComponent<CapsuleCollider>();
+                capsuleCollider = collider.GetComponentInParent<CapsuleCollider>();
                 capsuleCollider.enabled = true;
             }
         }
         else
         {
-            foreach (Collider collider in colliders)
+            foreach (Collider collider in colliders) 
             {
-                capsuleCollider = collider.GetComponent<CapsuleCollider>();
+                capsuleCollider = collider.GetComponentInParent<CapsuleCollider>();
                 capsuleCollider.enabled = false;
             }
         }
