@@ -17133,6 +17133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1004120925}
   - {fileID: 458445433}
   - {fileID: 532657759}
   - {fileID: 2034506529}
@@ -17150,7 +17151,6 @@ Transform:
   - {fileID: 348906340}
   - {fileID: 903615230}
   - {fileID: 724984929}
-  - {fileID: 1004120925}
   - {fileID: 272067842}
   - {fileID: 1632630637}
   - {fileID: 464781783}
@@ -20446,7 +20446,7 @@ Transform:
   - {fileID: 1434869369}
   - {fileID: 1366990046}
   m_Father: {fileID: 850884969}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023730623 stripped
 GameObject:
@@ -25723,7 +25723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc038ffe5baba054aae3551333818a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxDistance: 1
+  MaxDistance: 2
   Mask:
     serializedVersion: 2
     m_Bits: 128
