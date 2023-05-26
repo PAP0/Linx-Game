@@ -290,7 +290,7 @@ N --> |True| O[Run Fade coroutine]
 N --> |False| B
 O --> P{Fade()}
 P --> Q{Increment ScoreValue}
-Q --> R[SetTrigger("IsSoaped")]
+Q --> R[SetTrigger(IsSoaped)]
 R --> S[WaitForSeconds(3f)]
 S --> T[Destroy gameObject]
 
