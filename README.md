@@ -12,6 +12,11 @@ TidyTeam is played locally, with two players. Both players have different abilit
 
 *If you want more information about the game I recommend going to our [Wiki](https://github.com/Bjornraaf/Linx-Game/wiki/Functional-Design) or [Functional Design](https://github.com/Bjornraaf/Linx-Game/wiki/Functional-Design).*
 
+# Engine
+We decided to make our game in Unity, since our team is experienced in it
+
+The version we use in unity is: 2021.3.18f1 LTS
+
 # Produced Game Elements
 
 Bjorn Ravensbergen:
