@@ -28,11 +28,6 @@ public class FilthSpawner : MonoBehaviour
         Spawn();
     }
 
-    private void Update()
-    {
-       
-    }
-
     private void Spawn()
     {
         for (float x = MinimumSpawnPosition.x; x < MaximumSpawnPosition.x; x += Distance)
