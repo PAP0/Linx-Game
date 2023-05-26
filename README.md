@@ -27,6 +27,7 @@ Patryk Podworny:
   * [Player Join Manager](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerJoinManager.cs)
   * [Prop Placeback](https://github.com/Bjornraaf/Linx-Game/tree/develop/Assets/Code/Scripts/Cleaning/Props)
   * [Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerAreaDetector.cs)
+  * [Cleanup mechanic](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthStain/FilthStain.cs)
 
 Ties Postma:
   * [Camera script](https://github.com/Bjornraaf/Linx-Game/blame/develop/Assets/Code/Scripts/Camera/CameraController.cs)
