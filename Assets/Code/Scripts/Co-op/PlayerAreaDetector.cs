@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>  
 /// This script checks if all the players are inside the escape area.
@@ -27,7 +28,7 @@ public class PlayerAreaDetector : MonoBehaviour
                 // Check if the required number of players are in the area
                 if (PlayersInArea.Count >= PlayerInputManager.playerCount)
                 {
-                    Debug.Log("All players are in the area!");
+                    StartCoroutine(LoadSceneWithTransition());
                 }
             }
         }
@@ -46,5 +47,12 @@ public class PlayerAreaDetector : MonoBehaviour
                 Debug.Log("Not enough players in the area!");
             }
         }
+    }
+    private IEnumerator LoadSceneWithTransition()
+    {
+        yield return new WaitForSeconds(1f);
+
+        // Load the next scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

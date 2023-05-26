@@ -29,9 +29,8 @@ Patryk Podworny:
   * [Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerAreaDetector.cs)
 
 Ties Postma:
-  * [Camera script](https://github.com/Bjornraaf/Linx-Game/blame/develop/Assets/Code/Scripts/Camera/CameraController.cs)
-  * [Cleanup mechanic](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthStain/FilthStain.cs)
-  * [Timer + some other UI elements](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/UI/Timer.cs)
+  * x
+  * x
 
 ## PlayerController
 ~~~mermaid
@@ -165,7 +164,7 @@ flowchart TD;
     E -- No --> E
 ~~~
 
-The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the player prefabs and spawnpoints can be changed, ```TimerScript```, which is a reference to the Timer script, the timer is turned on once enough players have joined so that the game can start, ```PlayerPrefabs```, Which is an array that contains different player prefabs, so that each player has a different character and ability, ```SpawnPoints```,  which is an array of transform positions that represent spawn positions for the playes in the game scene, ```HudJoinElements```, which is an array of HUD "Press to join" Elements that are turned off when the players join, ```CurrentPrefabIndex```, which keeps track of the current player prefab to use from the ```PlayerPrefabs``` array.
+The PlayerJoinManager manages the joining of players in a game, assigns player prefabs and spawn points, and controls the visibility of HUD elements.
 
 ## Prop Placeback
 ![Prop Placeback](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PropPlaceback.png)
@@ -199,10 +198,13 @@ flowchart TD;
     H -- No --> L
     M --> E
 ~~~
-The PropPlaceback and PropPlacebackVariables scripts are being used for handling the placement and replacement of furniture objects in the game. The scripts contain variables like ```SolidObject```, which is a reference to the furniture that gets turned on when a piece of furniture is succesfully placed,```SeeTroughMaterial```, which represents the material used for the furniture when it is in the placeholder/ghost state,```AlphaVlue```, the variable that stores the value of how transparent ```SeeTroughMateroal``` is,```FadeTime```, Which determines the time it takes for the alpha value to fade during the fadeout process,```propPlaceBackVariables```, which is a reference to another script that holds the ```TargetObject``` and ```IsInPlace``` variables. ```TargetObject``` being the object that the collider needs to detect, and ```IsInPlace``` being the bool that turns on when the target object has been placed correctly.
+The PropPlaceback and PropPlacebackVariables scripts are being used for handling the placement and replacement of furniture objects in the game.
 
 ## Player Area Detector
-![Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png)
+<div style="display: flex;">
+    <img src="https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerAreaDetector.png" alt="PlayerInputmanager" width="400">
+</div>
+
 ~~~mermaid
 flowchart TD;
     A((Start))
@@ -231,98 +233,4 @@ flowchart TD;
     K --> H
 ~~~
 
-The PlayerAreaDetector script detects how many players are inside the collider area and depending on the total amount of players, detects if all players in the getaway spot, so that the game ends. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the script can check how many players there are in total, and ```PlayersInArea```, which is a  list of gameobjects that stores the players that are currently in the collider area.
-
-## Camera Movement script
-the CameraController Script is used to follow the players, allowing them to both constantly be on screen to make sure the players know where they are.
-
-![CameraMovement](https://github.com/Bjornraaf/Linx-Game/blob/ties-postma-readme-1/Images/Camera%20Controller.png)
-~~~mermaid
-flowchart TD;
-        A((Start))
-        B[Check if Targets exist]
-        C[No targets found]
-        D[End]
-        E[Targets found] 
-        F[Calculate center position]
-        G[Move the camera]
-        H[Zoom the camera]
-        
-        A --> B
-        B --> C
-        C --> D
-        B --> E
-        E --> F
-        F --> G
-        G --> H
-        H --> D
-~~~
-
-## Filth cleanup script
-The "FilthStain" script represents a filth object in a game. It provides functionality to interact with the stain using vacuum and mop players. The script allows for the detection of nearby vacuum and mop players within a specified range and performs actions based on the type of stain (blood or garbage), the script also makes it so the blood stain and filth stain have to be cleaned up using both players to initiate teamwork. It also includes functionality for animation, score tracking, and object destruction.
-
-![FilthCleanup](https://github.com/Bjornraaf/Linx-Game/blob/ties-postma-readme-1/Images/GarbagePatch.png)
-
-~~~mermaid
-flowchart TD;
- A((Start))
- B[Check if object is in range]
- C[Check if the object is a garbage patch or a blood stain]
- D[Check if the object touching is the Mop or the Vacuum]
- E[Object turns brushed, if already brushed it stays brushed]
- F[Check if the object is brushed]
- G[Delete the gameObject and add to the score]
- H[Object turns soaped, if already soaped it stays soaped]
- I[Check if the gameObject is soaped]
- J[Initiate the Fade coroutine]
-
- A --> B
- B --> C
- C -- Garbage patch --> D
- D -- Mop --> E
- E --> B
- D -- Vacuum --> F
- F -- no --> B
- F -- yes --> G
- G --> B
- C -- Blood stain --> D
- D -- Vacuum --> H
- H --> B
- D -- Mop --> I
- I -- No --> B
- I -- Yes --> J
- J --> B
- ~~~
- 
- ## Timer + some other UI elements
-A countdown timer adds a sense of urgency and time-based challenge to a game. It creates a time constraint that the players must consider when making decisions and taking actions in the level. The score UI element provides players with immediate feedback on their progress in cleaning the level.
-
-![TimerScript](https://github.com/Bjornraaf/Linx-Game/blob/ties-postma-readme-1/Images/Timer.png)
-
-~~~mermaid
-flowchart TD;
-  A((start))
-  B[update]
-  C[check if TimerOn is true]
-  D[Open the elevator doors]
-  E[Timer ticks down every second]
-  F[Is there more than 0 seconds left?]
-  G[Are you in the escape zone?]
-  H[Timer stops and you lose]
-  I[Timer stops and you win]
-  
-  A --> B
-  B --> C
-  C -- No --> B
-  C -- Yes --> D
-  D --> E
-  E --> F
-  F -- Yes --> E
-  F -- No --> G
-  G -- Yes --> I
-  G -- No --> H
-  ~~~
-
-## Example
-
-Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line.
+The PlayerAreaDetector script detects how many players are inside the collider area and depending on the total amount of players, detects if all players in the getaway spot, so that the game can end.
