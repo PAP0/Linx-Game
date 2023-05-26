@@ -40,6 +40,7 @@ Ties Postma:
   * [Timer + some other UI elements](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/UI/Timer.cs)
 
 ## PlayerController
+![PlayerControllerCharacter](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/PlayerControllerCharacter.JPG)
 ~~~mermaid
 flowchart TD;
 A(Start) --> B(Update)
@@ -80,6 +81,7 @@ M --> N(Paint in Dirt Mask)
 N --> C
 ~~~
 The Cleanable script manages the cleaning functionality of an object in the game. It enables players to interact with the object and progressively clean it using a dirt brush texture. The script initializes textures and materials, calculates the total dirt amount, and updates the object based on the cleaning progress. It tracks the player's position, detects contact points, and applies cleaning based on raycasting and texture mapping. The script ensures realistic cleaning by preventing close painting. It iterates over brush pixels, removes dirt, and updates the DirtMaskTexture accordingly. The cleaned texture is applied, and the remaining dirt is calculated as a percentage.
+
 ## PushCheck
 ~~~mermaid
 flowchart TD;
@@ -114,6 +116,7 @@ flowchart TD;
 Based on player actions, such as using skills, this script dynamically adjusts the stamina level. When the player engages in actions that drain stamina, the script ensures a gradual decrease in stamina over time, simulating the exertion or depletion of energy. This introduces an element of strategy and resource management, as players need to be mindful of their stamina consumption to avoid exhausting themselves.
 
 ## FilthSpawner
+![FilthSpawnerImage](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/FilthSpawner.JPG)
 ~~~mermaid
 flowchart TD;
 A(Start) --> B(Set Score.TotalObjects to 0)
