@@ -58,9 +58,9 @@ public class FilthStain : MonoBehaviour
 
     IEnumerator Fade()
     {
-        ScoreHolder.ScoreValue++;
         BloodAnimator.SetTrigger("IsSoaped");
         yield return new WaitForSeconds(3f);
+        ScoreHolder.ScoreValue++;
         Destroy(gameObject);
     }
 }
