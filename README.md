@@ -29,8 +29,9 @@ Patryk Podworny:
   * [Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerAreaDetector.cs)
 
 Ties Postma:
-  * x
-  * x
+  * [Camera script](https://github.com/Bjornraaf/Linx-Game/blame/develop/Assets/Code/Scripts/Camera/CameraController.cs)
+  * [Cleanup mechanic](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthStain/FilthStain.cs)
+  * [Timer + some other UI elements](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/UI/Timer.cs)
 
 ## PlayerController
 ~~~mermaid
@@ -231,6 +232,90 @@ flowchart TD;
 ~~~
 
 The PlayerAreaDetector script detects how many players are inside the collider area and depending on the total amount of players, detects if all players in the getaway spot, so that the game ends. The script contains variables like ```PlayerInputManager```, which is a reference to the PlayerInputManger, so that the script can check how many players there are in total, and ```PlayersInArea```, which is a  list of gameobjects that stores the players that are currently in the collider area.
+
+## Camera Movement script
+the CameraController Script is used to follow the players, allowing them to both constantly be on screen to make sure the players know where they are. the camera zooms in and follows the targets with the tag ```player```, the camera follows the players by calculating the center point of all the players, making sure the camera is exectly in the center of the two players, the script also uses ```Vector3.SmoothDamp``` to smoothly move the camera towards the new position. The ```Zoom``` method calculates the appropriate field of view for the camera based on the distance between the targets, using the ```mathf.Lerp``` function to smoothly transition between the zoom levels.
+~~~mermaid
+flowchart TD;
+        A((Start))
+        B[Check if Targets exist]
+        C[No targets found]
+        D[End]
+        E[Targets found] 
+        F[Calculate center position]
+        G[Move the camera]
+        H[Zoom the camera]
+        
+        A --> B
+        B --> C
+        C --> D
+        B --> E
+        E --> F
+        F --> G
+        G --> H
+        H --> D
+~~~
+
+## Filth cleanup script
+The "FilthStain" script represents a filth object in a game. It provides functionality to interact with the stain using vacuum and mop players. The script allows for the detection of nearby vacuum and mop players within a specified range and performs actions based on the type of stain (blood or garbage), the script also makes it so the blood stain and filth stain have to be cleaned up using both players to initiate teamwork. It also includes functionality for animation, score tracking, and object destruction.
+
+~~~mermaid
+flowchart TD;
+ A((Start))
+ B[Check if object is in range]
+ C[Check if the object is a garbage patch or a blood stain]
+ D[Check if the object touching is the Mop or the Vacuum]
+ E[Object turns brushed, if already brushed it stays brushed]
+ F[Check if the object is brushed]
+ G[Delete the gameObject and add to the score]
+ H[Object turns soaped, if already soaped it stays soaped]
+ I[Check if the gameObject is soaped]
+ J[Initiate the Fade coroutine]
+
+ A --> B
+ B --> C
+ C -- Garbage patch --> D
+ D -- Mop --> E
+ E --> B
+ D -- Vacuum --> F
+ F -- no --> B
+ F -- yes --> G
+ G --> B
+ C -- Blood stain --> D
+ D -- Vacuum --> H
+ H --> B
+ D -- Mop --> I
+ I -- No --> B
+ I -- Yes --> J
+ J --> B
+ ~~~
+ 
+ ## Timer + some other UI elements
+A countdown timer adds a sense of urgency and time-based challenge to a game. It creates a time constraint that the players must consider when making decisions and taking actions in the level. The score UI element provides players with immediate feedback on their progress in cleaning the level.
+
+~~~mermaid
+flowchart TD;
+  A((start))
+  B[update]
+  C[check if TimerOn is true]
+  D[Open the elevator doors]
+  E[Timer ticks down every second]
+  F[Is there more than 0 seconds left?]
+  G[Are you in the escape zone?]
+  H[Timer stops and you lose]
+  I[Timer stops and you win]
+  
+  A --> B
+  B --> C
+  C -- No --> B
+  C -- Yes --> D
+  D --> E
+  E --> F
+  F -- Yes --> E
+  F -- No --> G
+  G -- Yes --> I
+  G -- No --> H
+  ~~~
 
 ## Example
 
