@@ -242,8 +242,6 @@ The PlayerAreaDetector script detects how many players are inside the collider a
 ## Camera Movement script
 the CameraController Script is used to follow the players, allowing them to both constantly be on screen to make sure the players know where they are.
 
-![CameraMovement](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/Camera%20Controller.png)
-
 ~~~mermaid
 flowchart TD;
         A((Start))
@@ -267,8 +265,6 @@ flowchart TD;
 
 ## Filth cleanup script
 The "FilthStain" script represents a filth object in a game. It provides functionality to interact with the stain using vacuum and mop players. The script allows for the detection of nearby vacuum and mop players within a specified range and performs actions based on the type of stain (blood or garbage), the script also makes it so the blood stain and filth stain have to be cleaned up using both players to initiate teamwork. It also includes functionality for animation, score tracking, and object destruction.
-
-![FilthCleanup](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/GarbagePatch.png)
 
 ~~~mermaid
 flowchart TD;
@@ -331,8 +327,6 @@ flowchart TD;
  
  ## Timer + some other UI elements
 A countdown timer adds a sense of urgency and time-based challenge to a game. It creates a time constraint that the players must consider when making decisions and taking actions in the level. The score UI element provides players with immediate feedback on their progress in cleaning the level.
-
-![timer](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/Timer.png)
 
 ~~~mermaid
 flowchart TD;
