@@ -237,7 +237,7 @@ flowchart TD;
 The PlayerAreaDetector script detects how many players are inside the collider area and depending on the total amount of players, detects if all players in the getaway spot, so that the game can end.
 
 ## Camera Movement script
-the CameraController Script is used to follow the players, allowing them to both constantly be on screen to make sure the players know where they are. the camera zooms in and follows the targets with the tag ```player```, the camera follows the players by calculating the center point of all the players, making sure the camera is exectly in the center of the two players, the script also uses ```Vector3.SmoothDamp``` to smoothly move the camera towards the new position. The ```Zoom``` method calculates the appropriate field of view for the camera based on the distance between the targets, using the ```mathf.Lerp``` function to smoothly transition between the zoom levels.
+the CameraController Script is used to follow the players, allowing them to both constantly be on screen to make sure the players know where they are.
 
 ![CameraMovement](https://github.com/Bjornraaf/Linx-Game/blob/develop/Images/Camera%20Controller.png)
 
