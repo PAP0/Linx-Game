@@ -27,6 +27,7 @@ Patryk Podworny:
   * [Player Join Manager](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerJoinManager.cs)
   * [Prop Placeback](https://github.com/Bjornraaf/Linx-Game/tree/develop/Assets/Code/Scripts/Cleaning/Props)
   * [Player Area Detector](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Co-op/PlayerAreaDetector.cs)
+  * [Cleanup mechanic](https://github.com/Bjornraaf/Linx-Game/blob/develop/Assets/Code/Scripts/Cleaning/FilthStain/FilthStain.cs)
 
 Ties Postma:
   * [Camera script](https://github.com/Bjornraaf/Linx-Game/blame/develop/Assets/Code/Scripts/Camera/CameraController.cs)
@@ -269,31 +270,60 @@ The "FilthStain" script represents a filth object in a game. It provides functio
 
 ~~~mermaid
 flowchart TD;
-A[Start] --> B[Update()]
-B --> C[Find vacuumGuy and mopGuy]
-C --> D[Calculate distanceVacuum and distanceMop]
-D --> E{IsGarbagePatch?}
-E --> |True| F{distanceMop <= Range}
-F --> |True| G{IsBrushed = true}
-G --> H{distanceVacuum <= Range}
-H --> |True| I{IsGarbagePatch && IsBrushed}
-I --> J[Destroy gameObject]
-H --> |False| B
-F --> |False| H
-E --> |False| H
-C --> |False| B
-H --> |True| K{IsBloodStain = true}
-K --> L{distanceVacuum <= Range}
-L --> |True| M{IsSoaped = true}
-M --> N{distanceMop <= Range}
-N --> |True| O[Run Fade coroutine]
-N --> |False| B
-O --> P{Fade()}
-P --> Q{Increment ScoreValue}
-Q --> R[SetTrigger(IsSoaped)]
-R --> S[WaitForSeconds(3f)]
-S --> T[Destroy gameObject]
+    Start(Start) --> Initialize(Initialize FilthStain)
+    Initialize --> Update(Update)
+    Update --> CheckVacuum(Check distance to vacuumGuy)
+    Update --> CheckMop(Check distance to mopGuy)
+    CheckMop --> Brushed(Update IsBrushed)
+    CheckVacuum --> CheckGarbagePatch(Check IsGarbagePatch)
+    CheckGarbagePatch --> DestroyGarbage(Destroy gameObject)
+    CheckVacuum --> CheckBloodStain(Check IsBloodStain)
+    CheckBloodStain --> Soaped(Update IsSoaped)
+    CheckMop --> CheckBloodStain2(Check IsBloodStain)
+    CheckBloodStain2 --> Fade(Fade animation)
+    Fade --> UpdateScore(Update ScoreHolder)
+    Fade --> DestroyGarbage
+    DestroyGarbage --> End(End)
 
+    subgraph FilthStain
+        Initialize
+        Update
+        CheckVacuum
+        CheckMop
+        CheckGarbagePatch
+        CheckBloodStain
+        CheckBloodStain2
+        Fade
+    end
+
+    subgraph ScoreScriptableObject
+        UpdateScore
+    end
+
+    subgraph Animator
+        Soaped
+    end
+
+    subgraph GameObject
+        vacuumGuy
+        mopGuy
+    end
+
+    subgraph Gizmos
+        OnDrawGizmos
+    end
+
+    subgraph Coroutine
+        DestroyGarbage
+    end
+
+    Start --> FilthStain
+    FilthStain --> Coroutine
+    Coroutine --> ScoreScriptableObject
+    Coroutine --> Animator
+    FilthStain --> GameObject
+    FilthStain --> Gizmos
+    Gizmos --> End
 
  ~~~
  
