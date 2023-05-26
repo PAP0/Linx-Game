@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -38,9 +39,9 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time is UP!");
                 TimeLeft = 0;
                 TimerOn = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
         }
     }
