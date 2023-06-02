@@ -5,14 +5,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
+    public float Speed = 5.0f;
+
+
     [Header("References")]
     [SerializeField] private CharacterController Controller;
     [SerializeField] private Stamina PlayerStamina;
     [SerializeField] private StaminaScritableObject StaminaObj;
 
-    [Header("Movement")]
-    [SerializeField] private float Speed = 5.0f;
-
+    
     [Header("Revive")]
     [SerializeField] private float ReviveDistance;
     [SerializeField] private float ReviveTime;
