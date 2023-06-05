@@ -342,19 +342,7 @@ MonoBehaviour:
     m_ActionId: 4e02f5c0-c437-4455-aa3e-b6923029aa75
     m_ActionName: Universal Map/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1844890893650401379}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnRevive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: db317c45-e4d9-43e8-9f71-dcdf201c6f22
     m_ActionName: Universal Map/Melee[/Mouse/leftButton,/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
@@ -396,7 +384,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   PlayerAnimator: {fileID: 7013667441100305207}
-  Movement: {x: 0, y: 0}
 --- !u!114 &2442865579965957550
 MonoBehaviour:
   m_ObjectHideFlags: 0
