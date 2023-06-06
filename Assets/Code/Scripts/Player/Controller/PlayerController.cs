@@ -5,11 +5,13 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private CharacterController Controller;
+    public bool CanWalk = true;
 
     [Header("Movement")]
-    [SerializeField] private float Speed = 5.0f;
+    private float Speed = 5.0f;
+
+    [Header("References")]
+    [SerializeField] private CharacterController Controller;
 
     [Header("Revive")]
     [SerializeField] private float ReviveDistance;
@@ -63,8 +65,11 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (CanWalk)
+        {
             Vector3 move = new Vector3(Movement.x, Velocity, Movement.y);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(Movement.x, 0, Movement.y)), 0.15f);
             Controller.Move(move * Speed * Time.deltaTime);
+        }
     }
 }
