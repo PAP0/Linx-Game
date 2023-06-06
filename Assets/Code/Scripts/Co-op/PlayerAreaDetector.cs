@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /// <summary>  
 /// This script checks if all the players are inside the escape area.
@@ -14,7 +15,12 @@ public class PlayerAreaDetector : MonoBehaviour
     private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
 
     private List<GameObject> PlayersInArea = new List<GameObject>(); //List of the players that are currently in the area
-
+    
+    [SerializeField] private TMP_Text ScoreTxt;
+    
+    public ScoreScriptableObject ScoreScriptableObject;
+    public GameObject YouWin;
+    
     private void OnTriggerEnter(Collider other) // Checks and adds the amount of players inside collider and adds them to the PlayersInArea list.
     {
         if (other.CompareTag("Player")) // If the collider that enters is a player
@@ -28,7 +34,9 @@ public class PlayerAreaDetector : MonoBehaviour
                 // Check if the required number of players are in the area
                 if (PlayersInArea.Count >= PlayerInputManager.playerCount)
                 {
-                    StartCoroutine(LoadSceneWithTransition());
+                    Time.timeScale = 0f;
+                    YouWin.SetActive(true);
+                    ScoreTxt.text = ScoreScriptableObject.ScoreValue.ToString();
                 }
             }
         }
