@@ -334,6 +334,7 @@ MonoBehaviour:
   BatterySlider: {fileID: 5533910352229814220}
   MaxBattery: 40
   EnergyValue: 4
+  isCharging: 0
 --- !u!1 &4678449937179615439
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,27 +730,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bbb1363f1489c747b43567c598a5acf, type: 3}
---- !u!1 &2998509681181476474 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 542499768391756013, guid: 7bbb1363f1489c747b43567c598a5acf,
-    type: 3}
-  m_PrefabInstance: {fileID: 3322389893306166935}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8293646307512609360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2998509681181476474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b24935e3d54b27047a0e5cb45b32fc9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: HiddenFilth
-  fovAngle: 90
-  detectionRange: 6.16
 --- !u!4 &7191587559796954675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5608713031254833316, guid: 7bbb1363f1489c747b43567c598a5acf,
