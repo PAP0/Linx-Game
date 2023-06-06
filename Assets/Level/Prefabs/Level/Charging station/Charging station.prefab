@@ -123,7 +123,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7257981100116740276}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,7 +133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000004887581}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7257981100116740265
@@ -300,16 +300,16 @@ RectTransform:
   m_GameObject: {fileID: 7257981100280550894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.00463587, y: 0.14543448, z: 0.00463587}
+  m_LocalScale: {x: 0.0055569583, y: 0.17433047, z: 0.0055569583}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7257981100116740267}
-  m_Father: {fileID: 7257981100791904092}
-  m_RootOrder: 0
+  m_Father: {fileID: 7257981101464372141}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.0146666}
+  m_AnchoredPosition: {x: 0, y: 0.88}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7257981100280550882
@@ -404,7 +404,6 @@ Transform:
   m_LocalScale: {x: 1.5656137, y: 0.049905505, z: 1.5656137}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7257981100280550893}
   - {fileID: 7257981101464372141}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -504,8 +503,9 @@ Transform:
   m_Children:
   - {fileID: 7257981099908009937}
   - {fileID: 7257981100263809209}
+  - {fileID: 7257981100280550893}
   m_Father: {fileID: 7257981100791904092}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7257981101464372130
 MeshFilter:
