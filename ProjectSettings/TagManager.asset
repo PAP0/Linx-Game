@@ -11,6 +11,7 @@ TagManager:
   - AbilityBarrierMop
   - AbilityBarrierVac
   - ChargingStation
+  - HiddenFilth
   layers:
   - Default
   - TransparentFX
