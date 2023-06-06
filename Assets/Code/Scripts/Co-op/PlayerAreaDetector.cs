@@ -14,20 +14,17 @@ public class PlayerAreaDetector : MonoBehaviour
 
     [Header("Game Score")]
     [Tooltip("The Score Scriptable Object")]
-    // Reference to the scriptable object that holds the score value.
     public ScoreScriptableObject ScoreScriptableObject;
 
     [Tooltip("The score text that appears along the win screen")]
-    // The score text that appears along the win screen.
     [SerializeField] private TMP_Text ScoreTxt;
 
     [Header("Co-Op")] 
     [Tooltip("The Player Input Manager")]
-    // A reference to the PlayerInputManager.
     [SerializeField] private PlayerInputManager PlayerInputManager;
 
     [Header("Hud elements")]
-    // A reference to the Win Screen that gets turned on when the players enter the area in time.
+    [Tooltip("A reference to the Win Screen that gets turned on when the players enter the area in time")]
     [SerializeField] private GameObject WinScreen;
 
     //List of the players that are currently in the area.

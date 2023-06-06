@@ -12,7 +12,6 @@ public class OpenDoor : MonoBehaviour
 
     [Header("Door Animator")]
     [Tooltip("The animator that opens the door")]
-    // Reference to the animator that opens the mechanical doors.
     [SerializeField] private Animator DoorAnimator;
 
     #endregion
