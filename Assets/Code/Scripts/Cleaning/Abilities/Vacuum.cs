@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Vacuum : MonoBehaviour
 {
+    public bool IsSucking;
     [Header("Ranges")]
     [SerializeField] private float SuctionRadius; // the radius of the suction area
     [SerializeField] private LayerMask SuckableLayers; // the layers that the vacuum can suck
@@ -16,17 +17,19 @@ public class Vacuum : MonoBehaviour
 
     private float Acceleration;
     private float Speed;
-    private bool IsSucking = false;
 
     public void OnSuck(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if(BatteryScript.CurrentBattery >= 1f)
         {
-            IsSucking = true;
-        }
-        else if (context.canceled)
-        {
-            IsSucking = false;
+            if (context.performed)
+            {
+                IsSucking = true;
+            }
+            else if (context.canceled)
+            {
+                IsSucking = false;
+            }
         }
     }
 
