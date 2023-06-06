@@ -19,6 +19,17 @@ public class FilthSpawner : MonoBehaviour
     [SerializeField] private Vector2 MinimumSpawnPosition;
     [SerializeField] private Vector2 MaximumSpawnPosition;
 
+    public FilthStain[] filthStain;
+
+    public void FindVacuumGuy()
+    {
+        filthStain = FindObjectsOfType<FilthStain>();
+        foreach(FilthStain obj in filthStain )
+        {
+            obj.vacuumScript = GameObject.Find("Char_VacuumGuy(Clone)").GetComponent<Vacuum>();
+        }
+    }
+
     private int RandomIndex;
     // Start is called before the first frame update
     void Start()

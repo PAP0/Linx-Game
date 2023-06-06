@@ -8,6 +8,10 @@ TagManager:
   - Ground
   - Placeback
   - Suckable
+  - AbilityBarrierMop
+  - AbilityBarrierVac
+  - ChargingStation
+  - HiddenFilth
   layers:
   - Default
   - TransparentFX

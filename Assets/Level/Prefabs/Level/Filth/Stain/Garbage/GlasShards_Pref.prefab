@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5233490140625932033}
   m_Layer: 6
   m_Name: GlasShards_Pref
-  m_TagString: Untagged
+  m_TagString: HiddenFilth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091764987791123036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 1471907047505057170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &964375110846879300
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091764987791123036}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 7127902312234296349, guid: c805c546634d73041bdf89c8dd1303fd, type: 3}
 --- !u!23 &1672858639448745455
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091764987791123036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -99,12 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6a15b62a34c774e812ce0d38ae33f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vacuumScript: {fileID: 0}
+  IsExposed: 0
+  HiddenFilth: 1
   Range: 0.85
   ScoreHolder: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62, type: 2}
-  IsBloodStain: 0
-  IsSoaped: 0
-  IsGarbagePatch: 1
-  IsBrushed: 0
 --- !u!65 &1852874167375687999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,8 +115,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.987489, y: 0.6643814, z: 0.98405707}
-  m_Center: {x: 0.0030110627, y: 0.3860268, z: 0.02338332}
+  m_Size: {x: 1.1704731, y: 0.9857142, z: 0.54668736}
+  m_Center: {x: 0.018636584, y: 0.015601397, z: 0.24206823}
 --- !u!54 &5233490140625932033
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -209,6 +208,11 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c805c546634d73041bdf89c8dd1303fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c805c546634d73041bdf89c8dd1303fd,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c805c546634d73041bdf89c8dd1303fd,

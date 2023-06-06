@@ -6,61 +6,35 @@ using Random = Unity.Mathematics.Random;
 
 public class FilthStain : MonoBehaviour
 {
-    [SerializeField] private float Range;       // The range within which the object is considered in range
-    [SerializeField] private ScoreScriptableObject ScoreHolder;
-
-    [Header("Blood")]
-    [SerializeField] private bool IsBloodStain;
-    [SerializeField] private bool IsSoaped;
+    public Vacuum vacuumScript;
 
     [Header("Garbage")]
-    [SerializeField] private bool IsGarbagePatch;
-    [SerializeField] private bool IsBrushed;
-    
-    private Animator BloodAnimator;
+    public bool IsExposed;
+    public bool HiddenFilth;
 
-    private void Start()
-    {
-        BloodAnimator = gameObject.GetComponent<Animator>();
-    }
+    [SerializeField] private float Range;
+    [SerializeField] private ScoreScriptableObject ScoreHolder;
 
     void Update()
     {
-        // Get the object with the specified tag
         GameObject vacuumGuy = GameObject.FindGameObjectWithTag("AbilityBarrierVac");
-        GameObject mopGuy = GameObject.FindGameObjectWithTag("AbilityBarrierMop");
-        // Calculate the distance between the reference object and the current object
         float distanceVacuum = Vector3.Distance(transform.position, vacuumGuy.transform.position);
-        float distanceMop = Vector3.Distance(transform.position, mopGuy.transform.position);
-        if (distanceMop <= Range && IsGarbagePatch)
-        {
-            IsBrushed = true;
-        }
-        if (distanceVacuum <= Range && IsGarbagePatch && IsBrushed)
+        if (distanceVacuum <= Range && vacuumScript.IsSucking && !HiddenFilth)
         {
             Destroy(gameObject);
+            ScoreHolder.ScoreValue++;
         }
-        if (distanceVacuum <= Range && IsBloodStain)
+
+        if (distanceVacuum <= Range && vacuumScript.IsSucking && IsExposed && IsExposed)
         {
-            IsSoaped = true;
+            Destroy(gameObject);
+            ScoreHolder.ScoreValue++;
         }
-        if (distanceMop <= Range && IsBloodStain && IsSoaped)
-        {   
-            StartCoroutine(Fade());
-        }
-    }
-    
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, Range);
     }
 
-    IEnumerator Fade()
+    private void OnDrawGizmos()
     {
-        BloodAnimator.SetTrigger("IsSoaped");
-        yield return new WaitForSeconds(3f);
-        ScoreHolder.ScoreValue++;
-        Destroy(gameObject);
+        Gizmos.color = Color.gray;
+        Gizmos.DrawWireSphere(transform.position, Range);
     }
 }
