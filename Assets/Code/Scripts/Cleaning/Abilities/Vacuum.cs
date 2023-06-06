@@ -20,7 +20,7 @@ public class Vacuum : MonoBehaviour
 
     public void OnSuck(InputAction.CallbackContext context)
     {
-        if(BatteryScript.CurrentBattery >= 1f)
+        if(BatteryScript.currentBattery >= 1f)
         {
             if (context.performed)
             {
@@ -40,7 +40,7 @@ public class Vacuum : MonoBehaviour
             BatteryScript = FindObjectOfType<Battery>();
         }
 
-        if (BatteryScript.CurrentBattery <= 1)
+        if (BatteryScript.currentBattery <= 1)
         {
             IsSucking = false;
         }

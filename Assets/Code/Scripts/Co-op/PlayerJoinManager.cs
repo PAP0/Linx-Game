@@ -12,24 +12,20 @@ public class PlayerJoinManager : MonoBehaviour
 
     [Header("Player Input Manager Reference")]
     [Tooltip("The Player Input Manager")]
-    // A reference to the PlayerInputManager.
     [SerializeField] private PlayerInputManager PlayerInputManager;
 
     [Header("Timer Reference")]
     [Tooltip("The Timer Script")]
-    // A reference to the Timer script.
     [SerializeField] private Timer TimerScript;
 
     [Header("Co-Op Variables")]
-    [Tooltip("The Player Prefabs")]
-    // An array of player prefabs to choose from.
+    [Tooltip("The Array of Player Prefabs")]
     [SerializeField] private GameObject[] PlayerPrefabs;
     [Tooltip("The spawn points for players")]
     [SerializeField] private Transform[] SpawnPoints;
 
     [Header("Join In Hud Elements")]
     [Tooltip("The Press To Join Hud Elements")]
-    // An array of hud elements that are turned off depending on the player count.
     [SerializeField] private GameObject[] HudJoinElements;
 
     // Index of current prefab to use.
@@ -52,7 +48,7 @@ public class PlayerJoinManager : MonoBehaviour
 
     #endregion
 
-    #region Methods
+    #region Public Methods
 
     /// <summary>  
     /// This Method sets new playerPrefab, spawnPoint. Handles Player join in function.

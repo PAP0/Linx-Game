@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4ec3be11ace8f41ac2f1d4fd5a3026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanWalk: 1
   Controller: {fileID: 3340628936801939402}
-  Speed: 5
   ReviveDistance: 3
   ReviveTime: 3
   Mask:
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eadc3a38e437794f98a18227ddae489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentBattery: 0
+  currentBattery: 0
   BatterySlider: {fileID: 5533910352229814220}
   MaxBattery: 40
   EnergyValue: 4
@@ -747,9 +747,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24935e3d54b27047a0e5cb45b32fc9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: HiddenFilth
-  fovAngle: 90
-  detectionRange: 6.16
+  TargetTag: HiddenFilth
+  FovAngle: 90
+  DetectionRange: 6.15
 --- !u!4 &7191587559796954675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5608713031254833316, guid: 7bbb1363f1489c747b43567c598a5acf,

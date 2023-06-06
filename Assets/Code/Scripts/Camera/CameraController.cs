@@ -11,23 +11,18 @@ public class CameraController : MonoBehaviour
 
     [Header("Offsets")]
     [Tooltip("The offset from the center point of the targets")]
-    // The offset from the center point of the targets.
     [SerializeField] private Vector3 CenterOffset; 
 
     [Header("Zoom")]
     [Tooltip("The maximum field of view (zoom) of the camera")]
-    // The maximum field of view (zoom) of the camera.
     [SerializeField] private float MaxZoom = 10f; 
     [Tooltip("The minimum field of view (zoom) of the camera")]
-    // The minimum field of view (zoom) of the camera.
     [SerializeField] private float MinZoom = 40f; 
     [Tooltip("The distance at which the camera will be fully zoomed out")]
-    // The distance at which the camera will be fully zoomed out.
     [SerializeField] private float ZoomLimiter = 50f;
 
     [Header("Smoothing")]
     [Tooltip("The time it takes for the camera to smoothly move to its target position")]
-    // The time it takes for the camera to smoothly move to its target position.
     [SerializeField] private float SmoothTime = 0.5f;
 
     // The targets to follow with the camera.
@@ -74,7 +69,7 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
-    #region Methods
+    #region Private Methods
 
     // Moves the camera to the desired position.
     private void Move()
