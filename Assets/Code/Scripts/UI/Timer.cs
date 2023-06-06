@@ -7,11 +7,14 @@ public class Timer : MonoBehaviour
     [SerializeField] private float TimeLeft;
 
     [SerializeField] private TMP_Text TimerTxt;
+    [SerializeField] private TMP_Text ScoreTxt;
     [SerializeField] private GameObject[] ObjectsToEnable;
     [SerializeField] private float[] EnableTimes;
     [SerializeField] private Animator ElevatorAnimator;
     
     public bool TimerOn = false;
+    public GameObject GameOver;
+    public ScoreScriptableObject ScoreScriptableObject;
 
     void Start()
     {
@@ -41,7 +44,9 @@ public class Timer : MonoBehaviour
             {
                 TimeLeft = 0;
                 TimerOn = false;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                Time.timeScale = 0f;
+                GameOver.SetActive(true);
+                ScoreTxt.text = ScoreScriptableObject.ScoreValue.ToString();
             }
         }
     }
@@ -54,5 +59,10 @@ public class Timer : MonoBehaviour
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

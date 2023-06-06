@@ -3021,7 +3021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158, y: -338}
+  m_AnchoredPosition: {x: 411, y: -360}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551787809
@@ -4733,7 +4733,8 @@ MonoBehaviour:
   m_text: Welcome to tidy team! The battery dude and vacuum guy are on a mission
     to clean up a murder scene on time before the cops arrive! First off, you have
     a limited amount of time and a score bar that you need to fill up before the
-    timer ends!
+    timer ends! You can escape before the timer ends by getting back in the elevator,
+    however, your score will be lower!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a45ff68b085207442ae42d12e02cfab4, type: 2}
   m_sharedMaterial: {fileID: -7494463119651972377, guid: a45ff68b085207442ae42d12e02cfab4,
@@ -4761,8 +4762,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 83
-  m_fontSizeBase: 83
+  m_fontSize: 71.95
+  m_fontSizeBase: 71.95
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5254,6 +5255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CircleWipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712837606271494392, guid: 5a4239e4f9e6a3646929f1e81ae3779f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3712837606271494393, guid: 5a4239e4f9e6a3646929f1e81ae3779f,
         type: 3}
