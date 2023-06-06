@@ -7,59 +7,81 @@ using UnityEngine.InputSystem;
 /// </summary>
 
 public class PlayerJoinManager : MonoBehaviour
-{ 
+{
+    #region Variables
+
     [Header("Player Input Manager Reference")]
     [Tooltip("The Player Input Manager")]
-    [SerializeField] private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
-    
+    // A reference to the PlayerInputManager.
+    [SerializeField] private PlayerInputManager PlayerInputManager;
+
     [Header("Timer Reference")]
     [Tooltip("The Timer Script")]
-    [SerializeField] private Timer TimerScript; // A reference to the Timer script.
-    
+    // A reference to the Timer script.
+    [SerializeField] private Timer TimerScript;
+
     [Header("Co-Op Variables")]
     [Tooltip("The Player Prefabs")]
-    [SerializeField] private GameObject[] PlayerPrefabs; // An array of player prefabs to choose from.
+    // An array of player prefabs to choose from.
+    [SerializeField] private GameObject[] PlayerPrefabs;
     [Tooltip("The spawn points for players")]
     [SerializeField] private Transform[] SpawnPoints;
-    
+
     [Header("Join In Hud Elements")]
     [Tooltip("The Press To Join Hud Elements")]
-    [SerializeField] private GameObject[] HudJoinElements; // An array of hud elements that are turned off depending on the player count.
-    private int CurrentPrefabIndex = 0; // Index of current prefab to use.
+    // An array of hud elements that are turned off depending on the player count.
+    [SerializeField] private GameObject[] HudJoinElements;
 
-    public void Start() // When the game is started
+    // Index of current prefab to use.
+    private int CurrentPrefabIndex = 0;
+
+    #endregion
+
+    #region Unity Events
+
+    // When the script is initialized.
+    public void Start()
     {
         // Set the first player prefab when the scene is loaded in.
         PlayerInputManager.playerPrefab = PlayerPrefabs[0];
-
         // Set the position of the player prefab to the first available spawn point.
         PlayerInputManager.playerPrefab.transform.position = SpawnPoints[0].position;
-
         // Skip the first prefab of the array so that it doesn't spawn in 2 players with the same prefab.
-        CurrentPrefabIndex = 1; // Start with one player already joined.
+        CurrentPrefabIndex = 1;
     }
 
-    public void OnPlayerJoined() // Sets new playerPrefab, spawnPoint. Handles Player join in function.
+    #endregion
+
+    #region Methods
+
+    /// <summary>  
+    /// This Method sets new playerPrefab, spawnPoint. Handles Player join in function.
+    /// </summary>
+    public void OnPlayerJoined()
     {
         // Set the new player prefab.
         PlayerInputManager.playerPrefab = PlayerPrefabs[CurrentPrefabIndex];
-
         // Set the player's position to the next available spawn point.
         int spawnPointIndex = CurrentPrefabIndex % SpawnPoints.Length;
         PlayerInputManager.playerPrefab.transform.position = SpawnPoints[spawnPointIndex].position;
-
         // Set the prefab array index to the next prefab in the array.
         CurrentPrefabIndex = (CurrentPrefabIndex + 1) % PlayerPrefabs.Length;
 
-        if (PlayerInputManager.playerCount > 0) // If the first player has joined.
+        // If the first player has joined.
+        if (PlayerInputManager.playerCount > 0)
         {
-            HudJoinElements[0].SetActive(false); // Turn off the "press to join as player 1" prompt.
-
-            if (PlayerInputManager.playerCount == 2) // If the second player joins.
+            // Turn off the "press to join as player 1" prompt.
+            HudJoinElements[0].SetActive(false);
+            // If the second player joins.
+            if (PlayerInputManager.playerCount == 2)
             {
-                HudJoinElements[1].SetActive(false); // Turn off the "press to join as player 2" prompt.
-                TimerScript.TimerOn = true; // Start the game and start the timer.
+                // Turn off the "press to join as player 2" prompt.
+                HudJoinElements[1].SetActive(false);
+                // Start the game and start the timer.
+                TimerScript.TimerOn = true;
             }
         }
     }
+
+    #endregion
 }

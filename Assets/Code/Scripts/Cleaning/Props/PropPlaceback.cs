@@ -3,62 +3,85 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-///----------------------------------------$$$$$$$\   $$$$$$\  $$$$$$$\   $$$$$$\  
-///----------------------------------------$$  __$$\ $$  __$$\ $$  __$$\ $$$ __$$\ 
-///----------------------------------------$$ |  $$ |$$ /  $$ |$$ |  $$ |$$$$\ $$ |
-///----------Author------------------------$$$$$$$  |$$$$$$$$ |$$$$$$$  |$$\$$\$$ |
-///----------Patryk Podworny---------------$$  ____/ $$  __$$ |$$  ____/ $$ \$$$$ |
-///----------------------------------------$$ |      $$ |  $$ |$$ |      $$ |\$$$ |
-///----------------------------------------$$ |      $$ |  $$ |$$ |      \$$$$$$  /
-///----------------------------------------\__|      \__|  \__|\__|       \______/ 
-
 /// <summary>  
 /// This script checks whether a TargetObject(Furniture or prop) has entered the collider of a prop ghost and fades out the alpha of the ghost material.
 /// </summary>
  
 public class PropPlaceback : MonoBehaviour
 {
+    #region Variables
+
     [Header("Replacement variables")]
     [Tooltip("The gameobject that gets turned on when the furniture is placed")]
-    public GameObject SolidObject; // The gameobject that gets turned on when the furniture is placed.
+    // The gameobject that gets turned on when the furniture is placed.
+    public GameObject solidObject; 
     
     [Header("Script references")]
     [Tooltip("Reference to the variables script")]
-    [SerializeField] private PropPlaceBackVariables propPlaceBackVariables; // Reference to the variables script.
+    // Reference to the variables script.
+    [SerializeField] private PropPlaceBackVariables PropPlaceBackVariables; 
     
     [Header("Material Variables")]
     [Tooltip("Material of which the alpha is changed once the Target object is in place")]
-    [SerializeField] private Material SeeThroughMaterial; // Material of which the alpha is changed once the Target object is in place.
+    // Material of which the alpha is changed once the Target object is in place.
+    [SerializeField] private Material SeeThroughMaterial; 
     [Tooltip("The value of how transparent the SeeThroughMaterial is")]
-    [Range(0f, 0.5f)] private float AlphaValue; // The value of how transparent the SeeThroughMaterial is.
+    // The value of how transparent the SeeThroughMaterial is.
+    [Range(0f, 0.5f)] private float AlphaValue; 
     [Tooltip("The time it takes to fade that alpha")]
-    [SerializeField] private float FadeTime = 0.1f; // The time it takes to fade that alpha.
+    // The time it takes to fade that alpha.
+    [SerializeField] private float FadeTime = 0.1f;
 
-    private void Start() // When the game starts
+    #endregion
+
+    #region Unity Events
+
+    // When the script is initialized.
+    private void Start()
     {
-        SolidObject.SetActive(false); // Turns off the solid prop .
-        SeeThroughMaterial.SetFloat("_Alpha", 0.5f); // Sets the alpha/see trough value of the prop placeback ghost object.
-        AlphaValue = SeeThroughMaterial.GetFloat("_Alpha"); // Assigns AlphaValue to the Materials Alpha.
+        // Turns off the solid prop.
+        solidObject.SetActive(false);
+        // Sets the alpha/see trough value of the prop placeback ghost object.
+        SeeThroughMaterial.SetFloat("_Alpha", 0.5f);
+        // Assigns AlphaValue to the Materials Alpha.
+        AlphaValue = SeeThroughMaterial.GetFloat("_Alpha");
     }
 
-    private void OnTriggerEnter(Collider other) // Check if a target object is in the collider.
+    // Checks if a target object is in the collider.
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject == propPlaceBackVariables.TargetObject) //  If the target(furniture) object touches the collider.
+        // If the target(furniture) object touches the collider.
+        if (other.gameObject == PropPlaceBackVariables.targetObject) 
         {
-            propPlaceBackVariables.IsInPlace = true; // Set IsInPlace bool to true for game score purposes.
-            StartCoroutine(FadeOut()); // Start the FadeOut coroutine.
+            // Set IsInPlace bool to true for game score purposes.
+            PropPlaceBackVariables.IsInPlace = true;
+            // Start the FadeOut coroutine.
+            StartCoroutine(FadeOut()); 
         }
     }
-    
-    IEnumerator FadeOut() // Fade out the placeback ghost material
+
+    #endregion
+
+    #region Coroutines
+
+    // Fades out the placeback ghost material.
+    IEnumerator FadeOut() 
     {
-        while (SeeThroughMaterial.GetFloat("_Alpha") > 0f) // Check if alpha is more than 0.
+        // Check if alpha is more than 0.
+        while (SeeThroughMaterial.GetFloat("_Alpha") > 0f)
         {
-            AlphaValue -= (FadeTime * Time.deltaTime); // Change the AlphaValue over time.
-            SeeThroughMaterial.SetFloat("_Alpha", AlphaValue); // Set the materials Alpha equal to AlphaValue.
-            SolidObject.SetActive(true); // Turns on the solid prop replacement.
-            Destroy(propPlaceBackVariables.TargetObject); // Destroys the prop that has been moved into the collider.
-            yield return new WaitForEndOfFrame();
+            // Change the AlphaValue over time.
+            AlphaValue -= (FadeTime * Time.deltaTime);
+            // Set the materials Alpha equal to AlphaValue.
+            SeeThroughMaterial.SetFloat("_Alpha", AlphaValue);
+            // Turns on the solid prop replacement.
+            solidObject.SetActive(true);
+            // Destroys the prop that has been moved into the collider.
+            Destroy(PropPlaceBackVariables.targetObject);
+            // Waits till the end of the frame.
+            yield return null;
         }
     }
+
+    #endregion
 }
