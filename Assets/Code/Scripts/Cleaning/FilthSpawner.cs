@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class FilthSpawner : MonoBehaviour
 {
-    #region UnityEvents
+    #region Variables
 
     [Header("References")]
     [Tooltip("Reference to the ScriptableObject that holds the CurrentScore.")]
@@ -45,19 +45,7 @@ public class FilthSpawner : MonoBehaviour
 
     #region UnityEvents
 
-    /// <summary>
-    /// Finds the Vacuum player in the scene for every FiltStain..
-    /// </summary>
-    public void FindVacuumGuy()
-    {
-        filthStain = FindObjectsOfType<FilthStain>();
-        foreach(FilthStain obj in filthStain )
-        {
-            obj.vacuumScript = GameObject.Find("Char_VacuumGuy(Clone)").GetComponent<Vacuum>();
-        }
-    }
-
-    // When the script is initialized.
+    // When the game is started.
     private void Start()
     {
         // Resets the MaxScore/TotalObjects in the Scene.
@@ -65,6 +53,26 @@ public class FilthSpawner : MonoBehaviour
 
         Spawn();
     }
+
+    #endregion
+
+    #region Public Events
+
+    /// <summary>
+    /// Finds the Vacuum player in the scene for every FiltStain..
+    /// </summary>
+    public void FindVacuumGuy()
+    {
+        filthStain = FindObjectsOfType<FilthStain>();
+        foreach (FilthStain obj in filthStain)
+        {
+            obj.vacuumScript = GameObject.Find("Char_VacuumGuy(Clone)").GetComponent<Vacuum>();
+        }
+    }
+
+    #endregion
+
+    #region Private Events
 
     // Spawns objects in random positions within specified constraints.
     private void Spawn()
@@ -90,5 +98,6 @@ public class FilthSpawner : MonoBehaviour
             }
         }
     }
+
     #endregion
 }

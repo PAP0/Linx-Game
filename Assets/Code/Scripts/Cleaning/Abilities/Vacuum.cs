@@ -44,24 +44,6 @@ public class Vacuum : MonoBehaviour
 
     #region UnityEvents
 
-    /// <summary>
-    /// Activates the Vacuum Ablity when button is pressed & held on Controller and there is energy available. 
-    /// </summary>
-    public void OnSuck(InputAction.CallbackContext context)
-    {
-        if(BatteryScript.currentBattery >= 1f)
-        {
-            if (context.performed)
-            {
-                IsSucking = true;
-            }
-            else if (context.canceled)
-            {
-                IsSucking = false;
-            }
-        }
-    }
-
     // Checks every frame.
     private void Update()
     {
@@ -82,6 +64,32 @@ public class Vacuum : MonoBehaviour
 
         Suck();
     }
+
+    #endregion
+
+    #region Public Events
+
+    /// <summary>
+    /// Activates the Vacuum Ablity when button is pressed & held on Controller and there is energy available. 
+    /// </summary>
+    public void OnSuck(InputAction.CallbackContext context)
+    {
+        if (BatteryScript.currentBattery >= 1f)
+        {
+            if (context.performed)
+            {
+                IsSucking = true;
+            }
+            else if (context.canceled)
+            {
+                IsSucking = false;
+            }
+        }
+    }
+
+    #endregion
+
+    #region Private Events
 
     // Sucks Objects within a range towards the player.
     private void Suck()
@@ -119,5 +127,6 @@ public class Vacuum : MonoBehaviour
             }
         }
     }
+
     #endregion
 }
