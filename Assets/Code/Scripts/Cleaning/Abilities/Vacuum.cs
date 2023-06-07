@@ -7,10 +7,15 @@ using UnityEngine.InputSystem;
 public class Vacuum : MonoBehaviour
 {
     #region Variables
+    
+    [Tooltip("The Bool that check if the Vacuum ablity is active or not")]
+    public bool IsSucking;
 
     [Header("References")]
     [Tooltip("Reference to the Battery for checking the amount of energy")]
     [SerializeField] private Battery BatteryScript;
+    [Tooltip("Reference to the Sucking Particles that play when the Vacuum is sucking")]
+    [SerializeField] private GameObject SuckingParticles;
 
     [Header("Ranges")]
     [Tooltip("The radius of the suction area of the player.")]
@@ -31,10 +36,7 @@ public class Vacuum : MonoBehaviour
 
     [Tooltip("The amount by which the object can accelerate.")]
     [SerializeField] private float AccelerationSpeed;
-
-    [Tooltip("The Bool that check if the Vacuum ablity is active or not")]
-    public bool IsSucking;
-
+    
     // Current Acceleration of the objects.
     private float Acceleration;
     // Current Speed of the objects.
@@ -70,7 +72,7 @@ public class Vacuum : MonoBehaviour
     #region Public Events
 
     /// <summary>
-    /// Activates the Vacuum Ablity when button is pressed & held on Controller and there is energy available. 
+    /// Activates the Vacuum Ablity and Sucking Particles when button is pressed & held on Controller and there is energy available. 
     /// </summary>
     public void OnSuck(InputAction.CallbackContext context)
     {
@@ -105,6 +107,7 @@ public class Vacuum : MonoBehaviour
             Rigidbody rb = collider.GetComponent<Rigidbody>();
             if (IsSucking)
             {
+                SuckingParticles.SetActive(true);
                 // Check if the object is within Radius.
                 if (distance < SuctionRadius)
                 {
@@ -121,6 +124,7 @@ public class Vacuum : MonoBehaviour
             }
             else
             {
+                SuckingParticles.SetActive(false);
                 // The Object's movement gets stopped.
                 rb.velocity = Vector3.zero;
                 Acceleration = 0;
