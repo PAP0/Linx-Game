@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// This script sets the MaxScore & Prints out the CurrentScore to the specified UI Slider.
@@ -11,27 +11,28 @@ public class ScorePrinter : MonoBehaviour
     [Header("References")]
     [Tooltip("Reference to the ScriptableObject that holds the CurrentScore.")]
     [SerializeField] private ScoreScriptableObject ScoreHolder;
-    [Tooltip("Reference to the slider that will show the CurrentScore in the Game.")]
-    [SerializeField] private Slider ScoreSlider;
+    [Tooltip("Reference to the text that will show the CurrentScore in the Game.")]
+    [SerializeField] private TMP_Text ScoreTxt;
+
 
     #endregion
 
-    #region UnityEvents
+    #region Unity Events
 
     // When the game is started.
     private void Start()
     {
         // Resets the score at the start of the game.
         ScoreHolder.ScoreValue = 0;
-        // Sets the MaxValue to the amount of objects spawned in.
-        ScoreSlider.maxValue = ScoreHolder.TotalObjects;
+        // Display the current score.
+        ScoreTxt.text = "Score: " + ScoreHolder.ScoreValue.ToString();
     }
 
     // Checks every frame.
     private void Update()
     {
         // Prints the updated CurrentScore taken from the ScriptableObject.
-        ScoreSlider.value = ScoreHolder.ScoreValue;
+        ScoreTxt.text = "Score: " + ScoreHolder.ScoreValue.ToString();
     }
 
     #endregion
