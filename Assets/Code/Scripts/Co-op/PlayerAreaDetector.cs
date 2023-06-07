@@ -1,66 +1,72 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 /// <summary>  
-/// This script checks if all the players are inside the escape area.
+/// This script checks if all the players are inside the escape area and handles the win screen.
 /// </summary>
 
 public class PlayerAreaDetector : MonoBehaviour
 {
-    [Header("Player Input Reference")] [Tooltip("The Player Input Manager")] [SerializeField]
-    private PlayerInputManager PlayerInputManager; // A reference to the PlayerInputManager.
+    #region Variables
 
-    private List<GameObject> PlayersInArea = new List<GameObject>(); //List of the players that are currently in the area
-    
-    [SerializeField] private TMP_Text ScoreTxt;
-    
+    [Header("Game Score")]
+    [Tooltip("The Score Scriptable Object")]
     public ScoreScriptableObject ScoreScriptableObject;
-    public GameObject YouWin;
-    
-    private void OnTriggerEnter(Collider other) // Checks and adds the amount of players inside collider and adds them to the PlayersInArea list.
+    [Tooltip("The score text that appears along the win screen")]
+    [SerializeField] private TMP_Text ScoreTxt;
+
+    [Header("Co-Op")] 
+    [Tooltip("The Player Input Manager")]
+    [SerializeField] private PlayerInputManager PlayerInputManager;
+
+    [Header("Hud elements")]
+    [Tooltip("A reference to the Win Screen that gets turned on when the players enter the area in time")]
+    [SerializeField] private GameObject WinScreen;
+
+    //List of the players that are currently in the area.
+    private List<GameObject> PlayersInArea = new List<GameObject>();
+
+    #endregion
+
+    #region Unity Events
+
+    // Check if something has entered the collider.
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // If the collider that enters is a player
+        // If the collider that enters is a player.
+        if (other.CompareTag("Player")) 
         {
-            // Check if the player is already in the list
+            // Check if the player is already in the list.
             if (!PlayersInArea.Contains(other.gameObject))
             {
-                // Add the player to the list of players in the area
+                // Add the player to the list of players in the area.
                 PlayersInArea.Add(other.gameObject);
-
-                // Check if the required number of players are in the area
+                // If the required amount of players are in the area.
                 if (PlayersInArea.Count >= PlayerInputManager.playerCount)
                 {
+                    // Stop the in-game time.
                     Time.timeScale = 0f;
-                    YouWin.SetActive(true);
+                    // Turn on the Win screen.
+                    WinScreen.SetActive(true);
+                    // Display the final score.
                     ScoreTxt.text = ScoreScriptableObject.ScoreValue.ToString();
                 }
             }
         }
     }
 
-    private void OnTriggerExit(Collider other) // Checks if player has exited the collider and removes them from the PlayersInArea list.
+    // Check if something has exited the collider.
+    private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) // If the collider that exits is a player
+        // If the collider that exits is a player.
+        if (other.CompareTag("Player")) 
         {
-            // Remove the player from the list of players in the area
+            // Remove the player from the list of players in the area.
             PlayersInArea.Remove(other.gameObject);
-
-            // Check if the required number of players are no longer in the area
-            if (PlayersInArea.Count < PlayerInputManager.playerCount)
-            {
-                Debug.Log("Not enough players in the area!");
-            }
         }
     }
-    private IEnumerator LoadSceneWithTransition()
-    {
-        yield return new WaitForSeconds(1f);
 
-        // Load the next scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
+    #endregion
 }
