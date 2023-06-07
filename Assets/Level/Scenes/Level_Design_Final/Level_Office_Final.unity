@@ -3278,7 +3278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorAnimator: {fileID: 1951473338}
-  TargetPlayer: Player
 --- !u!65 &134655632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6748,10 +6747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeac58690d772e14f924db0e13eae0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 200
-  Amplitude: 100
-  Frequency: 5
-  Phase: 0
+  LightIntensity: 1
+  LightAmplitude: 1
+  LightFrequency: 1
+  LightPhase: 0
   FadeTime: 6
 --- !u!114 &264563738
 MonoBehaviour:
@@ -7627,12 +7626,23 @@ PrefabInstance:
       objectReference: {fileID: 684823456}
     - target: {fileID: 1338786223072741480, guid: a529c7539404e5e4fb68bc61b60903d6,
         type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 606519228}
+    - target: {fileID: 1338786223072741480, guid: a529c7539404e5e4fb68bc61b60903d6,
+        type: 3}
       propertyPath: PlayerInputManager
       value: 
       objectReference: {fileID: 1802776604}
     - target: {fileID: 1338786223072741480, guid: a529c7539404e5e4fb68bc61b60903d6,
         type: 3}
       propertyPath: ScoreScriptableObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62,
+        type: 2}
+    - target: {fileID: 1338786223072741480, guid: a529c7539404e5e4fb68bc61b60903d6,
+        type: 3}
+      propertyPath: scoreScriptableObject
       value: 
       objectReference: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62,
         type: 2}
@@ -8967,10 +8977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeac58690d772e14f924db0e13eae0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 800
-  Amplitude: 400
-  Frequency: 5
-  Phase: 2.5
+  LightIntensity: 1
+  LightAmplitude: 1
+  LightFrequency: 1
+  LightPhase: 0
   FadeTime: 6
 --- !u!114 &382689490
 MonoBehaviour:
@@ -15941,12 +15951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9935737daf063f247a08a8984d1fcb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Targets: []
-  Offset: {x: 0, y: 13, z: -8}
+  CenterOffset: {x: 0, y: 13, z: -8}
   MaxZoom: 30
   MinZoom: 120
   ZoomLimiter: 30
-  Smoothtime: 0.5
+  SmoothTime: 0.5
 --- !u!114 &669769608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19589,8 +19598,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba91b6d1bd416b647b734e011324dc87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimerOn: 0
   TimeLeft: 240
   TimerTxt: {fileID: 658145723}
+  ScoreScriptableObject: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62,
+    type: 2}
   ScoreTxt: {fileID: 716174553}
   ObjectsToEnable:
   - {fileID: 1378063295}
@@ -19609,10 +19621,7 @@ MonoBehaviour:
   - 2
   - 1
   ElevatorAnimator: {fileID: 304535294}
-  TimerOn: 0
   GameOver: {fileID: 1133320656}
-  ScoreScriptableObject: {fileID: 11400000, guid: 579e8d6d97d927240a65dee87aef0b62,
-    type: 2}
 --- !u!114 &775349392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19886,7 +19895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2659ab02c06fdde40804a5a80e7f1c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1273156634}
+  targetObject: {fileID: 0}
   IsInPlace: 0
 --- !u!4 &804720954
 Transform:
@@ -22350,8 +22359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4447b0b07a9dee64587b0ee5eb04b6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SolidObject: {fileID: 643441665}
-  propPlaceBackVariables: {fileID: 1707676019}
+  solidObject: {fileID: 0}
+  PropPlaceBackVariables: {fileID: 0}
   SeeThroughMaterial: {fileID: 2100000, guid: 85497c91be076464c9b1051ce69aa64e, type: 2}
   FadeTime: 1
 --- !u!64 &898573329
@@ -29511,7 +29520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2659ab02c06fdde40804a5a80e7f1c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 0}
+  targetObject: {fileID: 0}
   IsInPlace: 0
 --- !u!4 &1235991333
 Transform:
@@ -45038,7 +45047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2659ab02c06fdde40804a5a80e7f1c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1627219844}
+  targetObject: {fileID: 0}
   IsInPlace: 0
 --- !u!4 &1707676020
 Transform:
@@ -45889,8 +45898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4447b0b07a9dee64587b0ee5eb04b6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SolidObject: {fileID: 711706488}
-  propPlaceBackVariables: {fileID: 1235991332}
+  solidObject: {fileID: 0}
+  PropPlaceBackVariables: {fileID: 0}
   SeeThroughMaterial: {fileID: 2100000, guid: cde9d35d067396d44bedf0c0cf369fdd, type: 2}
   FadeTime: 1
 --- !u!64 &1724671603
@@ -49568,8 +49577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4447b0b07a9dee64587b0ee5eb04b6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SolidObject: {fileID: 1429910149}
-  propPlaceBackVariables: {fileID: 804720953}
+  solidObject: {fileID: 0}
+  PropPlaceBackVariables: {fileID: 0}
   SeeThroughMaterial: {fileID: 2100000, guid: 82023a177c4cb9540a2696dfc1ea1592, type: 2}
   FadeTime: 1
 --- !u!64 &1846376952
@@ -56712,7 +56721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorAnimator: {fileID: 1356902534}
-  TargetPlayer: Player
 --- !u!114 &8607248353896660094
 MonoBehaviour:
   m_ObjectHideFlags: 0
