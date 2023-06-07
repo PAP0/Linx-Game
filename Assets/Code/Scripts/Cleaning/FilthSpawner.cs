@@ -7,6 +7,9 @@ public class FilthSpawner : MonoBehaviour
 {
     #region Variables
 
+    [Tooltip("Array that holds all the spawned FithStains in the game")]
+    public FilthStain[] filthStain;
+
     [Header("References")]
     [Tooltip("Reference to the ScriptableObject that holds the CurrentScore.")]
     [SerializeField] private ScoreScriptableObject Score;
@@ -35,9 +38,6 @@ public class FilthSpawner : MonoBehaviour
     [Tooltip("The maximum X & Z positions the FilthSpawner can spawn between.")]
     [SerializeField] private Vector2 MaximumSpawnPosition;
 
-    [Tooltip("Array that holds all the spawned FithStains in the game")]
-    public FilthStain[] filthStain;
-
     // Randomizes the SpawnObjects
     private int RandomIndex;
 
@@ -50,7 +50,6 @@ public class FilthSpawner : MonoBehaviour
     {
         // Resets the MaxScore/TotalObjects in the Scene.
         Score.TotalObjects = 0;
-
         Spawn();
     }
 

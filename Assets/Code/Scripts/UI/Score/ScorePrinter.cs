@@ -11,7 +11,6 @@ public class ScorePrinter : MonoBehaviour
     [Header("References")]
     [Tooltip("Reference to the ScriptableObject that holds the CurrentScore.")]
     [SerializeField] private ScoreScriptableObject ScoreHolder;
-
     [Tooltip("Reference to the slider that will show the CurrentScore in the Game.")]
     [SerializeField] private Slider ScoreSlider;
 
@@ -24,7 +23,6 @@ public class ScorePrinter : MonoBehaviour
     {
         // Resets the score at the start of the game.
         ScoreHolder.ScoreValue = 0;
-
         // Sets the MaxValue to the amount of objects spawned in.
         ScoreSlider.maxValue = ScoreHolder.TotalObjects;
     }
