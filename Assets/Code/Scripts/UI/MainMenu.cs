@@ -13,15 +13,21 @@ public class MainMenu : MonoBehaviour
     [Tooltip("This is the delay before the main menu loads into the next scene.")]
     [SerializeField] private float TransitionDelayTime = 1f;
 
+    /// <summary>
+    /// Starts the coroutine with a scene transition.
+    /// </summary>
     public void PlayGame()
     {
         // This loads the next scene with the transition.
         StartCoroutine(LoadSceneWithTransition());
     }
 
+    /// <summary>
+    /// Closes/Quits the application.
+    /// </summary>
     public void Quitgame()
     {
-        // This closes the application
+        // This closes the application.
         Application.Quit();
     }
 
