@@ -19,7 +19,7 @@ public class ScorePrinter : MonoBehaviour
 
     #region UnityEvents
 
-    // When the script is initialized.
+    // When the game is started.
     private void Start()
     {
         // Resets the score at the start of the game.
