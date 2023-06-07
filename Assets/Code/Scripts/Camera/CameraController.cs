@@ -46,12 +46,8 @@ public class CameraController : MonoBehaviour
     // Every frame.
     private void Update()
     {
-        // If the camera targets are not assigned yet.
-        if(TargetPlayers == null)
-        {
             // Find objects that are players and assign them as targets.
             TargetPlayers = GameObject.FindGameObjectsWithTag("Player");
-        }
     }
 
     // After all Update methods are called.
@@ -60,11 +56,10 @@ public class CameraController : MonoBehaviour
         // If there are no targets, exit the method.
         if (TargetPlayers.Length == 0)
             return;
-
-        // Move the camera to the desired position.
-        Move();
         // Adjust the camera's field of view (zoom).
         Zoom(); 
+        // Move the camera to the desired position.
+        Move();
     }
 
     #endregion
