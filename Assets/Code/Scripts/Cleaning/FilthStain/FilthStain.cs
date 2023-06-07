@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 /// <summary>  
 /// This script check if the vacuum player is nearby the filth and check if the player is using their, ability, allowing them to pickup the filth.
