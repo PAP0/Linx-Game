@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 
 /// <summary>  
-/// This script checks if all the players are inside the escape area.
+/// This script checks if all the players are inside the escape area and handles the win screen.
 /// </summary>
 
 public class PlayerAreaDetector : MonoBehaviour
@@ -15,7 +15,6 @@ public class PlayerAreaDetector : MonoBehaviour
     [Header("Game Score")]
     [Tooltip("The Score Scriptable Object")]
     public ScoreScriptableObject ScoreScriptableObject;
-
     [Tooltip("The score text that appears along the win screen")]
     [SerializeField] private TMP_Text ScoreTxt;
 

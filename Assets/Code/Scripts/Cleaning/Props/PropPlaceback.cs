@@ -36,7 +36,7 @@ public class PropPlaceback : MonoBehaviour
 
     #region Unity Events
 
-    // When the script is initialized.
+    // When the game starts.
     private void Start()
     {
         // Turns off the solid prop.

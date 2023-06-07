@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
 
     #region Unity Events
 
-    // When the script is initialized.
+    // When the game starts.
     private void Start()
     {
         // Assign the MainCamera variable to the scene's camera. 

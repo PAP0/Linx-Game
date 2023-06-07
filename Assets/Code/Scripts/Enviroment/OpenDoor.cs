@@ -18,7 +18,7 @@ public class OpenDoor : MonoBehaviour
 
     #region Unity Events
 
-    // When the script is initialized.
+    // When the game starts.
     private void Start()
     {
         // Stop/Do not play the animation.

@@ -26,7 +26,7 @@ public class Cable : MonoBehaviour
 
     #region Unity Events
 
-    // When the script is initialized.
+    // When the game starts.
     private void Start()
     {
         // Assign the LineRenderer variable to the scripts' object LineRenderer. 
