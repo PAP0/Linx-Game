@@ -11,8 +11,11 @@ public class CircleWipe : MonoBehaviour
     [Tooltip("This is the current size of the circle showing the game.")]
     [SerializeField] private float CircleSize = 0;
 
+    // This speifies the animator.
     private Animator CircleAnimator;
+    // This specifies the image used.
     private Image CircleImage;
+    // This specifies the circle size id to make it the same as the shader.
     private readonly int CircleSizeId = Shader.PropertyToID("_Circle_Size");
 
     // When the script is started.
