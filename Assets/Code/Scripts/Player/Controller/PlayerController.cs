@@ -8,6 +8,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
+    
+    [Header("Bools")]
+    [Tooltip("Checks if the player can move or not.")]
+    // Checks if the player can move or not.
+    public bool CanWalk = true;
+    
+    [Header("Speed")]
+    [Tooltip("The value which determines how quickly the player moves.")]
+    public float playerSpeed = 5.0f;
 
     // Gravity value that will always be the same.
     private static readonly float GravityMagnitude = Physics.gravity.y;
@@ -20,11 +29,6 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The Animator that plays and holds animations of the player")]
     [SerializeField] private Animator PlayerAnimator;
 
-    // Checks if the player can move or not.
-    public bool CanWalk = true;
-
-    // The Value of how quickly the player moves towards a position.
-    private readonly float Speed = 5.0f;
 
     // The Value of how quickly the player moves back down towards the ground.
     private float Velocity;
@@ -97,7 +101,7 @@ public class PlayerController : MonoBehaviour
             Vector3 move = new Vector3(Movement.x, Velocity, Movement.y);
             // Rotates the player to look where it moves towards.
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(Movement.x, 0, Movement.y)), 0.15f);
-            Controller.Move(move * Speed * Time.deltaTime);
+            Controller.Move(move * playerSpeed * Time.deltaTime);
         }
     }
 
