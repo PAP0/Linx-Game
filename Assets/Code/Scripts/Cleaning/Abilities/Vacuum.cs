@@ -1,26 +1,82 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// This script moves specific objects towards the player when the ability is activated & they are within range.
+/// </summary>
 public class Vacuum : MonoBehaviour
 {
+    #region Variables
+    
+    [Tooltip("The Bool that check if the Vacuum ablity is active or not")]
     public bool IsSucking;
+
+    [Header("References")]
+    [Tooltip("Reference to the Battery for checking the amount of energy")]
+    [SerializeField] private Battery BatteryScript;
+    [Tooltip("Reference to the Sucking Particles that play when the Vacuum is sucking")]
+    [SerializeField] private GameObject SuckingParticles;
+
     [Header("Ranges")]
-    [SerializeField] private float SuctionRadius; // the radius of the suction area
-    [SerializeField] private LayerMask SuckableLayers; // the layers that the vacuum can suck
+    [Tooltip("The radius of the suction area of the player.")]
+    [SerializeField] private float SuctionRadius;
+
+    [Tooltip("The Layers the Vacuum is able to interact with.")]
+    [SerializeField] private LayerMask SuckableLayers;
 
     [Header("Variables")]
+    [Tooltip("The Amount of speed the object moves from the start of suction.")]
     [SerializeField] private float SuctionStartSpeed;
-    [SerializeField] private float SuctionMaxSpeed;
-    [SerializeField] private AnimationCurve VelocityCurve;
-    [SerializeField] private float AccelerationSpeed;
-    [SerializeField] private Battery BatteryScript;
 
+    [Tooltip("The max amount of speed the object can move by.")]
+    [SerializeField] private float SuctionMaxSpeed;
+
+    [Tooltip("The Way the object moves through the Acceleration")]
+    [SerializeField] private AnimationCurve VelocityCurve;
+
+    [Tooltip("The amount by which the object can accelerate.")]
+    [SerializeField] private float AccelerationSpeed;
+    
+    // Current Acceleration of the objects.
     private float Acceleration;
+    // Current Speed of the objects.
     private float Speed;
 
+    #endregion
+
+    #region UnityEvents
+
+    // Checks every frame.
+    private void Update()
+    {
+        if (BatteryScript == null)
+        {
+            BatteryScript = FindObjectOfType<Battery>();
+        }
+
+        // Turns off Vacuum when energy is low enough.
+        if (BatteryScript.currentBattery <= 1)
+        {
+            IsSucking = false;
+        }
+        else
+        {
+            BatteryScript.UseEnergy(IsSucking);
+        }
+
+        Suck();
+    }
+
+    #endregion
+
+    #region Public Events
+
+    /// <summary>
+    /// Activates the Vacuum Ablity and Sucking Particles when button is pressed & held on Controller and there is energy available. 
+    /// </summary>
     public void OnSuck(InputAction.CallbackContext context)
     {
-        if(BatteryScript.CurrentBattery >= 1f)
+        if (BatteryScript.currentBattery >= 1f)
         {
             if (context.performed)
             {
@@ -33,26 +89,14 @@ public class Vacuum : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (BatteryScript == null)
-        {
-            BatteryScript = FindObjectOfType<Battery>();
-        }
+    #endregion
 
-        if (BatteryScript.CurrentBattery <= 1)
-        {
-            IsSucking = false;
-        }
-        else
-        {
-            BatteryScript.UseEnergy(IsSucking);
-        }
+    #region Private Events
 
-        Suck();
-    }
+    // Sucks Objects within a range towards the player.
     private void Suck()
     {
+        // Finds all the interactable objects within range.
         Collider[] colliders = Physics.OverlapSphere(transform.position, SuctionRadius, SuckableLayers);
         foreach (Collider collider in colliders)
         {
@@ -63,10 +107,14 @@ public class Vacuum : MonoBehaviour
             Rigidbody rb = collider.GetComponent<Rigidbody>();
             if (IsSucking)
             {
+                SuckingParticles.SetActive(true);
+                // Check if the object is within Radius.
                 if (distance < SuctionRadius)
                 {
+                    // Object moves towards the player.
                     rb.velocity = direction.normalized * Speed;
 
+                    // Movement gets stopped if  the object is close enough to the player.
                     if (distance - SuctionRadius >= 0.1f)
                     {
                         rb.velocity = Vector3.zero;
@@ -76,9 +124,13 @@ public class Vacuum : MonoBehaviour
             }
             else
             {
+                SuckingParticles.SetActive(false);
+                // The Object's movement gets stopped.
                 rb.velocity = Vector3.zero;
                 Acceleration = 0;
             }
         }
     }
+
+    #endregion
 }
