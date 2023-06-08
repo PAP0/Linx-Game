@@ -55,11 +55,15 @@ public class Cable : MonoBehaviour
                 BatteryGuy.position = player2Pos;
                 // Make the 2nd player unable to walk away while max distance is reached.
                 GameObject.Find("Mop_Char_Pref(Clone)").GetComponent<PlayerController>().CanWalk = false;
+                // Slow the first player down when they get out of range.
+                GameObject.Find("Char_VacuumGuy(Clone)").GetComponent<PlayerController>().playerSpeed = 2.5f;
             }
             else
             {
                 // Make the 2nd player able to walk away while within max distance.
                 GameObject.Find("Mop_Char_Pref(Clone)").GetComponent<PlayerController>().CanWalk = true;
+                // Return the first player's speed back to normal.
+                GameObject.Find("Char_VacuumGuy(Clone)").GetComponent<PlayerController>().playerSpeed = 5f;
             }
 
             // Update the line renderer positions.
